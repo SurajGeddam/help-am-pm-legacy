@@ -7,6 +7,7 @@ on:
   pull_request:
     paths:
       - 'help-am-pm-mothership-master/helpampm-admin-dashboard/**'
+  workflow_dispatch:
 
 jobs:
   lint-and-build:
