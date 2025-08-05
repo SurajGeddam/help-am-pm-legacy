@@ -35,11 +35,11 @@ jobs:
         working-directory: help-am-pm-mothership-master/helpampm-api
         env:
           MYSQL_HOST: localhost
-        run: ./mvnw clean verify -DskipTests=false
+        run: mvn clean verify -DskipTests=false
 
       - name: Build only (if tests fail)
         working-directory: help-am-pm-mothership-master/helpampm-api
         env:
           MYSQL_HOST: localhost
-        run: ./mvnw clean compile -DskipTests=true
+        run: mvn clean compile -DskipTests=true
         if: failure() 

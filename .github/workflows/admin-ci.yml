@@ -22,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: help-am-pm-mothership-master/helpampm-admin-dashboard
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Try linting (non-blocking)
         working-directory: help-am-pm-mothership-master/helpampm-admin-dashboard
