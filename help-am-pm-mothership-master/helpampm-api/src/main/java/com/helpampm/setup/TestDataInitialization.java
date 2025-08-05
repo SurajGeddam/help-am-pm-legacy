@@ -16,31 +16,49 @@ import com.helpampm.quote.QuoteStatus;
 import com.helpampm.auth.entities.UserLoginDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.UUID;
 
 /**
  * @author kuldeep
  * 
- * Test data initialization for development/testing purposes
+ * Application initializer for development/testing purposes
+ * This runs when the Spring Boot application starts up
  */
-@Configuration
+@Component
 @Slf4j
-public class TestDataInitialization {
+public class TestDataInitialization implements ApplicationRunner {
     private final PasswordEncoder passwordEncoder;
+    private final CustomerHelper customerHelper;
+    private final CustomerRepository customerRepository;
+    private final ProviderRepository providerRepository;
+    private final QuoteRepository quoteRepository;
+
     @Autowired
     public TestDataInitialization(final PasswordEncoder passwordEncoder,
                                   final CustomerHelper customerHelper,
-                                  final CustomerRepository repository,
+                                  final CustomerRepository customerRepository,
                                   final ProviderRepository providerRepository,
                                   final QuoteRepository quoteRepository) {
         this.passwordEncoder = passwordEncoder;
-        Customer existingCustomer = repository.findByEmail("mobile@test.com");
+        this.customerHelper = customerHelper;
+        this.customerRepository = customerRepository;
+        this.providerRepository = providerRepository;
+        this.quoteRepository = quoteRepository;
+    }
+
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        log.info("Starting application data initialization...");
+        
+        // Initialize customer data
+        Customer existingCustomer = customerRepository.findByEmail("mobile@test.com");
         if(Objects.isNull(existingCustomer)) {
             Customer customer = new Customer();
             customer.setIsActive(true);
@@ -53,62 +71,77 @@ public class TestDataInitialization {
             customer.setEmailNotificationEnabled(true);
             customer.setPushNotificationEnabled(true);
             customer.setSmsNotificationEnabled(false);
-            customer.setCustomerUniqueId(customerHelper.createCustomerUniqueId(repository));
+            customer.setCustomerUniqueId(customerHelper.createCustomerUniqueId(customerRepository));
             customer.setUserLoginDetails(createCustomerLoginDetails());
             customer.setCreatedAt(LocalDateTime.now());
             customer.setLastUpdatedAt(LocalDateTime.now());
-            existingCustomer = repository.save(customer);
+            existingCustomer = customerRepository.save(customer);
+            log.info("Created default customer: {}", existingCustomer.getEmail());
         }
+        
         if(Objects.isNull(existingCustomer.getCustomerUniqueId())) {
-            existingCustomer.setCustomerUniqueId(customerHelper.createCustomerUniqueId(repository));
-            repository.save(existingCustomer);
+            existingCustomer.setCustomerUniqueId(customerHelper.createCustomerUniqueId(customerRepository));
+            customerRepository.save(existingCustomer);
+            log.info("Updated customer unique ID for: {}", existingCustomer.getEmail());
         }
-        log.info("Customer default data loaded...");
         
-        // Add test providers
-        createTestProviders(providerRepository);
+        // Initialize test providers
+        createTestProviders();
         
-        // Add test quotes/orders
-        createTestQuotes(quoteRepository, existingCustomer, providerRepository);
+        // Initialize test quotes/orders
+        createTestQuotes(existingCustomer);
+        
+        log.info("Application data initialization completed successfully!");
     }
 
-    private void createTestProviders(ProviderRepository providerRepository) {
+    private void createTestProviders() {
         // Create 5 test providers
         for (int i = 1; i <= 5; i++) {
-            Provider provider = new Provider();
-            provider.setProviderUniqueId("PROVIDER_" + i);
-            provider.setName("Test Provider " + i); // Using setName instead of setCompanyName
-            provider.setIsActive(true);
-            provider.setEmail("provider" + i + "@test.com");
-            provider.setPhone("+123456789" + i);
-            provider.setCreatedAt(LocalDateTime.now());
-            provider.setLastUpdatedAt(LocalDateTime.now());
-            provider.setCustomerAverageRating(4.5); // Using correct field name
-            provider.setTotalCustomerRatings(10L); // Using correct field name
-            // Note: No totalEarnings field in Provider entity, removing that line
-            providerRepository.save(provider);
+            String providerId = "PROVIDER_" + i;
+            Provider existingProvider = providerRepository.findByProviderUniqueId(providerId);
+            
+            if (existingProvider == null) {
+                Provider provider = new Provider();
+                provider.setProviderUniqueId(providerId);
+                provider.setName("Test Provider " + i);
+                provider.setIsActive(true);
+                provider.setEmail("provider" + i + "@test.com");
+                provider.setPhone("+123456789" + i);
+                provider.setCreatedAt(LocalDateTime.now());
+                provider.setLastUpdatedAt(LocalDateTime.now());
+                provider.setCustomerAverageRating(4.5);
+                provider.setTotalCustomerRatings(10L);
+                providerRepository.save(provider);
+                log.info("Created test provider: {}", providerId);
+            }
         }
-        log.info("Test providers data loaded...");
+        log.info("Test providers initialization completed");
     }
 
-    private void createTestQuotes(QuoteRepository quoteRepository, Customer customer, ProviderRepository providerRepository) {
+    private void createTestQuotes(Customer customer) {
         // Create 10 test quotes/orders
         for (int i = 1; i <= 10; i++) {
-            Quote quote = new Quote();
-            quote.setQuoteUniqueId("QUOTE_" + i);
-            quote.setCustomer(customer);
-            quote.setProvider(providerRepository.findByProviderUniqueId("PROVIDER_" + (i % 5 + 1)));
-            quote.setStatus(QuoteStatus.COMPLETED);
-            quote.setTotalAmount(new BigDecimal("150.00"));
-            quote.setCreatedAt(LocalDateTime.now().minusDays(i));
-            quote.setLastUpdatedAt(LocalDateTime.now().minusDays(i));
-            quote.setCompletedAt(LocalDateTime.now().minusDays(i).plusHours(2));
-            quoteRepository.save(quote);
+            String quoteId = "QUOTE_" + i;
+            Quote existingQuote = quoteRepository.findByQuoteUniqueId(quoteId);
+            
+            if (existingQuote == null) {
+                Quote quote = new Quote();
+                quote.setQuoteUniqueId(quoteId);
+                quote.setCustomer(customer);
+                quote.setProvider(providerRepository.findByProviderUniqueId("PROVIDER_" + (i % 5 + 1)));
+                quote.setStatus(QuoteStatus.COMPLETED);
+                quote.setTotalAmount(new BigDecimal("150.00"));
+                quote.setCreatedAt(LocalDateTime.now().minusDays(i));
+                quote.setLastUpdatedAt(LocalDateTime.now().minusDays(i));
+                quote.setCompletedAt(LocalDateTime.now().minusDays(i).plusHours(2));
+                quoteRepository.save(quote);
+                log.info("Created test quote: {}", quoteId);
+            }
         }
-        log.info("Test quotes/orders data loaded...");
+        log.info("Test quotes initialization completed");
     }
 
-    public UserLoginDetails createCustomerLoginDetails() {
+    private UserLoginDetails createCustomerLoginDetails() {
         UserLoginDetails loginDetails = new UserLoginDetails();
         loginDetails.setUsername("mobile@test.com");
         loginDetails.setPassword(passwordEncoder.encode("Password@1"));
@@ -119,5 +152,4 @@ public class TestDataInitialization {
         loginDetails.setAccountNonLocked(true);
         return loginDetails;
     }
-
 }
