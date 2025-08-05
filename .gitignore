@@ -10,6 +10,15 @@ help-am-pm-mothership-master/helpampm-admin-dashboard/dist/
 
 # Maven/Java (backend)
 help-am-pm-mothership-master/helpampm-api/target/
+help-am-pm-mothership-master/helpampm-api/.m2/
+
+# Firebase and sensitive credentials
+help-am-pm-mothership-master/helpampm-mobile/firebase-service-account.json
+help-am-pm-mothership-master/helpampm-mobile/GoogleService-Info.plist
+help-am-pm-mothership-master/helpampm-mobile/google-services.json
+help-am-pm-mothership-master/helpampm-api/src/main/resources/firebase/service-account.json
+help-am-pm-mothership-master/helpampm-api/token.txt
+help-am-pm-mothership-master/helpampm-api/docker_token.txt
 
 # OS & Tools
 .DS_Store
@@ -154,6 +163,7 @@ hs_err_pid*
 # Maven
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
+.m2/
 
 # Gradle
 .gradle/
