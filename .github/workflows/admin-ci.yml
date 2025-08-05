@@ -1,0 +1,30 @@
+name: Admin Dashboard CI
+
+on:
+  push:
+    paths:
+      - 'help-am-pm-mothership-master/helpampm-admin-dashboard/**'
+  pull_request:
+    paths:
+      - 'help-am-pm-mothership-master/helpampm-admin-dashboard/**'
+
+jobs:
+  lint-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install & lint
+        working-directory: help-am-pm-mothership-master/helpampm-admin-dashboard
+        run: |
+          npm ci
+          npm run lint
+
+      - name: Build
+        working-directory: help-am-pm-mothership-master/helpampm-admin-dashboard
+        run: npm run build 

@@ -1,0 +1,26 @@
+name: Mobile Analyze Only
+
+on:
+  push:
+    paths:
+      - 'help-am-pm-mobileapp-master/**'
+  pull_request:
+    paths:
+      - 'help-am-pm-mobileapp-master/**'
+
+jobs:
+  analyze:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.8'
+
+      - name: Pub get & analyze
+        run: |
+          cd help-am-pm-mobileapp-master
+          flutter pub get
+          flutter analyze 
