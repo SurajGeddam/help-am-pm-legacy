@@ -1,0 +1,725 @@
+build-and-test	Set up job	﻿2025-08-05T23:05:42.0167246Z Current runner version: '2.327.1'
+build-and-test	Set up job	2025-08-05T23:05:42.0201754Z ##[group]Runner Image Provisioner
+build-and-test	Set up job	2025-08-05T23:05:42.0203000Z Hosted Compute Agent
+build-and-test	Set up job	2025-08-05T23:05:42.0204029Z Version: 20250711.363
+build-and-test	Set up job	2025-08-05T23:05:42.0204974Z Commit: 6785254374ce925a23743850c1cb91912ce5c14c
+build-and-test	Set up job	2025-08-05T23:05:42.0206225Z Build Date: 2025-07-11T20:04:25Z
+build-and-test	Set up job	2025-08-05T23:05:42.0207302Z ##[endgroup]
+build-and-test	Set up job	2025-08-05T23:05:42.0208411Z ##[group]Operating System
+build-and-test	Set up job	2025-08-05T23:05:42.0209314Z Ubuntu
+build-and-test	Set up job	2025-08-05T23:05:42.0210263Z 24.04.2
+build-and-test	Set up job	2025-08-05T23:05:42.0211031Z LTS
+build-and-test	Set up job	2025-08-05T23:05:42.0211838Z ##[endgroup]
+build-and-test	Set up job	2025-08-05T23:05:42.0212704Z ##[group]Runner Image
+build-and-test	Set up job	2025-08-05T23:05:42.0213688Z Image: ubuntu-24.04
+build-and-test	Set up job	2025-08-05T23:05:42.0214560Z Version: 20250728.1.0
+build-and-test	Set up job	2025-08-05T23:05:42.0216347Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250728.1/images/ubuntu/Ubuntu2404-Readme.md
+build-and-test	Set up job	2025-08-05T23:05:42.0218972Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250728.1
+build-and-test	Set up job	2025-08-05T23:05:42.0221068Z ##[endgroup]
+build-and-test	Set up job	2025-08-05T23:05:42.0222963Z ##[group]GITHUB_TOKEN Permissions
+build-and-test	Set up job	2025-08-05T23:05:42.0225450Z Contents: read
+build-and-test	Set up job	2025-08-05T23:05:42.0226255Z Metadata: read
+build-and-test	Set up job	2025-08-05T23:05:42.0227333Z Packages: read
+build-and-test	Set up job	2025-08-05T23:05:42.0228357Z ##[endgroup]
+build-and-test	Set up job	2025-08-05T23:05:42.0231832Z Secret source: Actions
+build-and-test	Set up job	2025-08-05T23:05:42.0233029Z Prepare workflow directory
+build-and-test	Set up job	2025-08-05T23:05:42.0849236Z Prepare all required actions
+build-and-test	Set up job	2025-08-05T23:05:42.0907109Z Getting action download info
+build-and-test	Set up job	2025-08-05T23:05:42.3324520Z ##[group]Download immutable action package 'actions/checkout@v3'
+build-and-test	Set up job	2025-08-05T23:05:42.3325921Z Version: 3.6.0
+build-and-test	Set up job	2025-08-05T23:05:42.3326984Z Digest: sha256:942562b9c7d4b1f2557f1da21f4d3eb4eb4fd01f2ad78b2a6e187d1b193e0a0f
+build-and-test	Set up job	2025-08-05T23:05:42.3328291Z Source commit SHA: f43a0e5ff2bd294095638e18286ca9a3d1956744
+build-and-test	Set up job	2025-08-05T23:05:42.3329048Z ##[endgroup]
+build-and-test	Set up job	2025-08-05T23:05:42.4645386Z ##[group]Download immutable action package 'actions/setup-java@v3'
+build-and-test	Set up job	2025-08-05T23:05:42.4646264Z Version: 3.14.1
+build-and-test	Set up job	2025-08-05T23:05:42.4647075Z Digest: sha256:0f5994bd85f236d7525048fec5b0b7b3ec7474ec50184c8f78a320717cfb3d51
+build-and-test	Set up job	2025-08-05T23:05:42.4648281Z Source commit SHA: 17f84c3641ba7b8f6deff6309fc4c864478f5d62
+build-and-test	Set up job	2025-08-05T23:05:42.4649038Z ##[endgroup]
+build-and-test	Set up job	2025-08-05T23:05:42.7530898Z Complete job name: build-and-test
+build-and-test	Initialize containers	﻿2025-08-05T23:05:42.7992735Z ##[group]Checking docker version
+build-and-test	Initialize containers	2025-08-05T23:05:42.8005663Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+build-and-test	Initialize containers	2025-08-05T23:05:43.9391492Z '1.48'
+build-and-test	Initialize containers	2025-08-05T23:05:43.9404285Z Docker daemon API version: '1.48'
+build-and-test	Initialize containers	2025-08-05T23:05:43.9405100Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+build-and-test	Initialize containers	2025-08-05T23:05:43.9554687Z '1.48'
+build-and-test	Initialize containers	2025-08-05T23:05:43.9568338Z Docker client API version: '1.48'
+build-and-test	Initialize containers	2025-08-05T23:05:43.9573623Z ##[endgroup]
+build-and-test	Initialize containers	2025-08-05T23:05:43.9576647Z ##[group]Clean up resources from previous jobs
+build-and-test	Initialize containers	2025-08-05T23:05:43.9582063Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=9ff5de"
+build-and-test	Initialize containers	2025-08-05T23:05:43.9715777Z ##[command]/usr/bin/docker network prune --force --filter "label=9ff5de"
+build-and-test	Initialize containers	2025-08-05T23:05:43.9846538Z ##[endgroup]
+build-and-test	Initialize containers	2025-08-05T23:05:43.9847073Z ##[group]Create local container network
+build-and-test	Initialize containers	2025-08-05T23:05:43.9857271Z ##[command]/usr/bin/docker network create --label 9ff5de github_network_23a453b184214c739eb922910a7ba46e
+build-and-test	Initialize containers	2025-08-05T23:05:44.0354818Z 4d6d55e1a273030d3d7199ead8ca87290f4d31d7bdfe27b05dc93b0e1dcb35c8
+build-and-test	Initialize containers	2025-08-05T23:05:44.0373035Z ##[endgroup]
+build-and-test	Initialize containers	2025-08-05T23:05:44.0398587Z ##[group]Starting mysql service container
+build-and-test	Initialize containers	2025-08-05T23:05:44.0418238Z ##[command]/usr/bin/docker pull mysql:8.0.29
+build-and-test	Initialize containers	2025-08-05T23:05:44.3498031Z 8.0.29: Pulling from library/mysql
+build-and-test	Initialize containers	2025-08-05T23:05:44.4338858Z e54b73e95ef3: Pulling fs layer
+build-and-test	Initialize containers	2025-08-05T23:05:44.4340192Z 327840d38cb2: Pulling fs layer
+build-and-test	Initialize containers	2025-08-05T23:05:44.4341395Z 642077275f5f: Pulling fs layer
+build-and-test	Initialize containers	2025-08-05T23:05:44.4342599Z e077469d560d: Pulling fs layer
+build-and-test	Initialize containers	2025-08-05T23:05:44.4358207Z cbf214d981a6: Pulling fs layer
+build-and-test	Initialize containers	2025-08-05T23:05:44.4359417Z 7d1cc1ea1b3d: Pulling fs layer
+build-and-test	Initialize containers	2025-08-05T23:05:44.4360471Z d48f3c15cb80: Pulling fs layer
+build-and-test	Initialize containers	2025-08-05T23:05:44.4361618Z 94c3d7b2c9ae: Pulling fs layer
+build-and-test	Initialize containers	2025-08-05T23:05:44.4362323Z f6cfbf240ed7: Pulling fs layer
+build-and-test	Initialize containers	2025-08-05T23:05:44.4363037Z e12b159b2a12: Pulling fs layer
+build-and-test	Initialize containers	2025-08-05T23:05:44.4363753Z 4e93c6fd777f: Pulling fs layer
+build-and-test	Initialize containers	2025-08-05T23:05:44.4364425Z e077469d560d: Waiting
+build-and-test	Initialize containers	2025-08-05T23:05:44.4365098Z cbf214d981a6: Waiting
+build-and-test	Initialize containers	2025-08-05T23:05:44.4365728Z 7d1cc1ea1b3d: Waiting
+build-and-test	Initialize containers	2025-08-05T23:05:44.4366483Z f6cfbf240ed7: Waiting
+build-and-test	Initialize containers	2025-08-05T23:05:44.4367142Z e12b159b2a12: Waiting
+build-and-test	Initialize containers	2025-08-05T23:05:44.4368041Z 4e93c6fd777f: Waiting
+build-and-test	Initialize containers	2025-08-05T23:05:44.4368733Z d48f3c15cb80: Waiting
+build-and-test	Initialize containers	2025-08-05T23:05:44.4369380Z 94c3d7b2c9ae: Waiting
+build-and-test	Initialize containers	2025-08-05T23:05:44.5091649Z 327840d38cb2: Verifying Checksum
+build-and-test	Initialize containers	2025-08-05T23:05:44.5092979Z 327840d38cb2: Download complete
+build-and-test	Initialize containers	2025-08-05T23:05:44.5566044Z 642077275f5f: Verifying Checksum
+build-and-test	Initialize containers	2025-08-05T23:05:44.5567534Z 642077275f5f: Download complete
+build-and-test	Initialize containers	2025-08-05T23:05:44.6230320Z cbf214d981a6: Verifying Checksum
+build-and-test	Initialize containers	2025-08-05T23:05:44.6231875Z cbf214d981a6: Download complete
+build-and-test	Initialize containers	2025-08-05T23:05:44.6309316Z e077469d560d: Download complete
+build-and-test	Initialize containers	2025-08-05T23:05:44.6850536Z 7d1cc1ea1b3d: Download complete
+build-and-test	Initialize containers	2025-08-05T23:05:44.7432354Z 94c3d7b2c9ae: Verifying Checksum
+build-and-test	Initialize containers	2025-08-05T23:05:44.7433914Z 94c3d7b2c9ae: Download complete
+build-and-test	Initialize containers	2025-08-05T23:05:44.7915296Z e54b73e95ef3: Verifying Checksum
+build-and-test	Initialize containers	2025-08-05T23:05:44.7919969Z e54b73e95ef3: Download complete
+build-and-test	Initialize containers	2025-08-05T23:05:44.8611653Z e12b159b2a12: Download complete
+build-and-test	Initialize containers	2025-08-05T23:05:44.9357238Z 4e93c6fd777f: Verifying Checksum
+build-and-test	Initialize containers	2025-08-05T23:05:44.9360583Z 4e93c6fd777f: Download complete
+build-and-test	Initialize containers	2025-08-05T23:05:45.0721974Z f6cfbf240ed7: Verifying Checksum
+build-and-test	Initialize containers	2025-08-05T23:05:45.0722857Z f6cfbf240ed7: Download complete
+build-and-test	Initialize containers	2025-08-05T23:05:45.3401043Z d48f3c15cb80: Verifying Checksum
+build-and-test	Initialize containers	2025-08-05T23:05:45.3401548Z d48f3c15cb80: Download complete
+build-and-test	Initialize containers	2025-08-05T23:05:45.9465039Z e54b73e95ef3: Pull complete
+build-and-test	Initialize containers	2025-08-05T23:05:46.9952426Z 327840d38cb2: Pull complete
+build-and-test	Initialize containers	2025-08-05T23:05:47.0229008Z 642077275f5f: Pull complete
+build-and-test	Initialize containers	2025-08-05T23:05:47.2101671Z e077469d560d: Pull complete
+build-and-test	Initialize containers	2025-08-05T23:05:47.2267127Z cbf214d981a6: Pull complete
+build-and-test	Initialize containers	2025-08-05T23:05:47.2539290Z 7d1cc1ea1b3d: Pull complete
+build-and-test	Initialize containers	2025-08-05T23:05:48.0061757Z d48f3c15cb80: Pull complete
+build-and-test	Initialize containers	2025-08-05T23:05:48.0234701Z 94c3d7b2c9ae: Pull complete
+build-and-test	Initialize containers	2025-08-05T23:05:51.3546728Z f6cfbf240ed7: Pull complete
+build-and-test	Initialize containers	2025-08-05T23:05:51.3740363Z e12b159b2a12: Pull complete
+build-and-test	Initialize containers	2025-08-05T23:05:51.3838388Z 4e93c6fd777f: Pull complete
+build-and-test	Initialize containers	2025-08-05T23:05:51.3900185Z Digest: sha256:152cf187a3efc56afb0b3877b4d21e231d1d6eb828ca9221056590b0ac834c75
+build-and-test	Initialize containers	2025-08-05T23:05:51.3920666Z Status: Downloaded newer image for mysql:8.0.29
+build-and-test	Initialize containers	2025-08-05T23:05:51.3934442Z docker.io/library/mysql:8.0.29
+build-and-test	Initialize containers	2025-08-05T23:05:51.3993658Z ##[command]/usr/bin/docker create --name 8e28201391df4a039e09ea1a8114ddd9_mysql8029_f1fbe2 --label 9ff5de --network github_network_23a453b184214c739eb922910a7ba46e --network-alias mysql -p 3306:3306 --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3 -e "MYSQL_ROOT_PASSWORD=Admin@123" -e "MYSQL_DATABASE=helpampmdb" -e GITHUB_ACTIONS=true -e CI=true mysql:8.0.29
+build-and-test	Initialize containers	2025-08-05T23:05:51.4248884Z a71b084964c6fd9cd8c3b80178efed3f4478aa5104434418817519fbfbf59470
+build-and-test	Initialize containers	2025-08-05T23:05:51.4271635Z ##[command]/usr/bin/docker start a71b084964c6fd9cd8c3b80178efed3f4478aa5104434418817519fbfbf59470
+build-and-test	Initialize containers	2025-08-05T23:05:52.3976296Z a71b084964c6fd9cd8c3b80178efed3f4478aa5104434418817519fbfbf59470
+build-and-test	Initialize containers	2025-08-05T23:05:52.3997023Z ##[command]/usr/bin/docker ps --all --filter id=a71b084964c6fd9cd8c3b80178efed3f4478aa5104434418817519fbfbf59470 --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+build-and-test	Initialize containers	2025-08-05T23:05:52.4172043Z a71b084964c6fd9cd8c3b80178efed3f4478aa5104434418817519fbfbf59470 Up Less than a second (health: starting)
+build-and-test	Initialize containers	2025-08-05T23:05:52.4194778Z ##[command]/usr/bin/docker port a71b084964c6fd9cd8c3b80178efed3f4478aa5104434418817519fbfbf59470
+build-and-test	Initialize containers	2025-08-05T23:05:52.4321197Z 3306/tcp -> 0.0.0.0:3306
+build-and-test	Initialize containers	2025-08-05T23:05:52.4321776Z 3306/tcp -> [::]:3306
+build-and-test	Initialize containers	2025-08-05T23:05:52.4378813Z ##[endgroup]
+build-and-test	Initialize containers	2025-08-05T23:05:52.4389913Z ##[group]Waiting for all services to be ready
+build-and-test	Initialize containers	2025-08-05T23:05:52.4403499Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" a71b084964c6fd9cd8c3b80178efed3f4478aa5104434418817519fbfbf59470
+build-and-test	Initialize containers	2025-08-05T23:05:52.4537564Z starting
+build-and-test	Initialize containers	2025-08-05T23:05:52.4563653Z mysql service is starting, waiting 2 seconds before checking again.
+build-and-test	Initialize containers	2025-08-05T23:05:54.4568698Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" a71b084964c6fd9cd8c3b80178efed3f4478aa5104434418817519fbfbf59470
+build-and-test	Initialize containers	2025-08-05T23:05:54.4752452Z starting
+build-and-test	Initialize containers	2025-08-05T23:05:54.4765922Z mysql service is starting, waiting 4 seconds before checking again.
+build-and-test	Initialize containers	2025-08-05T23:05:58.4927282Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" a71b084964c6fd9cd8c3b80178efed3f4478aa5104434418817519fbfbf59470
+build-and-test	Initialize containers	2025-08-05T23:05:58.5059919Z starting
+build-and-test	Initialize containers	2025-08-05T23:05:58.5074834Z mysql service is starting, waiting 9 seconds before checking again.
+build-and-test	Initialize containers	2025-08-05T23:06:07.5476849Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" a71b084964c6fd9cd8c3b80178efed3f4478aa5104434418817519fbfbf59470
+build-and-test	Initialize containers	2025-08-05T23:06:07.5593584Z healthy
+build-and-test	Initialize containers	2025-08-05T23:06:07.5610227Z mysql service is healthy.
+build-and-test	Initialize containers	2025-08-05T23:06:07.5610894Z ##[endgroup]
+build-and-test	Run actions/checkout@v3	﻿2025-08-05T23:06:07.5839008Z ##[group]Run actions/checkout@v3
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.5839517Z with:
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.5839733Z   repository: SurajGeddam/help-am-pm-legacy
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.5840119Z   token: ***
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.5840293Z   ssh-strict: true
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.5840654Z   persist-credentials: true
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.5840927Z   clean: true
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.5841108Z   sparse-checkout-cone-mode: true
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.5841319Z   fetch-depth: 1
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.5841486Z   fetch-tags: false
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.5841643Z   lfs: false
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.5841802Z   submodules: false
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.5841983Z   set-safe-directory: true
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.5842376Z ##[endgroup]
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6703463Z Syncing repository: SurajGeddam/help-am-pm-legacy
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6705415Z ##[group]Getting Git version info
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6705890Z Working directory is '/home/runner/work/help-am-pm-legacy/help-am-pm-legacy'
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6706485Z [command]/usr/bin/git version
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6743172Z git version 2.50.1
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6769820Z ##[endgroup]
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6782444Z Temporarily overriding HOME='/home/runner/work/_temp/2a6031d4-e175-44ed-8fad-c8e848dfc8ed' before making global git config changes
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6783176Z Adding repository directory to the temporary git global config as a safe directory
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6786012Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/help-am-pm-legacy/help-am-pm-legacy
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6820089Z Deleting the contents of '/home/runner/work/help-am-pm-legacy/help-am-pm-legacy'
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6823705Z ##[group]Initializing the repository
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6827130Z [command]/usr/bin/git init /home/runner/work/help-am-pm-legacy/help-am-pm-legacy
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6902293Z hint: Using 'master' as the name for the initial branch. This default branch name
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6903953Z hint: is subject to change. To configure the initial branch name to use in all
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6904732Z hint: of your new repositories, which will suppress this warning, call:
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6905294Z hint:
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6905646Z hint: 	git config --global init.defaultBranch <name>
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6906103Z hint:
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6906515Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6906957Z hint: 'development'. The just-created branch can be renamed via this command:
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6907283Z hint:
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6907459Z hint: 	git branch -m <name>
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6907654Z hint:
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6908210Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6908998Z Initialized empty Git repository in /home/runner/work/help-am-pm-legacy/help-am-pm-legacy/.git/
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6914599Z [command]/usr/bin/git remote add origin https://github.com/SurajGeddam/help-am-pm-legacy
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6945397Z ##[endgroup]
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6945765Z ##[group]Disabling automatic garbage collection
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6948886Z [command]/usr/bin/git config --local gc.auto 0
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6974707Z ##[endgroup]
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6975048Z ##[group]Setting up auth
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.6980252Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.7005769Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.7331557Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.7357232Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.7569070Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.7600833Z ##[endgroup]
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.7601417Z ##[group]Fetching the repository
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.7609105Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +6cb0e7fbc20ddcbf608457667f3e880cb82c0f68:refs/remotes/origin/main
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9224231Z remote: Enumerating objects: 1902, done.        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9224971Z remote: Counting objects:   0% (1/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9225525Z remote: Counting objects:   1% (20/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9226267Z remote: Counting objects:   2% (39/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9226698Z remote: Counting objects:   3% (58/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9226984Z remote: Counting objects:   4% (77/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9227412Z remote: Counting objects:   5% (96/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9228254Z remote: Counting objects:   6% (115/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9228768Z remote: Counting objects:   7% (134/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9229251Z remote: Counting objects:   8% (153/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9229762Z remote: Counting objects:   9% (172/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9230221Z remote: Counting objects:  10% (191/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9230668Z remote: Counting objects:  11% (210/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9231101Z remote: Counting objects:  12% (229/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9231379Z remote: Counting objects:  13% (248/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9231658Z remote: Counting objects:  14% (267/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9231934Z remote: Counting objects:  15% (286/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9232222Z remote: Counting objects:  16% (305/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9232501Z remote: Counting objects:  17% (324/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9232779Z remote: Counting objects:  18% (343/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9233059Z remote: Counting objects:  19% (362/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9233336Z remote: Counting objects:  20% (381/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9233617Z remote: Counting objects:  21% (400/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9234131Z remote: Counting objects:  22% (419/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9234497Z remote: Counting objects:  23% (438/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9234986Z remote: Counting objects:  24% (457/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9235460Z remote: Counting objects:  25% (476/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9235934Z remote: Counting objects:  26% (495/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9236555Z remote: Counting objects:  27% (514/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9237018Z remote: Counting objects:  28% (533/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9238259Z remote: Counting objects:  29% (552/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9238746Z remote: Counting objects:  30% (571/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9239196Z remote: Counting objects:  31% (590/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9239843Z remote: Counting objects:  32% (609/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9240206Z remote: Counting objects:  33% (628/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9240459Z remote: Counting objects:  34% (647/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9240829Z remote: Counting objects:  35% (666/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9241290Z remote: Counting objects:  36% (685/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9241835Z remote: Counting objects:  37% (704/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9242285Z remote: Counting objects:  38% (723/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9242646Z remote: Counting objects:  39% (742/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9242917Z remote: Counting objects:  40% (761/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9243192Z remote: Counting objects:  41% (780/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9243450Z remote: Counting objects:  42% (799/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9243728Z remote: Counting objects:  43% (818/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9243981Z remote: Counting objects:  44% (837/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9244240Z remote: Counting objects:  45% (856/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9244490Z remote: Counting objects:  46% (875/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9245267Z remote: Counting objects:  47% (894/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9245531Z remote: Counting objects:  48% (913/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9245781Z remote: Counting objects:  49% (932/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9246040Z remote: Counting objects:  50% (951/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9246359Z remote: Counting objects:  51% (971/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9246819Z remote: Counting objects:  52% (990/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9247277Z remote: Counting objects:  53% (1009/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9247714Z remote: Counting objects:  54% (1028/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9248547Z remote: Counting objects:  55% (1047/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9248888Z remote: Counting objects:  56% (1066/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9249153Z remote: Counting objects:  57% (1085/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9249635Z remote: Counting objects:  58% (1104/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9249928Z remote: Counting objects:  59% (1123/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9250334Z remote: Counting objects:  60% (1142/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9250620Z remote: Counting objects:  61% (1161/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9250887Z remote: Counting objects:  62% (1180/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9251147Z remote: Counting objects:  63% (1199/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9251411Z remote: Counting objects:  64% (1218/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9251663Z remote: Counting objects:  65% (1237/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9251923Z remote: Counting objects:  66% (1256/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9252181Z remote: Counting objects:  67% (1275/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9252694Z remote: Counting objects:  68% (1294/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9252959Z remote: Counting objects:  69% (1313/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9253502Z remote: Counting objects:  70% (1332/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9254050Z remote: Counting objects:  71% (1351/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9254678Z remote: Counting objects:  72% (1370/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9255151Z remote: Counting objects:  73% (1389/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9255602Z remote: Counting objects:  74% (1408/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9256044Z remote: Counting objects:  75% (1427/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9256514Z remote: Counting objects:  76% (1446/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9256974Z remote: Counting objects:  77% (1465/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9257245Z remote: Counting objects:  78% (1484/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9257498Z remote: Counting objects:  79% (1503/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9258004Z remote: Counting objects:  80% (1522/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9258484Z remote: Counting objects:  81% (1541/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9258748Z remote: Counting objects:  82% (1560/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9259005Z remote: Counting objects:  83% (1579/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9259256Z remote: Counting objects:  84% (1598/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9259514Z remote: Counting objects:  85% (1617/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9260030Z remote: Counting objects:  86% (1636/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9260292Z remote: Counting objects:  87% (1655/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9260602Z remote: Counting objects:  88% (1674/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9261093Z remote: Counting objects:  89% (1693/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9261362Z remote: Counting objects:  90% (1712/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9261616Z remote: Counting objects:  91% (1731/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9261872Z remote: Counting objects:  92% (1750/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9262333Z remote: Counting objects:  93% (1769/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9262664Z remote: Counting objects:  94% (1788/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9263008Z remote: Counting objects:  95% (1807/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9263271Z remote: Counting objects:  96% (1826/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9263522Z remote: Counting objects:  97% (1845/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9263783Z remote: Counting objects:  98% (1864/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9264196Z remote: Counting objects:  99% (1883/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9264451Z remote: Counting objects: 100% (1902/1902)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9264741Z remote: Counting objects: 100% (1902/1902), done.        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9265037Z remote: Compressing objects:   0% (1/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9265314Z remote: Compressing objects:   1% (14/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9265586Z remote: Compressing objects:   2% (28/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9265859Z remote: Compressing objects:   3% (42/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9266131Z remote: Compressing objects:   4% (55/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9266395Z remote: Compressing objects:   5% (69/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9266659Z remote: Compressing objects:   6% (83/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9266918Z remote: Compressing objects:   7% (97/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9267195Z remote: Compressing objects:   8% (110/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9267478Z remote: Compressing objects:   9% (124/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9267954Z remote: Compressing objects:  10% (138/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9268518Z remote: Compressing objects:  11% (152/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9268802Z remote: Compressing objects:  12% (165/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9269278Z remote: Compressing objects:  13% (179/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9340232Z remote: Compressing objects:  14% (193/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9340609Z remote: Compressing objects:  15% (207/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9340923Z remote: Compressing objects:  16% (220/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9341253Z remote: Compressing objects:  17% (234/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9341538Z remote: Compressing objects:  18% (248/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9341827Z remote: Compressing objects:  19% (262/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9342105Z remote: Compressing objects:  20% (275/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9342382Z remote: Compressing objects:  21% (289/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9342714Z remote: Compressing objects:  22% (303/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9343042Z remote: Compressing objects:  23% (317/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9343820Z remote: Compressing objects:  24% (330/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9344103Z remote: Compressing objects:  25% (344/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9344386Z remote: Compressing objects:  26% (358/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9344660Z remote: Compressing objects:  27% (371/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9344939Z remote: Compressing objects:  28% (385/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9345603Z remote: Compressing objects:  29% (399/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9345991Z remote: Compressing objects:  30% (413/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9346281Z remote: Compressing objects:  31% (426/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9346578Z remote: Compressing objects:  32% (440/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9346866Z remote: Compressing objects:  33% (454/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9347177Z remote: Compressing objects:  34% (468/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9347476Z remote: Compressing objects:  35% (481/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9347923Z remote: Compressing objects:  36% (495/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9348332Z remote: Compressing objects:  37% (509/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9348618Z remote: Compressing objects:  38% (523/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9348894Z remote: Compressing objects:  39% (536/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9349774Z remote: Compressing objects:  40% (550/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9350302Z remote: Compressing objects:  41% (564/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9350794Z remote: Compressing objects:  42% (578/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9351071Z remote: Compressing objects:  43% (591/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9351347Z remote: Compressing objects:  44% (605/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9351623Z remote: Compressing objects:  45% (619/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9351897Z remote: Compressing objects:  46% (633/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9352338Z remote: Compressing objects:  47% (646/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9352610Z remote: Compressing objects:  48% (660/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9352886Z remote: Compressing objects:  49% (674/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9353156Z remote: Compressing objects:  50% (687/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9353434Z remote: Compressing objects:  51% (701/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9353708Z remote: Compressing objects:  52% (715/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9353988Z remote: Compressing objects:  53% (729/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9354268Z remote: Compressing objects:  54% (742/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9354536Z remote: Compressing objects:  55% (756/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9354816Z remote: Compressing objects:  56% (770/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9355084Z remote: Compressing objects:  57% (784/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9355361Z remote: Compressing objects:  58% (797/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9355634Z remote: Compressing objects:  59% (811/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9355907Z remote: Compressing objects:  60% (825/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9356180Z remote: Compressing objects:  61% (839/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9356448Z remote: Compressing objects:  62% (852/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9356724Z remote: Compressing objects:  63% (866/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9356993Z remote: Compressing objects:  64% (880/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9357270Z remote: Compressing objects:  65% (894/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9357574Z remote: Compressing objects:  66% (907/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9358405Z remote: Compressing objects:  67% (921/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9359288Z remote: Compressing objects:  68% (935/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9359591Z remote: Compressing objects:  69% (949/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9359937Z remote: Compressing objects:  70% (962/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9360218Z remote: Compressing objects:  71% (976/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9360512Z remote: Compressing objects:  72% (990/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9360804Z remote: Compressing objects:  73% (1004/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9361092Z remote: Compressing objects:  74% (1017/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9361378Z remote: Compressing objects:  75% (1031/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9361655Z remote: Compressing objects:  76% (1045/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9361982Z remote: Compressing objects:  77% (1058/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9362261Z remote: Compressing objects:  78% (1072/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9362704Z remote: Compressing objects:  79% (1086/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9363505Z remote: Compressing objects:  80% (1100/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9364140Z remote: Compressing objects:  81% (1113/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9364753Z remote: Compressing objects:  82% (1127/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9365207Z remote: Compressing objects:  83% (1141/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9365508Z remote: Compressing objects:  84% (1155/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9365784Z remote: Compressing objects:  85% (1168/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9366068Z remote: Compressing objects:  86% (1182/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9366364Z remote: Compressing objects:  87% (1196/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9366648Z remote: Compressing objects:  88% (1210/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9366924Z remote: Compressing objects:  89% (1223/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9367203Z remote: Compressing objects:  90% (1237/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9367481Z remote: Compressing objects:  91% (1251/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9367877Z remote: Compressing objects:  92% (1265/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9368155Z remote: Compressing objects:  93% (1278/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9368435Z remote: Compressing objects:  94% (1292/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9368718Z remote: Compressing objects:  95% (1306/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9369144Z remote: Compressing objects:  96% (1320/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9369426Z remote: Compressing objects:  97% (1333/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9369701Z remote: Compressing objects:  98% (1347/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9369986Z remote: Compressing objects:  99% (1361/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9370260Z remote: Compressing objects: 100% (1374/1374)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9370572Z remote: Compressing objects: 100% (1374/1374), done.        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9370863Z Receiving objects:   0% (1/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9371088Z Receiving objects:   1% (20/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9371318Z Receiving objects:   2% (39/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9631573Z Receiving objects:   3% (58/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9672342Z Receiving objects:   4% (77/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9678351Z Receiving objects:   5% (96/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9685991Z Receiving objects:   6% (115/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9818908Z Receiving objects:   7% (134/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9823125Z Receiving objects:   8% (153/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9865867Z Receiving objects:   9% (172/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9876176Z Receiving objects:  10% (191/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9880742Z Receiving objects:  11% (210/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9885091Z Receiving objects:  12% (229/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9887968Z Receiving objects:  13% (248/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9893712Z Receiving objects:  14% (267/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9900524Z Receiving objects:  15% (286/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9902694Z Receiving objects:  16% (305/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9907070Z Receiving objects:  17% (324/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9910375Z Receiving objects:  18% (343/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9914822Z Receiving objects:  19% (362/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9917666Z Receiving objects:  20% (381/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9921816Z Receiving objects:  21% (400/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9926210Z Receiving objects:  22% (419/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9929090Z Receiving objects:  23% (438/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9932660Z Receiving objects:  24% (457/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9934358Z Receiving objects:  25% (476/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9938190Z Receiving objects:  26% (495/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9940427Z Receiving objects:  27% (514/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9941770Z Receiving objects:  28% (533/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9943424Z Receiving objects:  29% (552/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9946522Z Receiving objects:  30% (571/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9949246Z Receiving objects:  31% (590/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9952212Z Receiving objects:  32% (609/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9954136Z Receiving objects:  33% (628/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9955406Z Receiving objects:  34% (647/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9957505Z Receiving objects:  35% (666/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9960236Z Receiving objects:  36% (685/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9963810Z Receiving objects:  37% (704/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9965673Z Receiving objects:  38% (723/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9968841Z Receiving objects:  39% (742/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:07.9974953Z Receiving objects:  40% (761/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0025700Z Receiving objects:  41% (780/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0028748Z Receiving objects:  42% (799/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0031415Z Receiving objects:  43% (818/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0034460Z Receiving objects:  44% (837/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0038450Z Receiving objects:  45% (856/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0043055Z Receiving objects:  46% (875/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0045793Z Receiving objects:  47% (894/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0050074Z Receiving objects:  48% (913/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0052642Z Receiving objects:  49% (932/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0054617Z Receiving objects:  50% (951/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0058331Z Receiving objects:  51% (971/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0058624Z Receiving objects:  52% (990/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0062469Z Receiving objects:  53% (1009/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0064787Z Receiving objects:  54% (1028/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0066945Z Receiving objects:  55% (1047/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0166206Z Receiving objects:  56% (1066/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0360393Z Receiving objects:  57% (1085/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0407271Z Receiving objects:  58% (1104/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0710731Z Receiving objects:  59% (1123/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0746267Z Receiving objects:  60% (1142/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0758766Z Receiving objects:  61% (1161/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0836316Z Receiving objects:  62% (1180/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.0992635Z Receiving objects:  63% (1199/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1016651Z Receiving objects:  64% (1218/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1122570Z Receiving objects:  65% (1237/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1129345Z Receiving objects:  66% (1256/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1134453Z Receiving objects:  67% (1275/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1141596Z Receiving objects:  68% (1294/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1148206Z Receiving objects:  69% (1313/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1162254Z Receiving objects:  70% (1332/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1169033Z Receiving objects:  71% (1351/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1173399Z Receiving objects:  72% (1370/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1176689Z Receiving objects:  73% (1389/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1181140Z Receiving objects:  74% (1408/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1184261Z Receiving objects:  75% (1427/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1187198Z Receiving objects:  76% (1446/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1189938Z Receiving objects:  77% (1465/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1193469Z Receiving objects:  78% (1484/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1196407Z Receiving objects:  79% (1503/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1199949Z Receiving objects:  80% (1522/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1205067Z Receiving objects:  81% (1541/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1207220Z Receiving objects:  82% (1560/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1210117Z Receiving objects:  83% (1579/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1211938Z Receiving objects:  84% (1598/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1214907Z Receiving objects:  85% (1617/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1217007Z Receiving objects:  86% (1636/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1219700Z Receiving objects:  87% (1655/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1220997Z Receiving objects:  88% (1674/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1227918Z Receiving objects:  89% (1693/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1228671Z Receiving objects:  90% (1712/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1230866Z Receiving objects:  91% (1731/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1233642Z Receiving objects:  92% (1750/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1243119Z Receiving objects:  93% (1769/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1246582Z Receiving objects:  94% (1788/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1251975Z Receiving objects:  95% (1807/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1255974Z Receiving objects:  96% (1826/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1259087Z Receiving objects:  97% (1845/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1259743Z remote: Total 1902 (delta 469), reused 1898 (delta 469), pack-reused 0 (from 0)        
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1268287Z Receiving objects:  98% (1864/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1271333Z Receiving objects:  99% (1883/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1271738Z Receiving objects: 100% (1902/1902)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1272285Z Receiving objects: 100% (1902/1902), 10.96 MiB | 55.01 MiB/s, done.
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1276284Z Resolving deltas:   0% (0/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1277426Z Resolving deltas:   1% (5/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1278948Z Resolving deltas:   2% (10/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1282161Z Resolving deltas:   3% (15/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1283647Z Resolving deltas:   4% (19/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1284350Z Resolving deltas:   5% (25/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1284874Z Resolving deltas:   6% (29/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1285255Z Resolving deltas:   7% (33/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1286591Z Resolving deltas:   8% (38/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1288655Z Resolving deltas:   9% (43/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1289275Z Resolving deltas:  10% (47/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1289955Z Resolving deltas:  11% (52/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1290321Z Resolving deltas:  12% (57/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1292158Z Resolving deltas:  13% (61/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1293922Z Resolving deltas:  14% (66/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1294695Z Resolving deltas:  15% (71/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1295397Z Resolving deltas:  16% (76/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1295759Z Resolving deltas:  17% (80/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1298285Z Resolving deltas:  18% (85/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1298666Z Resolving deltas:  19% (90/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1300324Z Resolving deltas:  20% (94/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1300813Z Resolving deltas:  21% (99/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1301179Z Resolving deltas:  22% (104/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1301602Z Resolving deltas:  23% (108/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1302076Z Resolving deltas:  24% (113/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1304208Z Resolving deltas:  25% (118/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1309657Z Resolving deltas:  26% (122/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1310057Z Resolving deltas:  27% (127/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1310416Z Resolving deltas:  28% (133/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1310768Z Resolving deltas:  29% (137/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1311123Z Resolving deltas:  30% (141/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1313934Z Resolving deltas:  31% (146/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1314876Z Resolving deltas:  32% (151/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1317236Z Resolving deltas:  33% (155/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1319738Z Resolving deltas:  34% (160/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1323387Z Resolving deltas:  35% (165/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1323787Z Resolving deltas:  36% (169/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1324169Z Resolving deltas:  37% (174/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1324563Z Resolving deltas:  38% (179/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1324940Z Resolving deltas:  39% (183/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1328045Z Resolving deltas:  40% (188/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1328615Z Resolving deltas:  41% (193/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1329064Z Resolving deltas:  42% (197/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1330650Z Resolving deltas:  43% (202/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1331067Z Resolving deltas:  44% (207/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1331445Z Resolving deltas:  45% (212/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1334003Z Resolving deltas:  46% (216/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1334632Z Resolving deltas:  47% (221/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1335502Z Resolving deltas:  48% (226/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1335870Z Resolving deltas:  49% (230/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1336251Z Resolving deltas:  50% (235/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1336600Z Resolving deltas:  51% (240/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1338103Z Resolving deltas:  52% (244/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1338538Z Resolving deltas:  53% (249/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1343001Z Resolving deltas:  54% (255/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1343578Z Resolving deltas:  55% (258/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1343995Z Resolving deltas:  56% (263/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1344365Z Resolving deltas:  57% (268/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1344760Z Resolving deltas:  58% (273/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1345750Z Resolving deltas:  59% (277/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1346255Z Resolving deltas:  60% (282/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1348069Z Resolving deltas:  61% (287/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1351067Z Resolving deltas:  62% (291/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1355751Z Resolving deltas:  63% (296/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1361920Z Resolving deltas:  64% (301/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1368100Z Resolving deltas:  65% (305/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1369131Z Resolving deltas:  66% (310/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1369511Z Resolving deltas:  67% (315/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1371714Z Resolving deltas:  68% (319/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1372225Z Resolving deltas:  69% (324/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1372602Z Resolving deltas:  70% (329/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1372973Z Resolving deltas:  71% (333/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1373575Z Resolving deltas:  72% (338/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1374458Z Resolving deltas:  73% (343/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1375492Z Resolving deltas:  74% (348/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1376804Z Resolving deltas:  75% (352/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1377328Z Resolving deltas:  76% (357/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1378930Z Resolving deltas:  77% (362/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1379328Z Resolving deltas:  78% (367/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1379697Z Resolving deltas:  79% (371/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1380054Z Resolving deltas:  80% (376/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1380485Z Resolving deltas:  81% (380/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1382205Z Resolving deltas:  82% (385/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1383089Z Resolving deltas:  83% (390/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1384280Z Resolving deltas:  84% (394/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1386241Z Resolving deltas:  85% (399/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1387681Z Resolving deltas:  86% (404/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1388250Z Resolving deltas:  87% (409/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1388628Z Resolving deltas:  88% (413/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1390104Z Resolving deltas:  89% (418/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1390506Z Resolving deltas:  90% (423/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1391055Z Resolving deltas:  91% (427/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1391434Z Resolving deltas:  92% (432/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1391791Z Resolving deltas:  93% (437/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1392588Z Resolving deltas:  94% (441/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1394900Z Resolving deltas:  95% (446/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1395990Z Resolving deltas:  96% (451/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1398333Z Resolving deltas:  97% (455/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1399476Z Resolving deltas:  98% (460/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1406592Z Resolving deltas:  99% (465/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1406869Z Resolving deltas: 100% (469/469)
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1407105Z Resolving deltas: 100% (469/469), done.
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1545967Z From https://github.com/SurajGeddam/help-am-pm-legacy
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1549386Z  * [new ref]         6cb0e7fbc20ddcbf608457667f3e880cb82c0f68 -> origin/main
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1573090Z ##[endgroup]
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1573670Z ##[group]Determining the checkout info
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1575774Z ##[endgroup]
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1576353Z ##[group]Checking out the ref
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.1580803Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.2995678Z Switched to a new branch 'main'
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.2997925Z branch 'main' set up to track 'origin/main'.
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.3009950Z ##[endgroup]
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.3045802Z [command]/usr/bin/git log -1 --format='%H'
+build-and-test	Run actions/checkout@v3	2025-08-05T23:06:08.3066579Z '6cb0e7fbc20ddcbf608457667f3e880cb82c0f68'
+build-and-test	Set up JDK 17	﻿2025-08-05T23:06:08.3269951Z ##[group]Run actions/setup-java@v3
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.3270215Z with:
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.3270392Z   distribution: temurin
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.3270584Z   java-version: 17
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.3270755Z   java-package: jdk
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.3270939Z   check-latest: false
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.3271111Z   server-id: github
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.3271289Z   server-username: GITHUB_ACTOR
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.3271505Z   server-password: GITHUB_TOKEN
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.3271714Z   overwrite-settings: true
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.3271902Z   job-status: success
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.3272393Z   token: ***
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.3272560Z ##[endgroup]
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.5212921Z ##[group]Installed distributions
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.5309789Z Resolved Java 17.0.16+8 from tool-cache
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.5310346Z Setting Java 17.0.16+8 as the default
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.5324371Z Creating toolchains.xml for JDK version 17 from temurin
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.5401373Z Writing to /home/runner/.m2/toolchains.xml
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.5401754Z 
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.5403037Z Java configuration:
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.5403607Z   Distribution: temurin
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.5403975Z   Version: 17.0.16+8
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.5404535Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.5405009Z 
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.5405434Z ##[endgroup]
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.5426593Z Creating settings.xml with server-id: github
+build-and-test	Set up JDK 17	2025-08-05T23:06:08.5434072Z Writing to /home/runner/.m2/settings.xml
+build-and-test	Build & test	﻿2025-08-05T23:06:08.5543886Z ##[group]Run ./mvnw clean verify -DskipTests=false
+build-and-test	Build & test	2025-08-05T23:06:08.5544277Z [36;1m./mvnw clean verify -DskipTests=false[0m
+build-and-test	Build & test	2025-08-05T23:06:08.5577629Z shell: /usr/bin/bash -e {0}
+build-and-test	Build & test	2025-08-05T23:06:08.5578031Z env:
+build-and-test	Build & test	2025-08-05T23:06:08.5578312Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+build-and-test	Build & test	2025-08-05T23:06:08.5578764Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+build-and-test	Build & test	2025-08-05T23:06:08.5579114Z   MYSQL_HOST: localhost
+build-and-test	Build & test	2025-08-05T23:06:08.5579299Z ##[endgroup]
+build-and-test	Build & test	2025-08-05T23:06:08.5706042Z ./mvnw: 223: cannot open /home/runner/work/help-am-pm-legacy/help-am-pm-legacy/help-am-pm-mothership-master/helpampm-api/.mvn/wrapper/maven-wrapper.properties: No such file
+build-and-test	Build & test	2025-08-05T23:06:08.5945674Z /home/runner/work/help-am-pm-legacy/help-am-pm-legacy/help-am-pm-mothership-master/helpampm-api/.mvn/wrapper/maven-wrapper.jar: No such file or directory
+build-and-test	Build & test	2025-08-05T23:06:09.7435406Z Error: Could not find or load main class org.apache.maven.wrapper.MavenWrapperMain
+build-and-test	Build & test	2025-08-05T23:06:09.7436871Z Caused by: java.lang.ClassNotFoundException: org.apache.maven.wrapper.MavenWrapperMain
+build-and-test	Build & test	2025-08-05T23:06:09.7546315Z ##[error]Process completed with exit code 1.
+build-and-test	Build only (if tests fail)	﻿2025-08-05T23:06:09.7593806Z ##[group]Run ./mvnw clean compile -DskipTests=true
+build-and-test	Build only (if tests fail)	2025-08-05T23:06:09.7594175Z [36;1m./mvnw clean compile -DskipTests=true[0m
+build-and-test	Build only (if tests fail)	2025-08-05T23:06:09.7622653Z shell: /usr/bin/bash -e {0}
+build-and-test	Build only (if tests fail)	2025-08-05T23:06:09.7622872Z env:
+build-and-test	Build only (if tests fail)	2025-08-05T23:06:09.7623147Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+build-and-test	Build only (if tests fail)	2025-08-05T23:06:09.7623607Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+build-and-test	Build only (if tests fail)	2025-08-05T23:06:09.7623969Z   MYSQL_HOST: localhost
+build-and-test	Build only (if tests fail)	2025-08-05T23:06:09.7624158Z ##[endgroup]
+build-and-test	Build only (if tests fail)	2025-08-05T23:06:09.7728626Z ./mvnw: 223: cannot open /home/runner/work/help-am-pm-legacy/help-am-pm-legacy/help-am-pm-mothership-master/helpampm-api/.mvn/wrapper/maven-wrapper.properties: No such file
+build-and-test	Build only (if tests fail)	2025-08-05T23:06:09.7748540Z /home/runner/work/help-am-pm-legacy/help-am-pm-legacy/help-am-pm-mothership-master/helpampm-api/.mvn/wrapper/maven-wrapper.jar: No such file or directory
+build-and-test	Build only (if tests fail)	2025-08-05T23:06:09.8125097Z Error: Could not find or load main class org.apache.maven.wrapper.MavenWrapperMain
+build-and-test	Build only (if tests fail)	2025-08-05T23:06:09.8126056Z Caused by: java.lang.ClassNotFoundException: org.apache.maven.wrapper.MavenWrapperMain
+build-and-test	Build only (if tests fail)	2025-08-05T23:06:09.8170423Z ##[error]Process completed with exit code 1.
+build-and-test	Post Set up JDK 17	﻿2025-08-05T23:06:09.8247376Z Post job cleanup.
+build-and-test	Post Run actions/checkout@v3	﻿2025-08-05T23:06:10.0009636Z Post job cleanup.
+build-and-test	Post Run actions/checkout@v3	2025-08-05T23:06:10.0714572Z [command]/usr/bin/git version
+build-and-test	Post Run actions/checkout@v3	2025-08-05T23:06:10.0748827Z git version 2.50.1
+build-and-test	Post Run actions/checkout@v3	2025-08-05T23:06:10.0792901Z Temporarily overriding HOME='/home/runner/work/_temp/f13c36db-c470-463d-aadd-37f5c8bf7ecd' before making global git config changes
+build-and-test	Post Run actions/checkout@v3	2025-08-05T23:06:10.0794190Z Adding repository directory to the temporary git global config as a safe directory
+build-and-test	Post Run actions/checkout@v3	2025-08-05T23:06:10.0797557Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/help-am-pm-legacy/help-am-pm-legacy
+build-and-test	Post Run actions/checkout@v3	2025-08-05T23:06:10.0829173Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build-and-test	Post Run actions/checkout@v3	2025-08-05T23:06:10.0857975Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build-and-test	Post Run actions/checkout@v3	2025-08-05T23:06:10.1081414Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build-and-test	Post Run actions/checkout@v3	2025-08-05T23:06:10.1101876Z http.https://github.com/.extraheader
+build-and-test	Post Run actions/checkout@v3	2025-08-05T23:06:10.1113007Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build-and-test	Post Run actions/checkout@v3	2025-08-05T23:06:10.1140494Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build-and-test	Stop containers	﻿2025-08-05T23:06:10.1442177Z Print service container logs: 8e28201391df4a039e09ea1a8114ddd9_mysql8029_f1fbe2
+build-and-test	Stop containers	2025-08-05T23:06:10.1446439Z ##[command]/usr/bin/docker logs --details a71b084964c6fd9cd8c3b80178efed3f4478aa5104434418817519fbfbf59470
+build-and-test	Stop containers	2025-08-05T23:06:10.1567998Z  2025-08-05 23:05:52+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.29-1.el8 started.
+build-and-test	Stop containers	2025-08-05T23:06:10.1569435Z  2025-08-05 23:05:52+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+build-and-test	Stop containers	2025-08-05T23:06:10.1570345Z  2025-08-05 23:05:52+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.0.29-1.el8 started.
+build-and-test	Stop containers	2025-08-05T23:06:10.1571129Z  2025-08-05 23:05:52+00:00 [Note] [Entrypoint]: Initializing database files
+build-and-test	Stop containers	2025-08-05T23:06:10.1573052Z  2025-08-05T23:05:52.509961Z 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.29) initializing of server in progress as process 42
+build-and-test	Stop containers	2025-08-05T23:06:10.1574157Z  2025-08-05T23:05:52.516229Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+build-and-test	Stop containers	2025-08-05T23:06:10.1575045Z  2025-08-05T23:05:52.744992Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+build-and-test	Stop containers	2025-08-05T23:06:10.1576303Z  2025-08-05T23:05:53.614562Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+build-and-test	Stop containers	2025-08-05T23:06:10.1577681Z  2025-08-05T23:05:55.900353Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.29) starting as process 91
+build-and-test	Stop containers	2025-08-05T23:06:10.1578786Z  2025-08-05T23:05:55.909240Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+build-and-test	Stop containers	2025-08-05T23:06:10.1579604Z  2025-08-05T23:05:55.982132Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+build-and-test	Stop containers	2025-08-05T23:06:10.1580439Z  2025-08-05T23:05:56.161340Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+build-and-test	Stop containers	2025-08-05T23:06:10.1581630Z  2025-08-05T23:05:56.161375Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+build-and-test	Stop containers	2025-08-05T23:06:10.1583411Z  2025-08-05T23:05:56.162570Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+build-and-test	Stop containers	2025-08-05T23:06:10.1584997Z  2025-08-05T23:05:56.174354Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Socket: /var/run/mysqld/mysqlx.sock
+build-and-test	Stop containers	2025-08-05T23:06:10.1586505Z  2025-08-05T23:05:56.174455Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.29'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  MySQL Community Server - GPL.
+build-and-test	Stop containers	2025-08-05T23:06:10.1588005Z  Warning: Unable to load '/usr/share/zoneinfo/iso3166.tab' as time zone. Skipping it.
+build-and-test	Stop containers	2025-08-05T23:06:10.1588855Z  Warning: Unable to load '/usr/share/zoneinfo/leapseconds' as time zone. Skipping it.
+build-and-test	Stop containers	2025-08-05T23:06:10.1589665Z  Warning: Unable to load '/usr/share/zoneinfo/tzdata.zi' as time zone. Skipping it.
+build-and-test	Stop containers	2025-08-05T23:06:10.1591155Z  Warning: Unable to load '/usr/share/zoneinfo/zone.tab' as time zone. Skipping it.
+build-and-test	Stop containers	2025-08-05T23:06:10.1591918Z  Warning: Unable to load '/usr/share/zoneinfo/zone1970.tab' as time zone. Skipping it.
+build-and-test	Stop containers	2025-08-05T23:06:10.1592761Z  2025-08-05T23:05:57.784554Z 11 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.29).
+build-and-test	Stop containers	2025-08-05T23:06:10.1593533Z  2025-08-05T23:05:58.675669Z 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.29)  MySQL Community Server - GPL.
+build-and-test	Stop containers	2025-08-05T23:06:10.1594270Z  2025-08-05T23:05:58.971869Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.29) starting as process 1
+build-and-test	Stop containers	2025-08-05T23:06:10.1594827Z  2025-08-05T23:05:58.977019Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+build-and-test	Stop containers	2025-08-05T23:06:10.1595309Z  2025-08-05T23:05:59.051962Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+build-and-test	Stop containers	2025-08-05T23:06:10.1595802Z  2025-08-05T23:05:59.203631Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+build-and-test	Stop containers	2025-08-05T23:06:10.1596681Z  2025-08-05T23:05:59.203663Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+build-and-test	Stop containers	2025-08-05T23:06:10.1597725Z  2025-08-05T23:05:59.204829Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+build-and-test	Stop containers	2025-08-05T23:06:10.1598949Z  2025-08-05T23:05:59.217345Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+build-and-test	Stop containers	2025-08-05T23:06:10.1599925Z  2025-08-05T23:05:59.217428Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.29'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+build-and-test	Stop containers	2025-08-05T23:06:10.1600655Z  2025-08-05 23:05:55+00:00 [Note] [Entrypoint]: Database files initialized
+build-and-test	Stop containers	2025-08-05T23:06:10.1601023Z  2025-08-05 23:05:55+00:00 [Note] [Entrypoint]: Starting temporary server
+build-and-test	Stop containers	2025-08-05T23:06:10.1601377Z  2025-08-05 23:05:56+00:00 [Note] [Entrypoint]: Temporary server started.
+build-and-test	Stop containers	2025-08-05T23:06:10.1601740Z  '/var/lib/mysql/mysql.sock' -> '/var/run/mysqld/mysqld.sock'
+build-and-test	Stop containers	2025-08-05T23:06:10.1602106Z  2025-08-05 23:05:57+00:00 [Note] [Entrypoint]: Creating database helpampmdb
+build-and-test	Stop containers	2025-08-05T23:06:10.1602388Z  
+build-and-test	Stop containers	2025-08-05T23:06:10.1602605Z  2025-08-05 23:05:57+00:00 [Note] [Entrypoint]: Stopping temporary server
+build-and-test	Stop containers	2025-08-05T23:06:10.1602960Z  2025-08-05 23:05:58+00:00 [Note] [Entrypoint]: Temporary server stopped
+build-and-test	Stop containers	2025-08-05T23:06:10.1603231Z  
+build-and-test	Stop containers	2025-08-05T23:06:10.1603491Z  2025-08-05 23:05:58+00:00 [Note] [Entrypoint]: MySQL init process done. Ready for start up.
+build-and-test	Stop containers	2025-08-05T23:06:10.1603823Z  
+build-and-test	Stop containers	2025-08-05T23:06:10.1609338Z Stop and remove container: 8e28201391df4a039e09ea1a8114ddd9_mysql8029_f1fbe2
+build-and-test	Stop containers	2025-08-05T23:06:10.1613724Z ##[command]/usr/bin/docker rm --force a71b084964c6fd9cd8c3b80178efed3f4478aa5104434418817519fbfbf59470
+build-and-test	Stop containers	2025-08-05T23:06:10.3566742Z a71b084964c6fd9cd8c3b80178efed3f4478aa5104434418817519fbfbf59470
+build-and-test	Stop containers	2025-08-05T23:06:10.3593619Z Remove container network: github_network_23a453b184214c739eb922910a7ba46e
+build-and-test	Stop containers	2025-08-05T23:06:10.3598740Z ##[command]/usr/bin/docker network rm github_network_23a453b184214c739eb922910a7ba46e
+build-and-test	Stop containers	2025-08-05T23:06:10.4868085Z github_network_23a453b184214c739eb922910a7ba46e
+build-and-test	Complete job	﻿2025-08-05T23:06:10.4925014Z Cleaning up orphan processes

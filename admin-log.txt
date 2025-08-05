@@ -1,0 +1,575 @@
+lint-and-build	Set up job	﻿2025-08-05T23:05:43.1119046Z Current runner version: '2.327.1'
+lint-and-build	Set up job	2025-08-05T23:05:43.1143391Z ##[group]Runner Image Provisioner
+lint-and-build	Set up job	2025-08-05T23:05:43.1144294Z Hosted Compute Agent
+lint-and-build	Set up job	2025-08-05T23:05:43.1144881Z Version: 20250711.363
+lint-and-build	Set up job	2025-08-05T23:05:43.1145426Z Commit: 6785254374ce925a23743850c1cb91912ce5c14c
+lint-and-build	Set up job	2025-08-05T23:05:43.1146129Z Build Date: 2025-07-11T20:04:25Z
+lint-and-build	Set up job	2025-08-05T23:05:43.1146702Z ##[endgroup]
+lint-and-build	Set up job	2025-08-05T23:05:43.1147257Z ##[group]Operating System
+lint-and-build	Set up job	2025-08-05T23:05:43.1147764Z Ubuntu
+lint-and-build	Set up job	2025-08-05T23:05:43.1148312Z 24.04.2
+lint-and-build	Set up job	2025-08-05T23:05:43.1148781Z LTS
+lint-and-build	Set up job	2025-08-05T23:05:43.1149222Z ##[endgroup]
+lint-and-build	Set up job	2025-08-05T23:05:43.1149727Z ##[group]Runner Image
+lint-and-build	Set up job	2025-08-05T23:05:43.1150302Z Image: ubuntu-24.04
+lint-and-build	Set up job	2025-08-05T23:05:43.1150786Z Version: 20250728.1.0
+lint-and-build	Set up job	2025-08-05T23:05:43.1151807Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250728.1/images/ubuntu/Ubuntu2404-Readme.md
+lint-and-build	Set up job	2025-08-05T23:05:43.1153298Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250728.1
+lint-and-build	Set up job	2025-08-05T23:05:43.1154487Z ##[endgroup]
+lint-and-build	Set up job	2025-08-05T23:05:43.1155550Z ##[group]GITHUB_TOKEN Permissions
+lint-and-build	Set up job	2025-08-05T23:05:43.1157598Z Contents: read
+lint-and-build	Set up job	2025-08-05T23:05:43.1158125Z Metadata: read
+lint-and-build	Set up job	2025-08-05T23:05:43.1158620Z Packages: read
+lint-and-build	Set up job	2025-08-05T23:05:43.1159111Z ##[endgroup]
+lint-and-build	Set up job	2025-08-05T23:05:43.1161477Z Secret source: Actions
+lint-and-build	Set up job	2025-08-05T23:05:43.1162167Z Prepare workflow directory
+lint-and-build	Set up job	2025-08-05T23:05:43.1478299Z Prepare all required actions
+lint-and-build	Set up job	2025-08-05T23:05:43.1515945Z Getting action download info
+lint-and-build	Set up job	2025-08-05T23:05:43.4648772Z ##[group]Download immutable action package 'actions/checkout@v3'
+lint-and-build	Set up job	2025-08-05T23:05:43.4649817Z Version: 3.6.0
+lint-and-build	Set up job	2025-08-05T23:05:43.4650809Z Digest: sha256:942562b9c7d4b1f2557f1da21f4d3eb4eb4fd01f2ad78b2a6e187d1b193e0a0f
+lint-and-build	Set up job	2025-08-05T23:05:43.4652028Z Source commit SHA: f43a0e5ff2bd294095638e18286ca9a3d1956744
+lint-and-build	Set up job	2025-08-05T23:05:43.4652881Z ##[endgroup]
+lint-and-build	Set up job	2025-08-05T23:05:43.5523302Z ##[group]Download immutable action package 'actions/setup-node@v3'
+lint-and-build	Set up job	2025-08-05T23:05:43.5524219Z Version: 3.9.1
+lint-and-build	Set up job	2025-08-05T23:05:43.5524932Z Digest: sha256:d8c8dbd6e63927801f9de42620f961a361b03be6034dcc11e83ca01f50cb9f40
+lint-and-build	Set up job	2025-08-05T23:05:43.5525875Z Source commit SHA: 3235b876344d2a9aa001b8d1453c930bba69e610
+lint-and-build	Set up job	2025-08-05T23:05:43.5526617Z ##[endgroup]
+lint-and-build	Set up job	2025-08-05T23:05:43.9803291Z Complete job name: lint-and-build
+lint-and-build	Run actions/checkout@v3	﻿2025-08-05T23:05:44.0497479Z ##[group]Run actions/checkout@v3
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.0498368Z with:
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.0498823Z   repository: SurajGeddam/help-am-pm-legacy
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.0499556Z   token: ***
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.0499959Z   ssh-strict: true
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.0500396Z   persist-credentials: true
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.0500857Z   clean: true
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.0501282Z   sparse-checkout-cone-mode: true
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.0501778Z   fetch-depth: 1
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.0502339Z   fetch-tags: false
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.0502888Z   lfs: false
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.0503282Z   submodules: false
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.0503703Z   set-safe-directory: true
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.0504451Z ##[endgroup]
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1498013Z Syncing repository: SurajGeddam/help-am-pm-legacy
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1499874Z ##[group]Getting Git version info
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1500703Z Working directory is '/home/runner/work/help-am-pm-legacy/help-am-pm-legacy'
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1501769Z [command]/usr/bin/git version
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1552934Z git version 2.50.1
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1593770Z ##[endgroup]
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1612517Z Temporarily overriding HOME='/home/runner/work/_temp/3c20d5ce-407d-49de-8a9d-4e246841f4ea' before making global git config changes
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1614479Z Adding repository directory to the temporary git global config as a safe directory
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1617690Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/help-am-pm-legacy/help-am-pm-legacy
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1653669Z Deleting the contents of '/home/runner/work/help-am-pm-legacy/help-am-pm-legacy'
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1656921Z ##[group]Initializing the repository
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1660000Z [command]/usr/bin/git init /home/runner/work/help-am-pm-legacy/help-am-pm-legacy
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1715726Z hint: Using 'master' as the name for the initial branch. This default branch name
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1719361Z hint: is subject to change. To configure the initial branch name to use in all
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1721239Z hint: of your new repositories, which will suppress this warning, call:
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1723005Z hint:
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1724338Z hint: 	git config --global init.defaultBranch <name>
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1725511Z hint:
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1726656Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1728486Z hint: 'development'. The just-created branch can be renamed via this command:
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1729945Z hint:
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1730718Z hint: 	git branch -m <name>
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1731591Z hint:
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1732962Z hint: Disable this message with "git config set advice.defaultBranchName false"
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1735067Z Initialized empty Git repository in /home/runner/work/help-am-pm-legacy/help-am-pm-legacy/.git/
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1738725Z [command]/usr/bin/git remote add origin https://github.com/SurajGeddam/help-am-pm-legacy
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1762210Z ##[endgroup]
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1763977Z ##[group]Disabling automatic garbage collection
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1765534Z [command]/usr/bin/git config --local gc.auto 0
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1796157Z ##[endgroup]
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1797831Z ##[group]Setting up auth
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1801598Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.1829378Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.2086850Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.2116886Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.2348673Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.2384650Z ##[endgroup]
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.2386627Z ##[group]Fetching the repository
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.2393875Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +6cb0e7fbc20ddcbf608457667f3e880cb82c0f68:refs/remotes/origin/main
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4013353Z remote: Enumerating objects: 1902, done.        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4014939Z remote: Counting objects:   0% (1/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4016322Z remote: Counting objects:   1% (20/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4017694Z remote: Counting objects:   2% (39/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4019199Z remote: Counting objects:   3% (58/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4020274Z remote: Counting objects:   4% (77/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4021102Z remote: Counting objects:   5% (96/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4021784Z remote: Counting objects:   6% (115/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4022478Z remote: Counting objects:   7% (134/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4023445Z remote: Counting objects:   8% (153/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4024172Z remote: Counting objects:   9% (172/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4024874Z remote: Counting objects:  10% (191/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4025562Z remote: Counting objects:  11% (210/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4026258Z remote: Counting objects:  12% (229/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4026948Z remote: Counting objects:  13% (248/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4027644Z remote: Counting objects:  14% (267/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4028325Z remote: Counting objects:  15% (286/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4029015Z remote: Counting objects:  16% (305/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4029700Z remote: Counting objects:  17% (324/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4030656Z remote: Counting objects:  18% (343/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4031318Z remote: Counting objects:  19% (362/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4031917Z remote: Counting objects:  20% (381/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4032519Z remote: Counting objects:  21% (400/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4033272Z remote: Counting objects:  22% (419/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4033879Z remote: Counting objects:  23% (438/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4034467Z remote: Counting objects:  24% (457/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4035067Z remote: Counting objects:  25% (476/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4035664Z remote: Counting objects:  26% (495/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4036270Z remote: Counting objects:  27% (514/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4036871Z remote: Counting objects:  28% (533/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4037460Z remote: Counting objects:  29% (552/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4038065Z remote: Counting objects:  30% (571/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4038684Z remote: Counting objects:  31% (590/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4039624Z remote: Counting objects:  32% (609/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4040703Z remote: Counting objects:  33% (628/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4041773Z remote: Counting objects:  34% (647/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4043008Z remote: Counting objects:  35% (666/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4044093Z remote: Counting objects:  36% (685/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4045207Z remote: Counting objects:  37% (704/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4046206Z remote: Counting objects:  38% (723/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4047244Z remote: Counting objects:  39% (742/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4047861Z remote: Counting objects:  40% (761/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4048484Z remote: Counting objects:  41% (780/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4049080Z remote: Counting objects:  42% (799/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4049691Z remote: Counting objects:  43% (818/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4050398Z remote: Counting objects:  44% (837/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4051220Z remote: Counting objects:  45% (856/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4051853Z remote: Counting objects:  46% (875/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4052945Z remote: Counting objects:  47% (894/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4053597Z remote: Counting objects:  48% (913/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4054190Z remote: Counting objects:  49% (932/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4054788Z remote: Counting objects:  50% (951/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4055376Z remote: Counting objects:  51% (971/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4055971Z remote: Counting objects:  52% (990/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4056573Z remote: Counting objects:  53% (1009/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4057178Z remote: Counting objects:  54% (1028/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4057779Z remote: Counting objects:  55% (1047/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4058398Z remote: Counting objects:  56% (1066/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4058998Z remote: Counting objects:  57% (1085/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4059584Z remote: Counting objects:  58% (1104/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4060214Z remote: Counting objects:  59% (1123/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4060840Z remote: Counting objects:  60% (1142/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4061442Z remote: Counting objects:  61% (1161/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4062372Z remote: Counting objects:  62% (1180/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4063231Z remote: Counting objects:  63% (1199/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4063856Z remote: Counting objects:  64% (1218/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4064463Z remote: Counting objects:  65% (1237/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4065058Z remote: Counting objects:  66% (1256/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4065653Z remote: Counting objects:  67% (1275/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4066240Z remote: Counting objects:  68% (1294/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4067030Z remote: Counting objects:  69% (1313/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4067614Z remote: Counting objects:  70% (1332/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4068210Z remote: Counting objects:  71% (1351/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4068803Z remote: Counting objects:  72% (1370/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4069402Z remote: Counting objects:  73% (1389/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4070006Z remote: Counting objects:  74% (1408/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4070601Z remote: Counting objects:  75% (1427/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4071189Z remote: Counting objects:  76% (1446/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4071940Z remote: Counting objects:  77% (1465/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4072538Z remote: Counting objects:  78% (1484/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4073248Z remote: Counting objects:  79% (1503/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4073829Z remote: Counting objects:  80% (1522/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4074687Z remote: Counting objects:  81% (1541/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4075295Z remote: Counting objects:  82% (1560/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4076037Z remote: Counting objects:  83% (1579/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4076671Z remote: Counting objects:  84% (1598/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4077385Z remote: Counting objects:  85% (1617/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4078011Z remote: Counting objects:  86% (1636/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4078783Z remote: Counting objects:  87% (1655/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4079416Z remote: Counting objects:  88% (1674/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4080003Z remote: Counting objects:  89% (1693/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4080602Z remote: Counting objects:  90% (1712/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4081185Z remote: Counting objects:  91% (1731/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4081779Z remote: Counting objects:  92% (1750/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4082357Z remote: Counting objects:  93% (1769/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4083518Z remote: Counting objects:  94% (1788/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4084787Z remote: Counting objects:  95% (1807/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4085896Z remote: Counting objects:  96% (1826/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4086535Z remote: Counting objects:  97% (1845/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4087761Z remote: Counting objects:  98% (1864/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4089150Z remote: Counting objects:  99% (1883/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4090251Z remote: Counting objects: 100% (1902/1902)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4091267Z remote: Counting objects: 100% (1902/1902), done.        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4091926Z remote: Compressing objects:   0% (1/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4092548Z remote: Compressing objects:   1% (14/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4093876Z remote: Compressing objects:   2% (28/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4095084Z remote: Compressing objects:   3% (42/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4096186Z remote: Compressing objects:   4% (55/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4097250Z remote: Compressing objects:   5% (69/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4098349Z remote: Compressing objects:   6% (83/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4099127Z remote: Compressing objects:   7% (97/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4099983Z remote: Compressing objects:   8% (110/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4100789Z remote: Compressing objects:   9% (124/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4101542Z remote: Compressing objects:  10% (138/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4102295Z remote: Compressing objects:  11% (152/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4103306Z remote: Compressing objects:  12% (165/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4104095Z remote: Compressing objects:  13% (179/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4104726Z remote: Compressing objects:  14% (193/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4105510Z remote: Compressing objects:  15% (207/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4106272Z remote: Compressing objects:  16% (220/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4106958Z remote: Compressing objects:  17% (234/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4108003Z remote: Compressing objects:  18% (248/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4108782Z remote: Compressing objects:  19% (262/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4109535Z remote: Compressing objects:  20% (275/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4110164Z remote: Compressing objects:  21% (289/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4110956Z remote: Compressing objects:  22% (303/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4111704Z remote: Compressing objects:  23% (317/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4112487Z remote: Compressing objects:  24% (330/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4113369Z remote: Compressing objects:  25% (344/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4114145Z remote: Compressing objects:  26% (358/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4114897Z remote: Compressing objects:  27% (371/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4115677Z remote: Compressing objects:  28% (385/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4116313Z remote: Compressing objects:  29% (399/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4116932Z remote: Compressing objects:  30% (413/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4117572Z remote: Compressing objects:  31% (426/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4118347Z remote: Compressing objects:  32% (440/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4118976Z remote: Compressing objects:  33% (454/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4119625Z remote: Compressing objects:  34% (468/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4120239Z remote: Compressing objects:  35% (481/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4121072Z remote: Compressing objects:  36% (495/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4121832Z remote: Compressing objects:  37% (509/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4122786Z remote: Compressing objects:  38% (523/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4123557Z remote: Compressing objects:  39% (536/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4124354Z remote: Compressing objects:  40% (550/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4124987Z remote: Compressing objects:  41% (564/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4125703Z remote: Compressing objects:  42% (578/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4126342Z remote: Compressing objects:  43% (591/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4126958Z remote: Compressing objects:  44% (605/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4127582Z remote: Compressing objects:  45% (619/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4128323Z remote: Compressing objects:  46% (633/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4129178Z remote: Compressing objects:  47% (646/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4129876Z remote: Compressing objects:  48% (660/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4130521Z remote: Compressing objects:  49% (674/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4131275Z remote: Compressing objects:  50% (687/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4131915Z remote: Compressing objects:  51% (701/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4132851Z remote: Compressing objects:  52% (715/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4133711Z remote: Compressing objects:  53% (729/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4134490Z remote: Compressing objects:  54% (742/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4135276Z remote: Compressing objects:  55% (756/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4136083Z remote: Compressing objects:  56% (770/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4136906Z remote: Compressing objects:  57% (784/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4137620Z remote: Compressing objects:  58% (797/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4138346Z remote: Compressing objects:  59% (811/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4138981Z remote: Compressing objects:  60% (825/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4139807Z remote: Compressing objects:  61% (839/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4140436Z remote: Compressing objects:  62% (852/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4141186Z remote: Compressing objects:  63% (866/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4141996Z remote: Compressing objects:  64% (880/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4142841Z remote: Compressing objects:  65% (894/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4143615Z remote: Compressing objects:  66% (907/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4144416Z remote: Compressing objects:  67% (921/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4145396Z remote: Compressing objects:  68% (935/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4146215Z remote: Compressing objects:  69% (949/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4146981Z remote: Compressing objects:  70% (962/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4147608Z remote: Compressing objects:  71% (976/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4148301Z remote: Compressing objects:  72% (990/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4149074Z remote: Compressing objects:  73% (1004/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4149837Z remote: Compressing objects:  74% (1017/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4150665Z remote: Compressing objects:  75% (1031/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4151309Z remote: Compressing objects:  76% (1045/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4152068Z remote: Compressing objects:  77% (1058/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4152813Z remote: Compressing objects:  78% (1072/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4153637Z remote: Compressing objects:  79% (1086/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4154416Z remote: Compressing objects:  80% (1100/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4155216Z remote: Compressing objects:  81% (1113/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4155997Z remote: Compressing objects:  82% (1127/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4156796Z remote: Compressing objects:  83% (1141/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4157603Z remote: Compressing objects:  84% (1155/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4158315Z remote: Compressing objects:  85% (1168/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4159093Z remote: Compressing objects:  86% (1182/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4159880Z remote: Compressing objects:  87% (1196/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4160730Z remote: Compressing objects:  88% (1210/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4161516Z remote: Compressing objects:  89% (1223/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4162258Z remote: Compressing objects:  90% (1237/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4163222Z remote: Compressing objects:  91% (1251/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4164030Z remote: Compressing objects:  92% (1265/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4165000Z remote: Compressing objects:  93% (1278/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4165775Z remote: Compressing objects:  94% (1292/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4166568Z remote: Compressing objects:  95% (1306/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4167591Z remote: Compressing objects:  96% (1320/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4168345Z remote: Compressing objects:  97% (1333/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4169008Z remote: Compressing objects:  98% (1347/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4169790Z remote: Compressing objects:  99% (1361/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4170536Z remote: Compressing objects: 100% (1374/1374)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4171425Z remote: Compressing objects: 100% (1374/1374), done.        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4172219Z Receiving objects:   0% (1/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4173087Z Receiving objects:   1% (20/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4173746Z Receiving objects:   2% (39/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4427267Z Receiving objects:   3% (58/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4463697Z Receiving objects:   4% (77/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4470033Z Receiving objects:   5% (96/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4478292Z Receiving objects:   6% (115/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4620716Z Receiving objects:   7% (134/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4625246Z Receiving objects:   8% (153/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4666968Z Receiving objects:   9% (172/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4677455Z Receiving objects:  10% (191/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4684037Z Receiving objects:  11% (210/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4691527Z Receiving objects:  12% (229/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4694806Z Receiving objects:  13% (248/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4701038Z Receiving objects:  14% (267/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4705534Z Receiving objects:  15% (286/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4709677Z Receiving objects:  16% (305/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4713877Z Receiving objects:  17% (324/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4716812Z Receiving objects:  18% (343/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4721132Z Receiving objects:  19% (362/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4724259Z Receiving objects:  20% (381/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4727923Z Receiving objects:  21% (400/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4732369Z Receiving objects:  22% (419/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4735477Z Receiving objects:  23% (438/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4738797Z Receiving objects:  24% (457/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4740626Z Receiving objects:  25% (476/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4745097Z Receiving objects:  26% (495/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4746767Z Receiving objects:  27% (514/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4748888Z Receiving objects:  28% (533/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4750923Z Receiving objects:  29% (552/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4754439Z Receiving objects:  30% (571/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4757366Z Receiving objects:  31% (590/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4760475Z Receiving objects:  32% (609/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4763210Z Receiving objects:  33% (628/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4765614Z Receiving objects:  34% (647/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4767350Z Receiving objects:  35% (666/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4769835Z Receiving objects:  36% (685/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4773481Z Receiving objects:  37% (704/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4775149Z Receiving objects:  38% (723/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4777000Z Receiving objects:  39% (742/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4783695Z Receiving objects:  40% (761/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4836417Z Receiving objects:  41% (780/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4843394Z Receiving objects:  42% (799/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4846197Z Receiving objects:  43% (818/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4849554Z Receiving objects:  44% (837/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4853282Z Receiving objects:  45% (856/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4857425Z Receiving objects:  46% (875/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4861425Z Receiving objects:  47% (894/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4865840Z Receiving objects:  48% (913/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4868512Z Receiving objects:  49% (932/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4870804Z Receiving objects:  50% (951/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4873324Z Receiving objects:  51% (971/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4875090Z Receiving objects:  52% (990/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4879505Z Receiving objects:  53% (1009/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4881899Z Receiving objects:  54% (1028/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4885143Z Receiving objects:  55% (1047/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.4997335Z Receiving objects:  56% (1066/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.5223165Z Receiving objects:  57% (1085/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.5299917Z Receiving objects:  58% (1104/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.5673308Z Receiving objects:  59% (1123/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.5704668Z Receiving objects:  60% (1142/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.5716737Z Receiving objects:  61% (1161/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.5778114Z Receiving objects:  62% (1180/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.5972421Z Receiving objects:  63% (1199/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.5997646Z Receiving objects:  64% (1218/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6068314Z Receiving objects:  65% (1237/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6075500Z Receiving objects:  66% (1256/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6080784Z Receiving objects:  67% (1275/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6087896Z Receiving objects:  68% (1294/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6094391Z Receiving objects:  69% (1313/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6108280Z Receiving objects:  70% (1332/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6114924Z Receiving objects:  71% (1351/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6119691Z Receiving objects:  72% (1370/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6123085Z Receiving objects:  73% (1389/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6127710Z Receiving objects:  74% (1408/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6130878Z Receiving objects:  75% (1427/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6134288Z Receiving objects:  76% (1446/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6137131Z Receiving objects:  77% (1465/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6140899Z Receiving objects:  78% (1484/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6144027Z Receiving objects:  79% (1503/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6147754Z Receiving objects:  80% (1522/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6152913Z Receiving objects:  81% (1541/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6155440Z Receiving objects:  82% (1560/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6158540Z Receiving objects:  83% (1579/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6160690Z Receiving objects:  84% (1598/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6164169Z Receiving objects:  85% (1617/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6166935Z Receiving objects:  86% (1636/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6168614Z Receiving objects:  87% (1655/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6170162Z Receiving objects:  88% (1674/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6173601Z Receiving objects:  89% (1693/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6177410Z Receiving objects:  90% (1712/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6180898Z Receiving objects:  91% (1731/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6184016Z Receiving objects:  92% (1750/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6191330Z Receiving objects:  93% (1769/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6194960Z Receiving objects:  94% (1788/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6199417Z Receiving objects:  95% (1807/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6203263Z Receiving objects:  96% (1826/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6206504Z Receiving objects:  97% (1845/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6209122Z remote: Total 1902 (delta 469), reused 1898 (delta 469), pack-reused 0 (from 0)        
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6218480Z Receiving objects:  98% (1864/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6220071Z Receiving objects:  99% (1883/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6221085Z Receiving objects: 100% (1902/1902)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6222379Z Receiving objects: 100% (1902/1902), 10.96 MiB | 51.24 MiB/s, done.
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6223991Z Resolving deltas:   0% (0/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6228331Z Resolving deltas:   1% (5/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6230139Z Resolving deltas:   2% (11/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6231050Z Resolving deltas:   3% (15/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6231964Z Resolving deltas:   4% (19/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6233190Z Resolving deltas:   5% (24/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6234139Z Resolving deltas:   6% (29/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6235113Z Resolving deltas:   7% (33/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6236011Z Resolving deltas:   8% (38/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6237305Z Resolving deltas:   9% (43/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6240242Z Resolving deltas:  10% (47/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6241295Z Resolving deltas:  11% (52/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6242268Z Resolving deltas:  12% (57/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6243364Z Resolving deltas:  13% (61/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6244353Z Resolving deltas:  14% (66/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6245257Z Resolving deltas:  15% (73/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6246545Z Resolving deltas:  16% (76/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6247525Z Resolving deltas:  17% (80/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6248440Z Resolving deltas:  18% (85/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6249338Z Resolving deltas:  19% (90/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6250370Z Resolving deltas:  20% (94/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6251277Z Resolving deltas:  21% (100/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6252235Z Resolving deltas:  22% (104/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6253483Z Resolving deltas:  23% (108/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6254412Z Resolving deltas:  24% (113/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6255309Z Resolving deltas:  25% (118/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6256209Z Resolving deltas:  26% (122/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6260199Z Resolving deltas:  27% (128/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6261223Z Resolving deltas:  28% (133/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6262135Z Resolving deltas:  29% (138/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6264178Z Resolving deltas:  30% (142/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6264957Z Resolving deltas:  31% (146/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6267778Z Resolving deltas:  32% (151/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6269535Z Resolving deltas:  33% (155/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6272509Z Resolving deltas:  34% (161/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6274182Z Resolving deltas:  35% (165/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6275570Z Resolving deltas:  36% (169/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6276517Z Resolving deltas:  37% (174/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6277460Z Resolving deltas:  38% (179/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6278934Z Resolving deltas:  39% (184/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6280311Z Resolving deltas:  40% (190/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6281233Z Resolving deltas:  41% (193/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6282140Z Resolving deltas:  42% (197/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6283323Z Resolving deltas:  43% (202/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6284230Z Resolving deltas:  44% (208/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6285791Z Resolving deltas:  45% (212/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6286969Z Resolving deltas:  46% (216/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6292005Z Resolving deltas:  47% (221/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6293209Z Resolving deltas:  48% (226/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6293845Z Resolving deltas:  49% (230/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6294413Z Resolving deltas:  50% (235/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6294978Z Resolving deltas:  51% (240/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6295534Z Resolving deltas:  52% (244/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6296091Z Resolving deltas:  53% (249/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6298569Z Resolving deltas:  54% (254/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6299857Z Resolving deltas:  55% (258/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6300826Z Resolving deltas:  56% (263/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6301736Z Resolving deltas:  57% (268/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6302837Z Resolving deltas:  58% (274/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6303718Z Resolving deltas:  59% (277/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6304575Z Resolving deltas:  60% (282/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6305501Z Resolving deltas:  61% (288/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6306782Z Resolving deltas:  62% (291/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6312077Z Resolving deltas:  63% (296/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6318905Z Resolving deltas:  64% (302/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6323577Z Resolving deltas:  65% (305/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6325964Z Resolving deltas:  66% (310/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6327041Z Resolving deltas:  67% (315/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6329586Z Resolving deltas:  68% (319/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6330658Z Resolving deltas:  69% (325/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6331638Z Resolving deltas:  70% (329/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6332752Z Resolving deltas:  71% (333/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6333718Z Resolving deltas:  72% (338/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6334622Z Resolving deltas:  73% (344/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6335571Z Resolving deltas:  74% (348/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6336450Z Resolving deltas:  75% (353/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6337338Z Resolving deltas:  76% (357/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6338222Z Resolving deltas:  77% (362/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6339168Z Resolving deltas:  78% (366/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6340096Z Resolving deltas:  79% (371/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6341091Z Resolving deltas:  80% (376/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6342167Z Resolving deltas:  81% (380/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6343248Z Resolving deltas:  82% (385/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6344440Z Resolving deltas:  83% (390/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6345344Z Resolving deltas:  84% (394/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6346278Z Resolving deltas:  85% (399/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6347177Z Resolving deltas:  86% (404/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6348071Z Resolving deltas:  87% (409/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6348951Z Resolving deltas:  88% (414/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6349822Z Resolving deltas:  89% (418/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6350759Z Resolving deltas:  90% (423/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6351640Z Resolving deltas:  91% (427/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6352510Z Resolving deltas:  92% (432/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6353568Z Resolving deltas:  93% (437/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6354282Z Resolving deltas:  94% (441/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6354864Z Resolving deltas:  95% (446/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6355426Z Resolving deltas:  96% (451/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6356311Z Resolving deltas:  97% (455/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6357212Z Resolving deltas:  98% (460/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6357804Z Resolving deltas:  99% (465/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6358337Z Resolving deltas: 100% (469/469)
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6358870Z Resolving deltas: 100% (469/469), done.
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6568516Z From https://github.com/SurajGeddam/help-am-pm-legacy
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6569564Z  * [new ref]         6cb0e7fbc20ddcbf608457667f3e880cb82c0f68 -> origin/main
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6597395Z ##[endgroup]
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6598763Z ##[group]Determining the checkout info
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6600330Z ##[endgroup]
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6601563Z ##[group]Checking out the ref
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.6605363Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.8008046Z Switched to a new branch 'main'
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.8009832Z branch 'main' set up to track 'origin/main'.
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.8024580Z ##[endgroup]
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.8065799Z [command]/usr/bin/git log -1 --format='%H'
+lint-and-build	Run actions/checkout@v3	2025-08-05T23:05:44.8088217Z '6cb0e7fbc20ddcbf608457667f3e880cb82c0f68'
+lint-and-build	Setup Node.js	﻿2025-08-05T23:05:44.8391366Z ##[group]Run actions/setup-node@v3
+lint-and-build	Setup Node.js	2025-08-05T23:05:44.8391959Z with:
+lint-and-build	Setup Node.js	2025-08-05T23:05:44.8392353Z   node-version: 18
+lint-and-build	Setup Node.js	2025-08-05T23:05:44.8392994Z   always-auth: false
+lint-and-build	Setup Node.js	2025-08-05T23:05:44.8393442Z   check-latest: false
+lint-and-build	Setup Node.js	2025-08-05T23:05:44.8394051Z   token: ***
+lint-and-build	Setup Node.js	2025-08-05T23:05:44.8394465Z ##[endgroup]
+lint-and-build	Setup Node.js	2025-08-05T23:05:45.0278414Z Found in cache @ /opt/hostedtoolcache/node/18.20.8/x64
+lint-and-build	Setup Node.js	2025-08-05T23:05:45.0285257Z ##[group]Environment details
+lint-and-build	Setup Node.js	2025-08-05T23:05:46.6456887Z node: v18.20.8
+lint-and-build	Setup Node.js	2025-08-05T23:05:46.6458143Z npm: 10.8.2
+lint-and-build	Setup Node.js	2025-08-05T23:05:46.6458549Z yarn: 1.22.22
+lint-and-build	Setup Node.js	2025-08-05T23:05:46.6459717Z ##[endgroup]
+lint-and-build	Install dependencies	﻿2025-08-05T23:05:46.6578252Z ##[group]Run npm ci
+lint-and-build	Install dependencies	2025-08-05T23:05:46.6578599Z [36;1mnpm ci[0m
+lint-and-build	Install dependencies	2025-08-05T23:05:46.6651190Z shell: /usr/bin/bash -e {0}
+lint-and-build	Install dependencies	2025-08-05T23:05:46.6651519Z ##[endgroup]
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6463987Z npm error code ERESOLVE
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6464542Z npm error ERESOLVE could not resolve
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6464810Z npm error
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6465176Z npm error While resolving: @ng-bootstrap/ng-bootstrap@12.1.2
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6465585Z npm error Found: @angular/common@15.2.10
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6465948Z npm error node_modules/@angular/common
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6466336Z npm error   @angular/common@"^15.2.10" from the root project
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6466984Z npm error   peer @angular/common@"^15.0.1" from @angular-material-components/datetime-picker@15.0.0
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6467610Z npm error   node_modules/@angular-material-components/datetime-picker
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6468239Z npm error     @angular-material-components/datetime-picker@"15.0.0" from the root project
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6468836Z npm error   21 more (@angular/cdk, @angular/forms, @angular/material, ...)
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6469250Z npm error
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6469505Z npm error Could not resolve dependency:
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6469977Z npm error peer @angular/common@"^13.0.0" from @ng-bootstrap/ng-bootstrap@12.1.2
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6470439Z npm error node_modules/@ng-bootstrap/ng-bootstrap
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6470893Z npm error   @ng-bootstrap/ng-bootstrap@"^12.1.2" from the root project
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6471209Z npm error
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6471531Z npm error Conflicting peer dependency: @angular/common@13.4.0
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6471919Z npm error node_modules/@angular/common
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6472384Z npm error   peer @angular/common@"^13.0.0" from @ng-bootstrap/ng-bootstrap@12.1.2
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6473193Z npm error   node_modules/@ng-bootstrap/ng-bootstrap
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6473695Z npm error     @ng-bootstrap/ng-bootstrap@"^12.1.2" from the root project
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6474066Z npm error
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6474379Z npm error Fix the upstream dependency conflict, or retry
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6474811Z npm error this command with --force or --legacy-peer-deps
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6475621Z npm error to accept an incorrect (and potentially broken) dependency resolution.
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6476221Z npm error
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6476411Z npm error
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6476648Z npm error For a full report see:
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6477102Z npm error /home/runner/.npm/_logs/2025-08-05T23_05_46_737Z-eresolve-report.txt
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6477992Z npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-08-05T23_05_46_737Z-debug-0.log
+lint-and-build	Install dependencies	2025-08-05T23:05:50.6589896Z ##[error]Process completed with exit code 1.
+lint-and-build	Post Run actions/checkout@v3	﻿2025-08-05T23:05:50.6670151Z Post job cleanup.
+lint-and-build	Post Run actions/checkout@v3	2025-08-05T23:05:50.7379970Z [command]/usr/bin/git version
+lint-and-build	Post Run actions/checkout@v3	2025-08-05T23:05:50.7413867Z git version 2.50.1
+lint-and-build	Post Run actions/checkout@v3	2025-08-05T23:05:50.7455349Z Temporarily overriding HOME='/home/runner/work/_temp/f1374e6e-b0e4-4b82-a5db-18ff60955a81' before making global git config changes
+lint-and-build	Post Run actions/checkout@v3	2025-08-05T23:05:50.7456787Z Adding repository directory to the temporary git global config as a safe directory
+lint-and-build	Post Run actions/checkout@v3	2025-08-05T23:05:50.7459005Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/help-am-pm-legacy/help-am-pm-legacy
+lint-and-build	Post Run actions/checkout@v3	2025-08-05T23:05:50.7488917Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+lint-and-build	Post Run actions/checkout@v3	2025-08-05T23:05:50.7516973Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+lint-and-build	Post Run actions/checkout@v3	2025-08-05T23:05:50.7736310Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+lint-and-build	Post Run actions/checkout@v3	2025-08-05T23:05:50.7754961Z http.https://github.com/.extraheader
+lint-and-build	Post Run actions/checkout@v3	2025-08-05T23:05:50.7766583Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+lint-and-build	Post Run actions/checkout@v3	2025-08-05T23:05:50.7794576Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+lint-and-build	Complete job	﻿2025-08-05T23:05:50.8117719Z Cleaning up orphan processes

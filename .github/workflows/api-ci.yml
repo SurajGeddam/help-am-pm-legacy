@@ -25,9 +25,15 @@ jobs:
         working-directory: help-am-pm-mothership-master/helpampm-api
         run: mvn clean compile -DskipTests=true
 
-      - name: Launch services with docker-compose
+      - name: Setup Docker
+        run: |
+          # Docker is pre-installed on ubuntu-latest
+          docker --version
+          docker compose version
+
+      - name: Launch services with docker compose
         working-directory: help-am-pm-mothership-master/helpampm-api
-        run: docker-compose up -d
+        run: docker compose up -d
 
       - name: Wait for services to be ready
         run: sleep 30

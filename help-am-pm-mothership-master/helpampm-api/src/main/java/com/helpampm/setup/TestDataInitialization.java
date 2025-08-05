@@ -27,10 +27,8 @@ import java.util.UUID;
 /**
  * @author kuldeep
  * 
- * COMMENTED OUT DUE TO COMPILATION ERRORS - This is just test data initialization
- * and not required for the main application to function.
+ * Test data initialization for development/testing purposes
  */
-/*
 @Configuration
 @Slf4j
 public class TestDataInitialization {
@@ -79,15 +77,15 @@ public class TestDataInitialization {
         for (int i = 1; i <= 5; i++) {
             Provider provider = new Provider();
             provider.setProviderUniqueId("PROVIDER_" + i);
-            provider.setCompanyName("Test Provider " + i);
+            provider.setName("Test Provider " + i); // Using setName instead of setCompanyName
             provider.setIsActive(true);
             provider.setEmail("provider" + i + "@test.com");
             provider.setPhone("+123456789" + i);
             provider.setCreatedAt(LocalDateTime.now());
             provider.setLastUpdatedAt(LocalDateTime.now());
-            provider.setAverageRating(4.5);
-            provider.setTotalRatings(10L);
-            provider.setTotalEarnings(new BigDecimal("5000.00"));
+            provider.setCustomerAverageRating(4.5); // Using correct field name
+            provider.setTotalCustomerRatings(10L); // Using correct field name
+            // Note: No totalEarnings field in Provider entity, removing that line
             providerRepository.save(provider);
         }
         log.info("Test providers data loaded...");
@@ -123,4 +121,3 @@ public class TestDataInitialization {
     }
 
 }
-*/
