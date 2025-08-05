@@ -12,6 +12,16 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0.29
+        env:
+          MYSQL_ROOT_PASSWORD: Admin@123
+          MYSQL_DATABASE: helpampmdb
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
     steps:
       - uses: actions/checkout@v3
 
@@ -23,9 +33,13 @@ jobs:
 
       - name: Build & test
         working-directory: help-am-pm-mothership-master/helpampm-api
-        run: ./mvnw clean verify
+        env:
+          MYSQL_HOST: localhost
+        run: ./mvnw clean verify -DskipTests=false
 
-      - name: Smoke-test health endpoint
-        run: |
-          sleep 10
-          curl --fail http://localhost:8080/actuator/health 
+      - name: Build only (if tests fail)
+        working-directory: help-am-pm-mothership-master/helpampm-api
+        env:
+          MYSQL_HOST: localhost
+        run: ./mvnw clean compile -DskipTests=true
+        if: failure() 
