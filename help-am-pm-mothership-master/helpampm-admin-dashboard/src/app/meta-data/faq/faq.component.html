@@ -1,0 +1,198 @@
+<section class="content">
+    <div class="container-fluid">
+      <!-- Basic Examples -->
+      <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="ngxTableHeader">
+                    <ul class="header-buttons-left ms-0 mb-0">
+                      <li class="dropdown">
+                        <h2>
+                          <strong>Faq</strong>
+                        </h2>
+                      </li>
+                      <li class="dropdown m-l-20">
+                        <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                        <input (keyup)='filterDatatable($event)' aria-label="Search box"
+                          class="browser-default search-field" placeholder="Search" type="text">
+                      </li>
+                    </ul>
+                    <ul class="header-buttons">
+                      <li>
+                        <button (click)='editFaq(null , editRecord, false)' color="primary" mat-mini-fab
+                          style="background-color: orange">
+                          <mat-icon class="col-white">add</mat-icon>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- <ngx-datatable #table [columnMode]="'force'" [footerHeight]="50" [headerHeight]="50" [limit]="10"
+                    [rowHeight]="'60'" [rows]="data" [sortType]="'multi'" class="material">
+                    <ngx-datatable-column [width]="150" name="#ID">
+                      <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                        <div class="col-sm-3">
+                          {{row.id}}
+                        </div>
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column [width]="150" name="Question">
+                      <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                        <div class="col-sm-3">
+                          {{row.question}}
+                        </div>
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column [width]="150" name="Answer">
+                      <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                        <div class="col-sm-3">
+                          {{row.answer}}
+                        </div>
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column [width]="150" name="Lang Code">
+                      <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                        <div class="col-sm-3">
+                          <mat-slide-toggle name="isActive" ngDefaultControl [(ngModel)]="row.isActive" [color]="'success'"
+                            (change)="changeStatus($event,row)">
+                          </mat-slide-toggle>
+                        </div>
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column [width]="120" name="Delete" sortable="false">
+                      <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                        <span>
+                          <button (click)='openDeleteFaq(deleteRecord,row)' class="btn tblActnBtn h-auto">
+                            <i class="material-icons">delete</i>
+                          </button>
+                        </span>
+                      </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column [width]="120" name="Edit" sortable="false">
+                      <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                        <span>
+                          <button (click)='editFaq(row, editRecord, true)' class="btn tblActnBtn h-auto">
+                            <i class="material-icons">edit</i>
+                          </button>
+                        </span>
+                      </ng-template>
+                    </ngx-datatable-column>
+                  </ngx-datatable> -->
+                  <br>
+                  <mat-accordion class="example-headers-align">
+                    <ng-container *ngFor="let row of data; index as i ">
+                      <mat-expansion-panel hideToggle>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            <strong>Q{{i+1}}. {{row.question}}</strong>
+                          </mat-panel-title>
+                          <mat-panel-description>
+                            <mat-icon matTooltip="Edit" color="primary" (click)='editFaq(row, editRecord, true)'>edit</mat-icon>
+                            <mat-icon matTooltip="Delete" color="warn" style="margin-left: 15px;" (click)='openDeleteFaq(deleteRecord,row)'>delete</mat-icon>
+                          </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <p><strong>Answer</strong> {{row.answer}}</p>
+                      </mat-expansion-panel>
+                    </ng-container>
+                  </mat-accordion>
+  
+                  <!-- Add-Edit Record Modal Window -->
+                  <ng-template #editRecord let-modal>
+                    <div class="modal-header editRowModal">
+                      <h4 class="modal-title" id="modal-basic-title">
+                        <div class="modal-header ">
+                          <div class="font-weight-bold p-t-10 font-17">
+                            {{isEdit ? 'Edit' : 'Add'}} Faq
+                          </div>
+                        </div>
+                      </h4>
+                      <button (click)="modal.dismiss('Cross click')" aria-label="Close" class="close" type="button">
+                        <span aria-hidden="true"><i class="material-icons">close</i></span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form (ngSubmit)="onEditSave(editForm)" [formGroup]="editForm">
+                        <div class="input-field col s12 d-none">
+                          <input class="form-control" formControlName="id" type="hidden">
+                        </div>
+                        <div class="row">
+                          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                              <mat-label>Question</mat-label>
+                              <input matInput formControlName="question">
+                              <mat-error>
+                                Question is required!
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                              <mat-label>Answer</mat-label>
+                              <textarea matInput formControlName="answer" placeholder="Answer"></textarea>
+                              <mat-error *ngIf="editForm.get('answer').hasError('required')">
+                                Answer is required
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                            <mat-form-field appearance="outline" class="example-full-width">
+                              <mat-label>Lang Code</mat-label>
+                              <input formControlName="langCode" matInput>
+                              <mat-error *ngIf="editForm.get('langCode').hasError('required')">
+                                Lang Code is required
+                              </mat-error>
+                            </mat-form-field>
+                            <!-- <mat-hint style="font-size: 10px;">Name will be auto-generated based on the description
+                            </mat-hint> -->
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <div class="button-demo">
+                            <button color="primary" mat-raised-button type="submit" [disabled]="!editForm.valid">Save
+                            </button>
+                            <button (click)="modal.close()" mat-button type="button">Cancel
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </ng-template>
+                  <!--Delete Modal-->
+                    <ng-template #deleteRecord let-modal>
+                      <div class="modal-header editRowModal">
+                        <h4 class="modal-title" id="modal-basic-title">
+                          <div class="modal-header ">
+                    
+                            <div class="font-weight-bold p-t-10 font-17">
+                              Delete Faq
+                            </div>
+                          </div>
+                        </h4>
+                        <button (click)="modal.close()" aria-label="Close" class="close" type="button">
+                          <span aria-hidden="true"><i class="material-icons">close</i></span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <h4>Are You Sure you want to delete Faq?</h4>
+                        <div class="modal-footer">
+                          <div class="button-demo">
+                            <button color="primary" mat-raised-button type="submit" (click)="deleteFaq()">Yes
+                            </button>
+                            <button (click)="modal.close()" mat-button type="button">No
+                            </button>
+                          </div>
+                        </div>
+                    
+                      </div>
+                    </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

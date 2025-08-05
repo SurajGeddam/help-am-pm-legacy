@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "67052281617",
+    "project_id": "help-ampm",
+    "storage_bucket": "help-ampm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67052281617:android:19407e4a71eaa51af436b0",
+        "android_client_info": {
+          "package_name": "com.helpampm.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "67052281617-cbb9divauscou4gdt6eusugma7mhhrn5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh_-dVhQLT9LXNOHCw9QeAFeF__4ORJkA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "67052281617-cbb9divauscou4gdt6eusugma7mhhrn5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

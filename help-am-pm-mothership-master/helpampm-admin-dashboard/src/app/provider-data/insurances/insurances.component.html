@@ -1,0 +1,268 @@
+<section class="content">
+    <div class="container-fluid">
+        <!-- Basic Examples -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="ngxTableHeader">
+                                    <ul class="header-buttons-left ms-0 mb-0">
+                                        <li class="dropdown">
+                                            <h2>
+                                                <strong>Insurances</strong>
+                                            </h2>
+                                        </li>
+
+                                    </ul>
+                                    <ul class="header-buttons ">
+                                        <li>
+                                            <button (click)='addInsurances(addRecord)' color="primary" mat-mini-fab
+                                                style="background-color: orange">
+                                                <mat-icon class="col-white">add</mat-icon>
+                                            </button>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <ngx-datatable #table [columnMode]="'force'" [footerHeight]="50" [headerHeight]="50"
+                                    [limit]="10" [rowHeight]="'60'" [rows]="insurances" [sortType]="'multi'"
+                                    class="material">
+
+
+                                    <ngx-datatable-column [width]="130" name="Insurer Name">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
+                                            ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.insurerName}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column [width]="130" name="Policy Type">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
+                                            ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.policyType.name}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+
+                                    <ngx-datatable-column [width]="130" name="Policy Number">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
+                                            ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.policyNumber}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column [width]="130" name="Provider Unique Id">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
+                                            ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.providerUniqueId}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column [width]="130" name="Policy Holder Name ">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
+                                            ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.policyHolderName}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column [width]="130" name="Policy Start Date">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
+                                            ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.policyStartDate}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column [width]="130" name="Policy Expiry Date">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
+                                            ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.policyExpiryDate}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column [width]="130" name="Edit">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
+                                            ngx-datatable-cell-template>
+                                            <span>
+                                               <button (click)='showInsurancePopup(row,addRecord)'
+                                                    class="btn tblActnBtn h-auto">
+                                                    <i class="material-icons">mode_edit</i>
+                                                </button>
+                                            </span>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                </ngx-datatable>
+
+                                
+                                    <ng-template #addRecord let-modal>
+                                        <div class="modal-header editRowModal">
+                                            <h4 class="modal-title" id="modal-basic-title">
+                                                <div class="modal-header ">
+                                                    <div class="font-weight-bold p-t-10 font-17">
+                                                        {{isEdit ? 'Edit' : 'Add'}}   Insurance
+                                                    </div>
+                                                </div>
+                                            </h4>
+                                            <button (click)="modal.dismiss('Cross click')" aria-label="Close"
+                                                class="close" type="button">
+                                                <span aria-hidden="true"><i class="material-icons">close</i></span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form (ngSubmit)="saveOrUpdateInsurance(addEditForm,isEdit)" [formGroup]="addEditForm">
+                                                <div class="input-field col s12 d-none">
+                                                    <input class="form-control" formControlName="id" type="hidden">
+                                                </div>
+
+
+                                                <div class="row">
+
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                                                        <mat-form-field appearance="outline" class="example-full-width">
+                                                            <mat-label>Insurer Name</mat-label>
+                                                            <input formControlName="insurerName" matInput>
+                                                            <mat-error
+                                                                *ngIf="addEditForm.get('insurerName').hasError('required')">
+                                                                InsurerName is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+                                                        <!-- <mat-hint style="font-size: 10px;">Name will be auto-generated based on the description
+                                                        </mat-hint> -->
+                                                    </div>
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                                                        <mat-form-field appearance="outline" class="example-full-width">
+                                                            <mat-label>Provider Unique Id</mat-label>
+                                                            <input readonly formControlName="providerUniqueId" matInput>
+                                                            <mat-error
+                                                                *ngIf="addEditForm.get('providerUniqueId').hasError('required')">
+                                                                ProviderUniqueId is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+                                                        <!-- <mat-hint style="font-size: 10px;">Name will be auto-generated based on the description
+                                                        </mat-hint> -->
+                                                    </div>
+
+                                                   
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                                                        <mat-form-field appearance="outline" class="example-full-width">
+                                                            <mat-label>Policy Number</mat-label>
+                                                            <input formControlName="policyNumber" matInput>
+                                                            <mat-error
+                                                                *ngIf="addEditForm.get('policyNumber').hasError('required')">
+                                                                PolicyNumber is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+                                                        <!-- <mat-hint style="font-size: 10px;">Name will be auto-generated based on the description
+                                                        </mat-hint> -->
+                                                    </div>
+                                                    
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                                                        <mat-form-field appearance="outline" class="example-full-width">
+                                                            <mat-label>Policy Holder Name</mat-label>
+                                                            <input formControlName="policyHolderName" matInput>
+                                                            <mat-error
+                                                                *ngIf="addEditForm.get('policyHolderName').hasError('required')">
+                                                                policyHolderName is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+                                                        <!-- <mat-hint style="font-size: 10px;">Name will be auto-generated based on the description
+                                                        </mat-hint> -->
+                                                    </div>
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                                                        <mat-form-field appearance="outline" class="example-full-width">
+                                                            <mat-label>Policy Start Date</mat-label>
+                                                            <input matInput formControlName="policyStartDate"
+                                                                [matDatepicker]="policyStartDatePicker"
+                                                                (click)="policyStartDatePicker.open()">
+
+                                                            <mat-datepicker-toggle matSuffix
+                                                                [for]="policyStartDatePicker">
+
+                                                            </mat-datepicker-toggle>
+
+                                                            <mat-datepicker #policyStartDatePicker>
+
+                                                            </mat-datepicker>
+                                                          
+                                                            <mat-error
+                                                                *ngIf="addEditForm.get('policyStartDate').hasError('required')">
+                                                                PolicyStartDate is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+                                                        <!-- <mat-hint style="font-size: 10px;">Name will be auto-generated based on the description
+                                                        </mat-hint> -->
+                                                    </div>
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                                                        <mat-form-field appearance="outline" class="example-full-width">
+                                                            <mat-label>Policy Expiry Date</mat-label>
+                                                            <input matInput formControlName="policyExpiryDate"
+                                                                [matDatepicker]="policyExpiryDatePicker"[min]="minDate"
+                                                                (click)="policyExpiryDatePicker.open()">
+
+                                                            <mat-datepicker-toggle matSuffix
+                                                                [for]="policyExpiryDatePicker">
+
+                                                            </mat-datepicker-toggle>
+
+                                                            <mat-datepicker #policyExpiryDatePicker>
+
+                                                            </mat-datepicker>
+                                                            
+                                                            <mat-error
+                                                                *ngIf="addEditForm.get('policyExpiryDate').hasError('required')">
+                                                                PolicyExpiryDate is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+                                                        <!-- <mat-hint style="font-size: 10px;">Name will be auto-generated based on the description
+                                                        </mat-hint> -->
+                                                    </div>
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2"
+                                                    formGroupName="policyType">
+                                                    <mat-form-field appearance="outline" class="example-full-width">
+                                                        <mat-label>Policy Type</mat-label>
+                                                        <mat-select formControlName="id">
+                                                            <mat-option *ngFor="let policyType of policyTypes"
+                                                                [value]="policyType.id">
+                                                                {{policyType?.name}}
+                                                            </mat-option>
+                                                        </mat-select>
+
+                                                        <mat-error
+                                                            *ngIf="addEditForm.controls.policyType.get('id').hasError('required')">
+                                                            PolicyType is required
+                                                        </mat-error>
+                                                    </mat-form-field>
+                                                    <!-- <mat-hint style="font-size: 10px;">Name will be auto-generated based on the description
+                                                    </mat-hint> -->
+                                                </div>
+                                                    <div class="modal-footer">
+                                                        <div class="button-demo">
+                                                            <button color="primary" mat-raised-button type="submit"
+                                                                [disabled]="!addEditForm.valid">Save
+                                                            </button>
+                                                            <button (click)="modal.close()" mat-button
+                                                                type="button">Cancel
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </ng-template>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

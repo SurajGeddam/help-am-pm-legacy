@@ -1,0 +1,182 @@
+<section class="content">
+    <div class="container-fluid">
+        <!---------------------------------------- COMMISSION ----------------------------------------------------->
+        <div class="row clearfix">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="ngxTableHeader">
+                                    <ul class="header-buttons-left ms-0 mb-0">
+                                        <li class="dropdown">
+                                            <h2>
+                                                <strong>HELP Commission Details</strong>
+                                            </h2>
+                                        </li>
+                                        <li class="dropdown m-l-20">
+                                            <label for="commission-search-input"><i
+                                                    class="material-icons search-icon">search</i></label>
+                                            <input id="commission-search-input" (keyup)='filterDatatable($event)'
+                                                aria-label="Search box" class="browser-default search-field"
+                                                placeholder="Search" type="text">
+                                        </li>
+                                    </ul>
+                                </div>
+                                <ngx-datatable #table [columnMode]="'force'" [footerHeight]="50" [headerHeight]="50"
+                                    [limit]="10" [rowHeight]="'60'" [rows]="commissionData" [sortType]="'multi'"
+                                    class="material">
+
+                                    <ngx-datatable-column [width]="150" name="Commission Type">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
+                                            ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.county}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column [width]="150" name="Commission Value">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
+                                            ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.rate}} %
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <!--                                    <ngx-datatable-column [width]="150" name="Is Active">-->
+                                    <!--                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"-->
+                                    <!--                                                     ngx-datatable-cell-template>-->
+                                    <!--                                            <div class="col-sm-3">-->
+                                    <!--                                                {{row.isActive}}-->
+                                    <!--                                            </div>-->
+                                    <!--                                        </ng-template>-->
+                                    <!--                                    </ngx-datatable-column>-->
+                                    <ngx-datatable-column name="Active" [width]="80" [minWidth]="80">
+                                        <ng-template let-row="row" ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                <mat-slide-toggle name="isActive" ngDefaultControl
+                                                    [(ngModel)]="row.isActive" [color]="'success'"
+                                                    (change)="changeStatus($event,row)">
+                                                </mat-slide-toggle>
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column [width]="150" name="Stripe Fixed Amount">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
+                                            ngx-datatable-cell-template>
+                                            <div class="col-sm-3"> 
+                                                {{row.stripeFixedAmount}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column [width]="150" name="Stripe Percent Amount">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
+                                            ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.stripePercentAmount }}
+                                            </div>
+
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column [width]="120" name="Actions" sortable="false">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
+                                            ngx-datatable-cell-template>
+                                            <span>
+                                                <button (click)='editCommissionData(row, editRecordCommission, true)'
+                                                    class="btn tblActnBtn h-auto">
+                                                    <i class="material-icons">mode_edit</i>
+                                                </button>
+                                            </span>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                </ngx-datatable>
+
+                                <!-- Add-Edit Record Modal Window -->
+                                <ng-template #editRecordCommission let-modal>
+                                    <div class="modal-header editRowModal">
+                                        <h4 class="modal-title" id="modal-basic-title">
+                                            <div class="modal-header ">
+                                                <div class="font-weight-bold p-t-10 font-17">
+                                                    {{isEdit ? 'Edit' : 'Add'}} Commission Details
+                                                </div>
+                                            </div>
+                                        </h4>
+                                        <button (click)="modal.dismiss('Cross click')" aria-label="Close" class="close"
+                                            type="button">
+                                            <span aria-hidden="true"><i class="material-icons">close</i></span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form (ngSubmit)="onEditSave(commissionForm)" [formGroup]="commissionForm">
+                                            <div class="input-field col s12 d-none">
+                                                <input class="form-control" formControlName="id" type="hidden">
+                                            </div>
+                                            <div class="input-field col s12 d-none">
+                                                <input class="form-control" formControlName="isActive" type="hidden">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                                                    <mat-form-field appearance="outline" class="example-full-width">
+                                                        <mat-label>Commission Type</mat-label>
+                                                        <input matInput formControlName="county">
+                                                        <mat-error>
+                                                            Commission Type is required!
+                                                        </mat-error>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                                                    <mat-form-field appearance="outline" class="example-full-width">
+                                                        <mat-label>Commission Value</mat-label>
+                                                        <input formControlName="rate" matInput>
+                                                        <mat-error
+                                                            *ngIf="commissionForm.get('rate').hasError('required')">
+                                                            Commission Value is required
+                                                        </mat-error>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                                                    <mat-form-field appearance="outline" class="example-full-width">
+                                                        <mat-label>Stripe Fixed Amount</mat-label>
+                                                        <input disabled formControlName="stripeFixedAmount" matInput>
+                                                        <mat-error
+                                                            *ngIf="commissionForm.get('stripeFixedAmount').hasError('required')">
+                                                            Stripe Fixed Amount is required
+                                                        </mat-error>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                                                    <mat-form-field appearance="outline" class="example-full-width">
+                                                        <mat-label>Stripe Percent Amount</mat-label>
+                                                        <input disabled formControlName="stripePercentAmount" matInput>
+                                                        <mat-error
+                                                            *ngIf="commissionForm.get('stripePercentAmount').hasError('required')">
+                                                            Stripe Percent Amount is required
+                                                        </mat-error>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div class="button-demo">
+                                                        <button color="primary" mat-raised-button type="submit"
+                                                            [disabled]="!commissionForm.valid">Save
+                                                        </button>
+                                                        <button (click)="modal.close()" mat-button type="button">Cancel
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </ng-template>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!---------------------------------------- FAQ ----------------------------------------------------->
+
+        </div>
+    </div>
+</section>

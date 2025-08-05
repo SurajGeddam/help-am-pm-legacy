@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <style type="text/css">
+    @media screen {
+      @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+      }
+
+      @font-face {
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+      }
+
+      @font-face {
+        font-family: 'Lato';
+        font-style: italic;
+        font-weight: 400;
+        src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v11/RYyZNoeFgb0l7W3Vu1aSWOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+      }
+
+      @font-face {
+        font-family: 'Lato';
+        font-style: italic;
+        font-weight: 700;
+        src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v11/HkF_qI1x_noxlxhrhMQYELO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+      }
+    }
+
+    /* CLIENT-SPECIFIC STYLES */
+    body,
+    table,
+    td,
+    a {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table,
+    td {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+
+    img {
+      -ms-interpolation-mode: bicubic;
+    }
+
+    /* RESET STYLES */
+    img {
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+    }
+
+    table {
+      border-collapse: collapse !important;
+    }
+
+    body {
+      height: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+    }
+
+    /* iOS BLUE LINKS */
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+
+    /* MOBILE STYLES */
+    @media screen and (max-width:600px) {
+      h1 {
+        font-size: 32px !important;
+        line-height: 32px !important;
+      }
+    }
+
+    /* ANDROID CENTER FIX */
+    div[style*="margin: 16px 0;"] {
+      margin: 0 !important;
+    }
+
+    .column {
+      float: left;
+      width: 25.00%;
+      padding: 0px;
+    }
+
+    /* Clear floats after image containers */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+
+    </style>
+</head>
+
+<body style="background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;">
+<!-- HIDDEN PREHEADER TEXT -->
+<div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Lato', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+</div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <!-- LOGO -->
+    <tr>
+        <td bgcolor="#FDBB2E" align="center">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                <tr>
+                    <td align="center" valign="top" style="padding: 40px 10px 40px 10px;"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#FDBB2E" align="center" style="padding: 0px 10px 0px 10px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                <tr>
+                    <td bgcolor="#ffffff" align="center" valign="top"
+                        style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
+                        <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Welcome <span
+                                th:text="${name}">!</span> ! </h1>
+                    <p style="font-size: 20px;" >To</p>
+                        <div class="row">
+                            <div class="column">
+                                <img src="https://s3.amazonaws.com/www.apihelpampm.com/assets/images/hvac.png"
+                                     alt="hvac" width="102" height="90">
+                                <img src="https://s3.amazonaws.com/www.apihelpampm.com/assets/images/H.png"
+                                     alt="h" width="70" height="70">
+                            </div>
+                            <div class="column">
+                                <img src="https://s3.amazonaws.com/www.apihelpampm.com/assets/images/electrical.png"
+                                     alt="electrical" width="100" height="100">
+                                <img src="https://s3.amazonaws.com/www.apihelpampm.com/assets/images/E.png"
+                                     alt="E" width="70" height="70">
+                            </div>
+                            <div class="column">
+                                <img src="https://s3.amazonaws.com/www.apihelpampm.com/assets/images/locksmith.png"
+                                     alt="locksmith" width="105" height="103">
+                                <img src="https://s3.amazonaws.com/www.apihelpampm.com/assets/images/L.png"
+                                     alt="L" width="75" height="75">
+                            </div>
+                            <div class="column">
+                                <img src="https://s3.amazonaws.com/www.apihelpampm.com/assets/images/plumbing.png"
+                                     alt="plumbing" width="105" height="103">
+                                <img src="https://s3.amazonaws.com/www.apihelpampm.com/assets/images/P.png"
+                                     alt="P" width="75" height="75">
+                            </div>
+                        </div>
+
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                <tr>
+                    <td bgcolor="#ffffff" align="left"
+                        style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                        <p style="margin: 0;">We would like to extend a warm welcome to you as our newest customer at HELP</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#ffffff" align="left">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td bgcolor="#ffffff" >
+                                    <table border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td bgcolor="#ffffff" align="left"
+                                                style="padding: 0px 30px 20px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                                                <p style="margin: 0;">We are thrilled that you have chosen us for your services needs, and we are committed to providing you with the highest quality service and support.
+                                                </p>
+                                              <br/>
+                                                <p style="margin: 0;"> At HELP, we pride ourselves on delivering exceptional services that exceed our customers' expectations. We believe that every customer is unique, and we work hard to understand your specific needs and requirements. We are confident that our team of experts will help you achieve your goals and provide you with a seamless experience.
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr> <!-- COPY -->
+                <tr>
+                    <td bgcolor="#ffffff" align="left"
+                        style="padding: 0px 30px 0px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                        <p style="margin: 0;">As a new customer, we want to make sure that you have all the information you need to get started with us. Our website has a wealth of resources, including product information, FAQs, and customer support contacts.
+                        </p>
+                      <br/>
+                    </td>
+                </tr> <!-- COPY -->
+
+                <tr>
+                    <td bgcolor="#ffffff" align="left"
+                        style="padding: 0px 30px 20px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                        <p style="margin: 0;">If you have any questions or concerns, please don't hesitate to reach out to our dedicated support team, who are available 24/7 to assist you.</p>
+                      <br/>
+                        <p style="margin: 0;"> Thank you again for choosing our service.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td bgcolor="#ffffff" align="left"
+                        style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                        <p style="margin: 0;">Best regards,<br>HELP Team</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#f4f4f4" align="center" style="padding: 30px 10px 0px 10px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                <tr>
+                    <td bgcolor="#FFECD1" align="center"
+                        style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                        <h2 style="font-size: 20px; font-weight: 400; color: #111111; margin: 0;">Need more help?</h2>
+                        <p style="margin: 0;"><a href="https://helpampm.com/" target="_blank" style="color: #FDBB2E;">We&rsquo;re
+                            here to help you out</a></p>
+                            <a th:href="${termAndConditionPageUrl}" style="color: #FDBB2E;">Terms and Conditions</a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+</table>
+</body>
+
+</html>

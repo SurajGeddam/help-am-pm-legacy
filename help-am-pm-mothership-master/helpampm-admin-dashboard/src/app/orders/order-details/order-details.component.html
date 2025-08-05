@@ -1,0 +1,66 @@
+<div mat-dialog-content>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="body">
+                <h4 style="text-align: center;padding-bottom: 0.5%;">Order Details</h4>
+                
+                <table class="table table-striped table-bordered">
+                
+             <tr>
+                    <td>Service Descritpion</td>
+                    <td>{{orderDetail.serviceDescription}}</td>
+                </tr>
+                <tr>
+                    <td>Time Slot</td>
+                    <td>Name: {{orderDetail.timeslot.name}}, Start Time: {{orderDetail.timeslot.startTime}}, End Time: {{orderDetail.timeslot.endTime}}</td>
+                </tr>
+                <tr>
+                    <td>Service Charge</td>
+                    <td>{{orderDetail.serviceCharge}}</td>
+                </tr>
+                <tr>
+                    <td>Tax Amount</td>
+                    <td>{{orderDetail.taxAmount}}</td>
+                </tr>
+                <tr>
+                    <td>Total Bill</td>
+                    <td>{{orderDetail.totalBill}}</td>
+                </tr>
+                <tr>
+                    <td>Custome Name</td>
+                    <td>{{orderDetail.customerName}}</td>
+                </tr>
+                <tr>
+                    <td>Provider Name</td>
+                    <td>{{orderDetail.providerName}}</td>
+                </tr>
+                <tr>
+                    <td>CreatedAt</td>
+                    <td>{{orderDetail.createdAt}}</td>
+                </tr>
+                <tr>
+                    <td>Customer Phone</td>
+                    <td>{{orderDetail.customerPhone}}</td>
+                </tr>
+                <tr>
+                    <td>Quote Address</td>
+                    <td>  {{orderDetail.quoteAddress.house?'House No '+ orderDetail.quoteAddress.house + ',':''}}  {{orderDetail.quoteAddress.building? orderDetail.quoteAddress.building+ ',':''}}  {{orderDetail.quoteAddress.street? orderDetail.quoteAddress.street+',':''}} {{orderDetail.quoteAddress.district? orderDetail.quoteAddress.district+',':''}}  {{orderDetail.quoteAddress.county? orderDetail.quoteAddress.county+',':''}}  {{orderDetail.quoteAddress.country? orderDetail.quoteAddress.country+',':''}}  {{orderDetail.quoteAddress.zipcode}}</td>
+                </tr>
+                <tr *ngIf="orderDetail.providerAddress">
+                    <td>Provider Address</td>
+                    <td>{{orderDetail.providerAddress.house? orderDetail.providerAddress.house+',':''}} {{orderDetail.providerAddress.building? orderDetail.providerAddress.building+',':''}} {{orderDetail.providerAddress.street? orderDetail.providerAddress.street+',':''}} {{orderDetail.providerAddress.district? orderDetail.providerAddress.district+',':''}} {{orderDetail.providerAddress.county? orderDetail.providerAddress.county+',':''}} {{orderDetail.providerAddress.country? orderDetail.providerAddress.country+',':''}} {{orderDetail.providerAddress.zipcode}}</td>
+                </tr>
+                <tr>
+                    <td>Scheduled</td>
+                    <td>{{orderDetail.scheduled}}</td>
+                </tr>
+                <tr>
+                    <img width="300px" height="200px" *ngIf="orderDetail.image"src="data:image/png;base64,{{orderDetail.image}}"/>
+                </tr>
+           
+            </table>
+
+
+        </div>
+    </div>
+</div>

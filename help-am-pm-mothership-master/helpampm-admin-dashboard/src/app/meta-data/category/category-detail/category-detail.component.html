@@ -1,0 +1,223 @@
+<section class="content">
+    <div class="container-fluid">
+      <!-- Your content goes here  -->
+      <div class="row clearfix">
+        <div class="card">
+          <div class="project_widget">
+            <div class="header">
+              <h2><strong>About</strong> Category</h2>
+            </div>
+            <div class="body">
+              <div class="row">
+                <form (ngSubmit)="onEditSave(editForm)" [formGroup]="editForm">
+                  <div class="input-field col s12 d-none">
+                    <input class="form-control" formControlName="id" type="hidden">
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Category</mat-label>
+                        <input matInput formControlName="name">
+                        <mat-error>
+                          Category is required!
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Category Description</mat-label>
+                        <input formControlName="description" matInput>
+                        <mat-error *ngIf="editForm.get('description').hasError('required')">
+                          Sorce Descripton is required
+                        </mat-error>
+                        <mat-error *ngIf="editForm.get('description').hasError('minlength')">
+                          Minimum length should be 3
+                        </mat-error>
+                      </mat-form-field>
+                      </div>
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+
+                        Residential Service
+                        <mat-slide-toggle formControlName="residentialService" ngDefaultControl [color]="'success'">
+                        </mat-slide-toggle>
+                        
+                        CommercialService
+                        <mat-slide-toggle formControlName="commercialService" ngDefaultControl [color]="'success'">
+                        </mat-slide-toggle>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="button-demo">
+                      <button color="primary" mat-raised-button type="submit" [disabled]="!editForm.valid">Save
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Time Slot -->
+        <div class="card">
+          <div class="header">
+            <h2>
+              <strong>Time</strong> Slots
+              <!-- <button mat-raised-button color="primary" style="float: right;" (click)="openAddEditModal(editRecord, null, false)">
+                Add Slot
+              </button> -->
+            </h2>
+          </div>
+          <div class="body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>StartTime</th>
+                    <th>EndTime</th>
+                    <th>Residential Price</th>
+                    <th>Commercial Price</th>
+                    <th>Active</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="category?.timeslots.length > 0">
+                  <tr *ngFor="let slot of category?.timeslots">
+                    <td>{{slot?.name}}</td>
+                    <td>{{slot?.startTime}}</td>
+                    <td>{{slot?.endTime}}</td>
+                    <td>{{slot?.pricing?.residentialPrice}}</td>
+                    <td>{{slot?.pricing?.commercialPrice}}</td>
+                    <td>
+                        <mat-icon [ngStyle]="{'color':getIconColor(slot?.isActive)}">{{getIcon(slot?.isActive)}}</mat-icon>
+                    </td>
+                    <td>
+                      <mat-icon color="primary" (click)="openAddEditModal(editRecord, slot, true)">edit</mat-icon>
+                      <!-- <mat-icon color="warn" style="margin-left: 10px">delete</mat-icon> -->
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="row no-data" *ngIf="category?.timeslots.length == 0">
+                No TimeSlot 
+              </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Add-Edit Record Modal Window -->
+      <ng-template #editRecord let-modal>
+      
+      
+        <div class="modal-header editRowModal">
+          <h4 class="modal-title" id="modal-basic-title">
+            <div class="modal-header ">
+              <div class="font-weight-bold p-t-10 font-17">
+                {{isEdit ? 'Edit' : 'Add'}} TimeSlot
+              </div>
+            </div>
+          </h4>
+          <button (click)="modal.dismiss('Cross click')" aria-label="Close" class="close" type="button">
+            <span aria-hidden="true"><i class="material-icons">close</i></span>
+          </button>
+        </div>
+        
+        
+        
+        <div class="modal-body">
+          <form (ngSubmit)="onTimeSlotSave(timeSlotForm)" [formGroup]="timeSlotForm">
+            <div class="input-field col s12 d-none">
+              <input class="form-control" formControlName="id" type="hidden">
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2">
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <mat-label>Name</mat-label>
+                  <input matInput formControlName="name">
+                  <mat-error>
+                    Name is required!
+                  </mat-error>                  
+                </mat-form-field>
+              </div>
+              
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2">
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <mat-label>Start Time</mat-label>
+                  <input readonly placeholder="HH:MM" matInput formControlName="startTime" mask="00:00">
+                  <mat-error>
+                    Start Time is required!
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2">
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <mat-label>End Time</mat-label>
+                  <input readonly placeholder="HH:MM" matInput formControlName="endTime" mask="00:00">
+                  <mat-error>
+                    End Time is required!
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <h5>Pricing</h5>
+              <div formGroupName="pricing" class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>Type</mat-label>
+                    <mat-select  [disabled]="true"  formControlName="type">
+                      <mat-option  [value]="option.id" *ngFor="let option of pricingType">{{ option.name }}</mat-option>
+                    </mat-select>
+                    <mat-error>
+                      Pricing Type is required!
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>Currency</mat-label>
+                    <mat-select [disabled]="true" formControlName="currency">
+                      <mat-option [value]="option.id" *ngFor="let option of currency">{{ option.name }}</mat-option>
+                    </mat-select>
+                    <mat-error>
+                      Currency is required!
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>Residential Price</mat-label>
+                    <input type="number" matInput formControlName="residentialPrice">
+                    <mat-error>
+                      Residential Price is required!
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>Commercial Price</mat-label>
+                    <input type="number" matInput formControlName="commercialPrice">
+                    <mat-error>
+                      Commercial Price is required!
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="button-demo">
+                <button color="primary" mat-raised-button type="submit" [disabled]="!editForm.valid">Save
+                </button>
+                <button (click)="modal.close()" mat-button type="button">Cancel
+                </button>
+              </div>
+            </div>
+          </form>
+
+
+          
+        </div>
+      </ng-template>
+    </div>
+  </section>
+                 

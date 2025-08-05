@@ -1,0 +1,289 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <div class="banner-card total-card">
+          <div class="card-block">
+            <div class="text-center p-t-20">
+              <h3>Total Customer </h3>
+              <p class="m-0"> {{customerCount?.active + customerCount?.inActive}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-sm-6">
+              <i class="fa fa-circle col-green float-start" style="margin-left: 23px;">
+                Active: {{customerCount?.active}}</i>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+              <i class="fa fa-circle col-red float-end" style="margin-right: 23px;">
+                Inactive: {{customerCount?.inActive}}</i>
+            </div>
+          </div>
+          <canvas baseChart [chartType]="'line'" [datasets]="bannerChartDataCustomers" [labels]="bannerChartLabelCustomers"
+            [options]="bannerChartOptionsCustomers" class="card-echart">
+          </canvas>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="banner-card total-card">
+          <div class="card-block">
+            <div class="text-center p-t-20">
+              <h3>Total Providers</h3>
+              <p class="m-0"> {{providerCount?.active + providerCount?.inActive}}
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-sm-6">
+              <i class="fa fa-circle col-green float-start" style="margin-left: 23px;">
+                Active: {{providerCount?.active}}</i>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+              <i class="fa fa-circle col-red float-end" style="margin-right: 23px;">
+                Inactive: {{providerCount?.inActive}}</i>
+            </div>
+          </div>
+          <canvas baseChart [chartType]="'line'" [datasets]="bannerChartDataProviders"
+            [labels]="bannerChartLabelsProviders" [options]="bannerChartOptionsProviders" [legend]="true"
+            class="card-echart">
+          </canvas>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="banner-card total-card">
+          <div class="card-block">
+            <div class="text-center p-t-20">
+              <h3>Total Orders</h3>
+              <p class="m-0"> {{quotesCount?.RECEIVED}}
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-sm-6">
+              <i class="fa fa-circle col-green float-start" style="margin-left: 23px;">
+                Completed: {{quotesCount?.COMPLETED}}</i>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+              <i class="fa fa-circle col-red float-end" style="margin-right: 23px;">
+                Pending: {{quotesCount?.PENDING}}</i>
+            </div>
+          </div>
+          <canvas baseChart [chartType]="'line'" [datasets]="bannerChartDataOrders" [labels]="bannerChartLabelsOrders"
+            [options]="bannerChartOrders" [legend]="true" class="card-echart">
+          </canvas>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="banner-card total-card">
+          <div class="card-block">
+            <div class="text-center p-t-20">
+              <h3>Total Revenue</h3>
+              <p class="m-0">
+                {{earnings?.totalEarnings | currency : 'USD'}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-sm-6">
+              <i class="fa fa-circle col-green float-start" style="margin-left: 23px;">
+                Today: {{todaysEarnings?.totalEarnings | currency : 'USD'}}</i>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+              <i class="fa fa-circle col-red float-end" style="margin-right: 23px;">
+                Month: {{thisWeeksEarnings?.totalEarnings | currency : 'USD'}}</i>
+            </div>
+          </div>
+          <canvas baseChart [chartType]="'line'" [datasets]="bannerChartDataRevenue" [labels]="bannerChartLabelsRevenue"
+            [options]="bannerChartRevenue" [legend]="true" class="card-echart">
+          </canvas>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <!-- Bar chart with line -->
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2><strong>SALES</strong> Chart</h2>
+          </div>
+
+          <div class="body">
+            <div id="chart">
+              <apx-chart 
+                [series]="salesChartOptions?.series" 
+                [chart]="salesChartOptions?.chart"
+                [yaxis]="salesChartOptions?.yaxis" 
+                [xaxis]="salesChartOptions?.xaxis" 
+                [labels]="salesChartOptions?.labels"
+                [stroke]="salesChartOptions?.stroke" 
+                [plotOptions]="salesChartOptions?.plotOptions"
+                [markers]="salesChartOptions?.markers" 
+                [fill]="salesChartOptions?.fill"
+                [tooltip]="salesChartOptions?.tooltip">
+              </apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <div class="plain-card">
+          <div class="card-inner">
+            <h6 class="tx-primary m-b-10">Revenue Report</h6>
+            <div class="row">
+              <div class="col col-block">
+                <label class="font-14">Today</label>
+                <p>{{todaysEarnings?.totalEarnings | currency : 'USD'}}</p>
+              </div>
+              <div class="col col-block">
+                <label class="font-14">This Week</label>
+                <p>{{thisWeeksEarnings?.totalEarnings | currency : 'USD'}}</p>
+              </div>
+              <div class="col col-block">
+                <label class="font-14">This Month</label>
+                <p>{{thisMonthEarnings?.totalEarnings | currency : 'USD'}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="plain-card">
+          <div class="card-inner">
+            <h6 class="tx-primary m-b-10">Order Report</h6>
+            <div class="row">
+              <div class="col col-block">
+                <label class="font-14">Today</label>
+                <p>{{todaysQuotes?.count}}</p>
+              </div>
+              <div class="col col-block">
+                <label class="font-14">This Week</label>
+                <p>{{thisWeeksQuotes?.count}}</p>
+              </div>
+              <div class="col col-block">
+                <label class="font-14">This Month</label>
+                <p>{{thisMonthQuotes?.count}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="plain-card">
+          <div class="card-inner">
+            <h6 class="tx-primary m-b-10">New Customers</h6>
+            <div class="row">
+              <div class="col col-block">
+                <label class="font-14">Today</label>
+                <p>{{todaysCustomers?.count}}</p>
+              </div>
+              <div class="col col-block">
+                <label class="font-14">This Week</label>
+                <p>{{thisWeeksCustomers?.count}}</p>
+              </div>
+              <div class="col col-block">
+                <label class="font-14">This Month</label>
+                <p>{{thisMonthCustomers?.count}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <!-- Recent Orders Info -->
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-">
+        <div class="card">
+          <div class="header">
+            <h2>
+              <strong>Recent</strong> Orders
+            </h2>
+            <button mat-button [matMenuTriggerFor]="menu" class="header-dropdown">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="getlatestQuotes()">Refresh</button>
+            </mat-menu>
+          </div>
+          <div class="tableBody">
+            <div class="table-responsive">
+              <table class="table table-hover dashboard-task-infos">
+                <thead>
+                  <tr>
+                    <th>Order No.</th>
+                    <th>Date</th>
+                    <th>Customer Name</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Amount</th>
+                    <th>Provider</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let quote of quotesLatest">
+                    <td>
+                      {{quote.quoteUniqueId}}
+                    </td>
+                    <td>
+                      {{quote.createdAt | date : 'MMM dd yyyy HH:mm:ss'}}
+                    </td>
+                    <td>
+                      {{quote.customerName}}
+                    </td>
+                    <td>
+                      {{quote.categoryName}}
+                    </td>
+                    <td>
+                      <span [ngClass]="setStyle(quote.quoteStatus)"> {{quote.quoteStatus}}</span>
+                    </td>
+                    <td>
+                      {{quote.totalBill}}
+                    </td>
+                    <td>
+                      <div *ngIf="quote.providerName; else no_provider">
+                        {{quote.providerName}}
+                      </div>
+                      <ng-template #no_provider>
+                        N/A
+                      </ng-template>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- #END# Task Info -->
+    </div>
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="header">
+            <h2>
+              <strong>Review </strong>Comments
+            </h2>
+          </div>
+
+          <div class="body">
+            <div class="recent-comment" style="position: relative; max-height: 380px;" [perfectScrollbar]>
+              <div *ngFor="let review of reviews" class="notice-board">
+                <img class="notice-object" src="assets/images/user/user1.jpg" alt="">
+                <div class="col-8 notice-body ">
+                  <p>{{review.reviewComment}}</p>
+                  <small class="text-muted">{{review.givenBy}} ({{review.createdAt |dateAgo}})</small>
+                </div>
+                <div class="col-4">
+                  <button class="float-end" mat-icon-button style="color: rgb(255, 183, 0);"
+                    *ngFor="let _ of [].constructor(review.rating);index as i" matTooltipPosition="above">
+                    <mat-icon>
+                      {{showIcon(i,review.rating)}}
+                    </mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

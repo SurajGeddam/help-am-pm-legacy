@@ -1,0 +1,256 @@
+<section class="content">
+    <div class="container-fluid">
+        <!-- Your content goes here  -->
+        <div class="row clearfix">
+            <div class="col-lg-4 col-md-12">
+                <div class="card">
+                    <div class="m-b-20">
+                        <div class="contact-grid">
+                            <div class="profile-header bg-dark">
+                                <div class="user-name">{{user?.name}}</div>
+                                <div class="name-center">{{user?.username}}</div>
+                            </div>
+                            <img src="assets/images/user/usrbig1.jpg" class="user-img" alt="">
+                            <div *ngIf="isProvider()">
+                            <p>{{user.address?.house? user.address?.house+',':''}} {{user.address?.building?
+                                user.address?.building+',':''}} {{user.address?.street? user.address?.street+',':''}}
+                                {{user.address?.district? user.address?.district+',':''}} {{user.address?.county?
+                                user.address?.county+',':''}} {{user.address?.country? user.address?.country+',':''}}
+                                {{user.address?.zipcode}}</p>
+                            <div>
+                                <span class="phone">
+                                    <i class="material-icons">phone</i>{{user?.phone}}</span>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <h5>{{user?.licenses?.length}}</h5>
+                                    <small>Licences</small>
+                                </div>
+                                <div class="col-4">
+                                    <h5>{{user?.insurances?.length}}</h5>
+                                    <small>Insurances</small>
+                                </div>
+                                <div class="col-4">
+                                    <h5>{{user?.vehicles?.length}}</h5>
+                                    <small>Vehicles</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="card">
+                    <mat-tab-group mat-align-tabs="start">
+                        <mat-tab label="About">
+                            <div class="p-4">
+                                <p class="text-default">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry. Lorem Ipsum has
+                                    been the industry's standard dummy text ever since the 1500s, when an unknown
+                                    printer
+                                    took a galley of type and scrambled it to make a type specimen book. It has
+                                    survived
+                                    not only five centuries, but also the leap into electronic typesetting, remaining
+                                    essentially
+                                    unchanged.</p>
+                                <small class="text-muted">Email address: </small>
+                                <p>john@gmail.com</p>
+                                <hr>
+                                <small class="text-muted">Phone: </small>
+                                <p>+91 1234567890</p>
+                                <hr>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Skills">
+                            <ul class="list-unstyled p-4">
+                                <li>
+                                    <div>Photoshop</div>
+                                    <div class="progress skill-progress m-b-20">
+                                        <div class="progress-bar l-bg-green width-per-45" role="progressbar"
+                                            aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>Wordpress</div>
+                                    <div class="progress skill-progress m-b-20">
+                                        <div class="progress-bar l-bg-orange width-per-38" role="progressbar"
+                                            aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>HTML 5</div>
+                                    <div class="progress skill-progress m-b-20">
+                                        <div class="progress-bar l-bg-cyan width-per-39" role="progressbar"
+                                            aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>Angular</div>
+                                    <div class="progress skill-progress m-b-20">
+                                        <div class="progress-bar l-bg-purple width-per-70" role="progressbar"
+                                            aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div> -->
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div class="card">
+                <mat-tab-group>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <mat-icon class="example-tab-icon msr-2">face</mat-icon>
+                            About Me
+                        </ng-template>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="project_widget">
+                                <div class="header">
+                                    <h2><strong>About</strong></h2>
+                                </div>
+                                <div class="body" *ngIf="isProvider()">
+                                    <div class="row">
+                                        <div class="col-md-3 col-6 b-r">
+                                            <strong>Full Name</strong>
+                                            <br>
+                                            <p class="text-muted">{{user?.name}}</p>
+                                        </div>
+                                        <div class="col-md-3 col-6 b-r">
+                                            <strong>Mobile</strong>
+                                            <br>
+                                            <p class="text-muted">{{user?.mobile}}</p>
+                                        </div>
+                                        <div class="col-md-6 col-6 b-r">
+                                            <strong>Email</strong>
+                                            <br>
+                                            <p class="text-muted">{{user?.email}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3 col-6 b-r">
+                                            <strong>Alternate Phone</strong>
+                                            <br>
+                                            <p class="text-muted">{{user?.alternatePhone}}</p>
+                                        </div>
+
+                                        <div class="col-md-6 col-6 b-r">
+                                            <strong>CompanyUniqueId</strong>
+                                            <br>
+                                            <p class="text-muted">{{user?.companyUniqueId}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-6 b-r">
+                                            <strong>Address</strong>
+                                            <br>
+                                            <p>{{user.address.house? user.address.house+',':''}}
+                                                {{user.address.building? user.address.building+',':''}}
+                                                {{user.address.street? user.address.street+',':''}}
+                                                {{user.address.district? user.address.district+',':''}}
+                                                {{user.address.county? user.address.county+',':''}}
+                                                {{user.address.country? user.address.country+',':''}}
+                                                {{user.address.zipcode}}</p>
+
+
+                                        </div>
+                                        <div class="col-md-6 col-6 b-r">
+                                            <strong>Customer Average Rating</strong>
+                                            <br>
+                                            <p class="text-muted">{{user?.customerAverageRating}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="isProvider()">
+                            <div class="project_widget">
+                                <div class="header">
+                                    <h2><strong>Category</strong></h2>
+                                </div>
+                                <div class="body">
+                                    <li *ngFor="let Insurance of user?.categories">
+                                        {{Insurance.name}}
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="isProvider()">
+                            <div class="project_widget">
+                                <div class="header">
+                                    <h2><strong>Vehicles</strong></h2>
+                                </div>
+                                <div class="body">
+                                    <div *ngFor="let vehicle of user?.vehicles" class="p-4">
+                                        <p class="text-default"></p>
+                                        <small class="text-muted">Number plate: </small>
+                                        <p>{{vehicle.numberPlate}}</p>
+                                        <small class="text-muted">Model: </small>
+                                        <p>{{vehicle.model}}</p>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="isProvider()">
+                            <div class="project_widget">
+                                <div class="header">
+                                    <h2><strong>Insurance</strong></h2>
+                                </div>
+                                <div class="body">
+                                    <div *ngFor="let Insurance of user?.insurances" class="p-4">
+                                        <p class="text-default"></p>
+                                        <small class="text-muted">Name: </small>
+                                        <p>{{Insurance.insurerName}}</p>
+                                        <small class="text-muted">Policy Number: </small>
+                                        <p>{{Insurance.policyNumber}}</p>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <mat-icon class="example-tab-icon msr-2">star</mat-icon>
+                            Settings
+                        </ng-template>
+
+                        <div class="body">
+                            <form [formGroup]="passwordForm">
+                                <div class="example-container">
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Current Password</mat-label>
+                                        <input matInput type="password" formControlName="oldPassword">
+                                        <mat-error *ngIf="passwordForm.get('oldPassword').hasError('required')">
+                                            Old Password is required
+                                        </mat-error>
+                                        <mat-error *ngIf="passwordForm.get('oldPassword').hasError('minlength')">
+                                            Minimum length should be 5 characters.
+                                        </mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>New Password</mat-label>
+                                        <input matInput type="password" formControlName="newPassword">
+                                        <mat-error *ngIf="passwordForm.get('newPassword').hasError('required')">
+                                            New Password is required
+                                        </mat-error>
+                                        <mat-error *ngIf="passwordForm.get('newPassword').hasError('minlength')">
+                                            Minimum length should be 5 characters.
+                                        </mat-error>
+                                    </mat-form-field>
+
+                                </div>
+                                <button mat-raised-button color="primary" (click)="submit()">Save</button>
+                            </form>
+
+                        </div>
+
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>

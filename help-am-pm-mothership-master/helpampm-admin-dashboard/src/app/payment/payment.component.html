@@ -1,0 +1,101 @@
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="responsive_table">
+                            <div class="materialTableHeader">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <ul class="header-buttons-left ml-0">
+                                            <li class="dropdown">
+                                                <h2>Payments</h2>
+                                            </li>
+                                            <li class="dropdown m-l-20">
+                                                <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                                                <input (keyup)='filterDatatable($event)' aria-label="Search box"
+                                                  class="browser-default search-field" placeholder="Search" type="text">
+                                              </li>
+                                           
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                             <ngx-datatable #table [columnMode]="'force'" [footerHeight]="50" [headerHeight]="50" [limit]="10"
+                                               [rowHeight]="'60'" [rows]="payments" [sortType]="'multi'" class="material"  [scrollbarH]='true'>
+
+                                    <ngx-datatable-column [width]="200" name="Provider">
+                                    <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                                        <div class="col-sm-4">
+                                            {{row.providerUniqueId}}
+                                        </div>
+                                    </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column [width]="300" name="Order">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                                            <div class="col-sm-4">
+                                                {{row.quoteUniqueId}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column [width]="200" name="Created At">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                                            <div class="col-sm-4">
+                                                {{row.createdAt}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column [width]="180" name="Payment Status">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.paymentStatus}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>
+                                    <ngx-datatable-column [width]="280" name="Payment Id">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.paymentId}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>               
+                                                 
+                                    <ngx-datatable-column [width]="120" name="Provider Amount">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.providerAmount / 100 | currency : 'USD'}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>               
+                                    <ngx-datatable-column [width]="120" name="Payout Amount">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.payoutAmount  | currency : 'USD'}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column> 
+                                    <ngx-datatable-column [width]="120" name="Amount Received">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.amountReceived  | currency : 'USD'}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column> 
+                                    <ngx-datatable-column [width]="180" name="Application Fee Amount">
+                                        <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                                            <div class="col-sm-3">
+                                                {{row.applicationFeeAmount | currency : 'USD'}}
+                                            </div>
+                                        </ng-template>
+                                    </ngx-datatable-column>               
+                        
+                                </ngx-datatable>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

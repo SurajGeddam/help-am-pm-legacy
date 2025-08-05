@@ -1,0 +1,34 @@
+{
+  "token":"bk3RNwTe3H0:CI2k_HHwgIpoDKCIZvvDMExUdFQ3P1...",
+  "data":{
+    "body": "You have received a new Order!",
+    "title": "Order Received",
+    "quoteUniqueId": "HVAC-336080-ZDKT6-213654000",
+    "status": "SCHEDULED"
+  },
+  "notification":{
+    "title":"Match update",
+    "body":"Arsenal goal in added time, score is now 3-0"
+  },
+  "android":{
+    "ttl":"86400s",
+    "notification":{
+      "click_action":"OPEN_ACTIVITY_1"
+    }
+  },
+  "apns": {
+    "headers": {
+      "apns-priority": "5"
+    },
+    "payload": {
+      "aps": {
+        "category": "NEW_MESSAGE_CATEGORY"
+      }
+    }
+  },
+  "webpush":{
+    "headers": {
+    "TTL":"86400"
+    }
+  }
+}

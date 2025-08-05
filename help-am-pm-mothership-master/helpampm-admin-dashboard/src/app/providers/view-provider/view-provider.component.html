@@ -1,0 +1,173 @@
+<h1 mat-dialog-title>
+    {{providerData.name}}({{providerData.providerUniqueId}})-{{providerData.categories[0]?.name}}
+    <span style="float: right;">
+        <button mat-mini-fab mat-dialog-close color="primary">
+            <mat-icon>close</mat-icon>
+        </button>
+    </span>
+</h1>
+<div mat-dialog-content>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="body">
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Provider Details                            
+                            </mat-panel-title>
+                           
+                            <mat-panel-description>
+                                View details
+                            </mat-panel-description>
+                           
+                            <span [ngClass]="getClass('INDIVIDUAL', providerData.completedPage)" [ngStyle]="getStyle('INDIVIDUAL', providerData.completedPage)" ></span>
+                        </mat-expansion-panel-header>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                                <div>
+                                    Address : <p>{{providerData?.address?.building}} {{providerData?.address?.street}}
+                                        {{providerData?.address?.county}} {{providerData?.address?.country}}
+                                        {{providerData?.address?.zipcode}}
+                                    </p><br>
+                                    Company UniqueId : <p>{{providerData?.companyUniqueId }}</p><br>
+                                    Customer Average Rating : <p>{{providerData?.customerAverageRating}}</p><br>
+                                    Email: <p>{{providerData?.email}}</p><br>
+                                    website: <p>{{providerData?.website}}</p><br>
+
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                                <div>
+                                    Email: <p>{{providerData?.email}}</p><br>
+                                    website: <p>{{providerData?.website}}</p><br>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Provider Insurances
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                View details
+                            </mat-panel-description>
+                            <span [ngClass]="getClass('INSURANCE', providerData.completedPage)" [ngStyle]="getStyle('INSURANCE', providerData.completedPage)" ></span>
+                        
+                        </mat-expansion-panel-header>
+
+                        <div *ngFor="let insurance of providerData.insurances">
+                            insurerName : <p>{{insurance?.insurerName}}</p><br>
+                            policy Number : <p>{{insurance?.policyNumber}}</p><br>
+                            <img width="600px" height="400px" *ngIf="insurance.image"src="data:image/png;base64,{{insurance.image}}"/>
+                        </div>
+                        <hr>
+
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Provider License
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                View details
+                            </mat-panel-description>
+                            <span [ngClass]="getClass('LICENCE', providerData.completedPage)" [ngStyle]="getStyle('LICENCE', providerData.completedPage)" ></span>
+                           
+                        </mat-expansion-panel-header>
+
+                        <div *ngFor="let license of providerData.licenses">
+                            licenseNumber : <p>{{license?.licenseNumber}}</p><br>
+                            licenseHolderName : <p>{{license?.licenseHolderName}}</p><br>
+                            <img width="600px" height="400px" *ngIf="license.image"src="data:image/png;base64,{{license.image}}"/>
+                        </div>
+                        <hr>
+
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Provider Vehicle
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                View details
+                            </mat-panel-description>
+                            <span [ngClass]="getClass('VEHICLE', providerData.completedPage)" [ngStyle]="getStyle('VEHICLE', providerData.completedPage)" ></span>
+                            
+                        </mat-expansion-panel-header>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                                <div *ngFor="let vehicle of providerData.vehicles">
+                                    Model : <p>{{vehicle?.model}}</p><br>
+                                    Number Plate : <p>{{vehicle?.numberPlate}}</p><br>
+                                    VIN : <p>{{vehicle?.vin}}</p><br>
+                                </div>
+                                <hr>
+
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+
+
+
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Provider Bank Account
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                View details
+                            </mat-panel-description>
+                            <span [ngClass]="getClass('BANK', providerData.completedPage)" [ngStyle]="getStyle('BANK', providerData.completedPage)" ></span>
+                            
+                        </mat-expansion-panel-header>
+                        AccountHolder Name : <p>{{providerData.bankAccount?.accountHolderName}}</p><br>
+                        Account Number : <p>{{providerData?.bankAccount?.accountNumber}}</p><br>
+                        Account Type : <p>{{providerData?.bankAccount?.accountType}}</p><br>
+                        Bank Name : <p>{{providerData?.bankAccount?.bankName}}</p><br>
+                        Routing Number : <p>{{providerData?.bankAccount?.routingNumber}}</p><br>
+                        <hr>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Provider Timeslot
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                View details
+                            </mat-panel-description>
+                            
+                        </mat-expansion-panel-header>
+
+                        Category Name : <p>{{providerData?.categories[0]?.name}}</p><br>
+                        <br>
+                        <div *ngFor="let timeslot of providerData.categories[0]?.timeslots">
+                            Name : <p>{{timeslot?.name}}</p><br>
+                            Timeslot : <p>{{timeslot?.startTime}} {{timeslot?.endTime}}</p><br>
+                            <hr>
+                        </div>
+
+
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- 
+
+<div mat-dialog-actions>
+    <button mat-button (click)="close()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="providerData.color" cdkFocusInitial>Ok</button>
+</div> -->

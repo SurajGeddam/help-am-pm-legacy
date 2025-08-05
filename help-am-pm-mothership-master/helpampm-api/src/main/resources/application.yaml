@@ -1,0 +1,160 @@
+server:
+  port: 8080
+  address: 0.0.0.0
+account:
+  delete:
+    gracePeriod: 30
+public:
+  urls: /auth/token,/auth/password/forgot,/auth/password/reset,/actuator,/swagger-ui,/v3/api-docs,/customer/signup,/auth/user/create,/auth/user/update,/provider/signup,/provider/signup/**,/auth/password/forgot/,/auth/password/reset,/invoice**,/auth/provider/refreshUrl,/auth/provider/returnUrl,/country/public,/favicon.ico,/manager/html
+format:
+  date-time: MM-dd-yyyy HH:mm:ss
+  date: MM-dd-yyyy
+  time: HH:mm:ss
+security:
+  public-key: -----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4C9Acujc6szUo0FO4nigqLWoEyrvxFS63axtw7zA7yvZDahZB56l4IBG28H30Kh6xqUFyV8moV1CQ8JhPWltfXt1Jlr/qvXiXHITkc3rIiNos5qYXNF34XgQwgiNzzQyoH6G2MaWth7x9rrRk4S51t7MQdpo3ToeYFGEBzJV7/xatttiy3ZOcYv41kGchUszXekKtVtAlF1+e8sNFc/NO8qSILFBxY/a5NXSd651MlGW4H73+EyrbKDjg9HKn09itDWKCsTQxnskl/WReWAOsBlM2B3/mcsLoD27dQeJUdwLeeS+f2fQN7iQITbWz/TskrenN24/XGThoqg1+I0wdwIDAQAB-----END PUBLIC KEY-----
+  private-key: -----BEGIN PRIVATE KEY-----MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDgL0By6NzqzNSjQU7ieKCotagTKu/EVLrdrG3DvMDvK9kNqFkHnqXggEbbwffQqHrGpQXJXyahXUJDwmE9aW19e3UmWv+q9eJcchORzesiI2izmphc0XfheBDCCI3PNDKgfobYxpa2HvH2utGThLnW3sxB2mjdOh5gUYQHMlXv/Fq222LLdk5xi/jWQZyFSzNd6Qq1W0CUXX57yw0Vz807ypIgsUHFj9rk1dJ3rnUyUZbgfvf4TKtsoOOD0cqfT2K0NYoKxNDGeySX9ZF5YA6wGUzYHf+ZywugPbt1B4lR3At55L5/Z9A3uJAhNtbP9OySt6c3bj9cZOGiqDX4jTB3AgMBAAECggEAaqJvMHlNI65ccm8NG7IvETCfCscAl02KOQjciR9OUjV0IAf0mShAVIIPslYYDzskczppfzhwQo7+hwZ9hF2Sg/5mYeEk/WfJzRlB77eX4XwgQFYHpRbJxAh9SB4TffyhHDAy6gfEBkq/4xFHwLiAQRFm7Of7u0b6zevYNigeMnDdlCSAqC21jK7ZDVr6/B34FVJr7UmdRFErHRqeC82ZxT6f9iUtH/8CK5dL+OMCoRJC/+/G7HtMBAkmxKH7h9A0Za+yMliuzErLOjXyC6j6uEZ+mD/lLj/5XYM9UuuJWxKILfrZCvUsQGfsic0KPUWb72TailClM6Cq+tjKXdDaIQKBgQD4Wi3I08YlZwdg1CWMVbgfK+7ScyL6QVPXvbIBve+eH68OpdAnYTpcOh8k3MoFKdUlN2NVtCWS7aVhc4C3kdlMG/g8DJHUIUU4IcBCxfO+xGcu4aTk0FjGQoHP6V4BqMNQd8+V4XQKRulubSEbcDgrLQPUb7XULMnI+L6pYDJy8QKBgQDnFo2dziXLaxtjln8IxxDlmtXWZ3ECK+1uOUZ9VXbXShe+E4CoCP8TedBpIULVQakcGH4ItBmfoCiUEy9QBZq2jbG2zBKa2Jb4uxU0JU9m6bCyiE1J8LuAq8DoATi1Pdy2opDgM/8HzEvLOQDdQ2gHM4TqZaxI9IL9Cq/p+s0J5wKBgQCAiDt12pSMOvxIksM0FBEMoPIjHM+XcUPxPg3odOKUlZVGIW7PUrSfkr0XmOU9Mt9LOZVBf9CKcE/NVbfiSauKhlc8zMyUWvu2B1G3vTdfHcrBKqrqeSHYygbhEchDV5JuDPP0gBBMWVLqgbRGvRd00QFQathSDTQJvSMACfdSIQKBgQCeN+PYQte/seK7ycPKd7lK6zszo/lM2lSi3hY0I/rNJo6g9mtlIVu7svCNulcu+djWQrKwNNdCYn7F+2iualfmW5dsp8apPFgJjtXSsSTvOltfsVDxqiBG1dGrR4LTHLrsVNvKle8sIKVYS/wagldMbuq3LcvK25Z/t/x/v9b4ywKBgEXGwKkfT722zHdvL16QZUHBR7uJgAWhCRTJnURMm5dI/KZuKML6MD9EtmEVdoz55bRtQlnnpi4v797Esaf576xyOguktGBAAcceX9J303oNjLLtKWPP7d9Y78+blA/Z9KzkfQmocgXFZcFU6CMpU+WZDuZwuNzoyPR/i0YPEHeT-----END PRIVATE KEY-----
+  refresh_token:
+    expires: 14400
+  token:
+    expires: 7200
+
+  allowed-origin: /**
+startup:
+  service-categories: HVAC,ELECTRICAL,LOCKSMITH,PLUMBING
+  roles: ROLE_SUPERADMIN,ROLE_PROVIDER_ADMIN,ROLE_PROVIDER_EMPLOYEE,ROLE_CUSTOMER
+  insurance-types: Business Insurance,Trade Insurance,Worker Insurance ,Vehicle Insurance
+  license-types: Business License, Trade License
+help:
+  app-admin-host: https://apihelpampm.com/
+  hvac-image: https://s3.amazonaws.com/www.apihelpampm.com/assets/images/hvac.png
+  electrical-image: https://s3.amazonaws.com/www.apihelpampm.com/assets/images/electrical.png
+  locksmith-image: https://s3.amazonaws.com/www.apihelpampm.com/assets/images/locksmith.png
+  plumbing-image: https://s3.amazonaws.com/www.apihelpampm.com/assets/images/plumbing.png
+  database_backup:
+    location: "/home/ec2-user/helpampm_database_backup"
+  company:
+    termAndConditionPageUrl: https://helpampm.com/termnconditions.html
+    website: https://helpampm.com
+    email: helpampm.info@gmail.com
+    logo: https://apihelpampm.com/assets/images/logo-full.png
+    addressLine1: 206, Vrindavan Garden
+    addressLine2: Chipiyana Buzurg
+    county: Uttar Pradesh
+    country: India
+    zipcode: 201009
+  user:
+    default:
+      role-name: ROLE_CUSTOMER
+  superadmin:
+    username: superadmin
+    password: Password@1
+spring:
+  application:
+    name: HELP-AMPM
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+  data:
+    jpa:
+      repositories:
+        bootstrap_mode: default
+  devtools:
+    restart:
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/helpampmdb?createDatabaseIfNotExist=true
+    password: Admin@123
+  jpa:
+    hibernate:
+      ddl-auto: update
+      database-platform: org.hibernate.dialect.MySQLDialect
+      show-sql: true
+      format-sql: true
+
+customers:
+  number-of-address-allowed: 5
+  search:
+    radius: 500000000 #meters
+logging:
+  level:
+    com:
+      helpampm: INFO
+    org:
+      springframework:
+        security: ERROR
+
+notifications:
+  sms:
+    isEnabled: false
+    provider:
+      activeName: clickSend
+      textLocal:
+        apiKey: NTg3YTVhMzA1ODQ0NzQ1MzdhN2E2MTU4NjI2ZDQ3NzE=
+        name: textLocal
+        url:
+      twilio:
+        apiKey: apikey
+        name: twilio
+        url:
+      clickSend:
+        sendFrom: +447867214222
+        apiKey: 0A167FDB-42E5-6D76-A6F9-BD82428F30F5
+        name: clickSend
+        username: techhelpampm@gmail.com
+        password: nVpQc2iQEWnk!3w
+        url: https://rest.clicksend.com/v3/sms/send
+    apiKey:
+  email:
+    provider-cancel-order-template-name: cancel-order-notify-provider
+    provider-signup-email-template-name: provider-signup-thank-you
+    provider-account-setup-reminder-template-name: provider-account-setup-template
+    customer-cancel-order-template-name: cancel-order-notify-customer
+    customer-order-accepted-template-name: order-accepted-notify-customer
+    customer-signup-email-template-name: customer-signup-thank-you
+    payment-received-notify-customer: payment-received-notify-customer
+    forgot-template-name: forgot-password
+    create-order-provider-template-name: create-order-notify-provider
+    create-order-customer-template-name: create-order-notify-customer
+    invoice-template-name: invoice-summary
+    otp-template-name: otp
+    provider-account-verification-template: account-verification
+    provider-account-verification-refresh-template: account-verification-refresh
+    provider-account-incomplete-template: provider-incomplete-profile
+    from-email: noreply.helpampm@gmail.com
+  otp:
+    valid-duration: 60 #mins
+    length: 6
+    new-codes-after-interval: 30 #seconds
+
+aws:
+  s3:
+    region: us-east-1
+    upload-bucket: www.apihelpampm.com-uploads
+    profile-photos: www.apihelpampm.com-uploads
+    database-backup: helpdatabase-backup
+
+# keys are in Base64 format please make sure to set key in the format
+stripe:
+  secretKey: c2tfbGl2ZV81MUxwRHBoQURYbFc1RVVQcFVaNnd2QXRnc2V3a3EyOFVQZndRRUd5RTdWU3JNa2dVQ21YYURFOFhyQURxVnJHOEl0ZTNyTHp5ZnI3TTA2cWZJMEZib09RajAwckduZTFUQVk=
+  returnUrl: "https://apihelpampm.com/#/authentication/verificationStatus"
+  refreshUrl: "https://apihelpampm.com/#/authentication/refreshUrl"
+
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: [ "health","prometheus", "metrics" ]
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true

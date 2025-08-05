@@ -1,0 +1,12 @@
+aws:
+  s3:
+    region: us-east-1
+    upload-bucket: helpampm-dev-uploads
+    profile-photos: helpampm-dev-uploads
+    database-backup: helpdatabase-backup
+
+# keys are in Base64 format please make sure to set key in the format
+stripe:
+  secretKey: c2tfdGVzdF81MUxwRHBoQURYbFc1RVVQcE5lMklVVXd4OFhUbnFzWVNDUHdFRGU0NEdhZFQxanNVY0l3WTdpS041elpaSUNrSXFZMXo2ZzVvVGJxWDNsWDRldjBPR0lySTAwYTJ5VVM4SFg=
+  returnUrl: "https://test.apihelpampm.com/#/authentication/verificationStatus"
+  refreshUrl: "https://test.apihelpampm.com/#/authentication/refreshUrl"

@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+.cdk-overlay-container {
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    z-index: 9999999 !important;
+}
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    z-index: 9999999 !important;
+}

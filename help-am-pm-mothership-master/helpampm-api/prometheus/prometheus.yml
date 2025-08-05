@@ -1,0 +1,34 @@
+# my global config
+global:
+  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+scrape_configs:
+  - job_name: "prometheus"
+    scrape_interval: 5s
+    static_configs:
+      - targets: ["localhost:9090"]
+        labels:
+          os: "linux"
+          runtime: "aws-ec2"
+
+  - job_name: "mysql-exporter"
+    metrics_path: /metrics
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    static_configs:
+      - targets: ["mysqlexporter:9104"]
+
+  - job_name: "help-ampm"
+    metrics_path: /actuator/prometheus
+    scheme: https
+    static_configs:
+      - targets: ["www.apihelpampm.com"]
+        labels:
+          os: "linux"
+          runtime: "docker-container"
+
+  - job_name: "aws-linux-server"
+    static_configs:
+      - targets: ["ec2-54-158-236-11.compute-1.amazonaws.com:9100"]
+        labels:
+          os: "linux"
+          runtime: "aws-ec2"

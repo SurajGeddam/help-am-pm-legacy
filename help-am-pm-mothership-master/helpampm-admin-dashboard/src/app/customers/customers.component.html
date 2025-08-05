@@ -1,0 +1,93 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="body">
+            <div class="responsive_table">
+              <div class="materialTableHeader">
+                <div class="row">
+                  <div class="col-8">
+                    <ul class="header-buttons-left ml-0">
+                      <li class="dropdown">
+                        <h2>Customers</h2>
+                      </li>
+                      <li class="dropdown m-l-20">
+                        <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                        <input placeholder="Min 3 characters" (keyup)='searchCallback($event)' [(ngModel)]="currentSearchText"
+                          type="text" #filter class="browser-default search-field" aria-label="Search box">
+                      </li>
+
+                    </ul>
+                  </div>
+                  <div class="col-4">
+                    <ul class="header-buttons">
+                      <li>
+                        <div class="export-button m-l-10" matTooltip="REFRESH">
+                          <button mat-mini-fab color="primary" (click)="refresh()">
+                            <mat-icon class="col-white">refresh</mat-icon>
+                          </button>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <ngx-datatable #table [columnMode]="'force'" [footerHeight]="50" [headerHeight]="50" 
+                [limit]="page.limit"
+                [rowHeight]="'60'"
+                [externalPaging]="true" 
+                [count]="page.count" 
+                [offset]="page.offset" 
+                (page)="pageCallback($event)" 
+                [rows]="data" 
+                [sortType]="'multi'" class="material">
+
+                <ngx-datatable-column [width]="100" name="First Name">
+                  <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                    <span> {{row.firstName}}</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column [width]="30" name="Last Name">
+                  <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                    <span> {{row.lastName}}</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column [width]="150" name="Email">
+                  <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                    <span> {{row.email}}</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column [width]="100" name="Phone">
+                  <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                    <span> {{row.phone}}</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column [width]="100" name="#Customer ID">
+                  <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                    <span> {{row.customerUniqueId}}</span>
+                  </ng-template>
+                </ngx-datatable-column>
+
+                <ngx-datatable-column name="Active" [width]="50">
+                  <ng-template let-row="row" ngx-datatable-cell-template>
+                    <div class="col-sm-3">
+                      <mat-slide-toggle name="isActive" ngDefaultControl [(ngModel)]="row.isActive" [color]="'success'"
+                        (change)="changeStatus($event,row)">
+                      </mat-slide-toggle>
+                    </div>
+                  </ng-template>
+                </ngx-datatable-column>
+
+              </ngx-datatable>
+
+           <!--    <mat-paginator (page)='changePageSize($event)'  #paginator [length]="data.length" [pageIndex]="0" [pageSize]="page.limit"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+              </mat-paginator> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
