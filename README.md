@@ -91,36 +91,113 @@ old-app/
 └── .github/workflows/               # CI/CD workflows
 ```
 
-## 🔧 Local Development
+## 🔧 Quick Start Guide
 
 ### Prerequisites
-- Java 17 (for backend)
-- Node.js 18+ (for dashboard)
-- Flutter 3.32.8+ (for mobile app)
-- MySQL 8.0.29 (for database)
+- **Docker & Docker Compose** (for backend)
+- **Node.js 18+** (for dashboard)
+- **Flutter 3.32.8+** (for mobile app)
+- **Java 17** (optional, for local backend development)
 
-### Quick Start
+### 🚀 One-Command Setup
+
+#### **1. Backend API (Required First)**
+```bash
+# Navigate to API directory
+cd help-am-pm-mothership-master/helpampm-api
+
+# Start all services (MySQL, API, Prometheus, Grafana)
+docker compose up -d
+
+# Verify backend is running
+curl http://localhost:8080/actuator/health
+```
+
+#### **2. Admin Dashboard (Optional)**
+```bash
+# Navigate to dashboard directory
+cd help-am-pm-mothership-master/helpampm-admin-dashboard
+
+# Install dependencies (first time only)
+npm install --legacy-peer-deps
+
+# Start development server
+npm start
+```
+
+#### **3. Mobile App (Optional)**
+```bash
+# Navigate to mobile app directory
+cd help-am-pm-mobileapp-master
+
+# Install dependencies (first time only)
+flutter pub get
+
+# Run on iOS simulator
+flutter run
+
+# Or run on Android emulator
+flutter run -d android
+```
+
+### 🌐 Access Points
+- **Backend API**: http://localhost:8080
+- **Admin Dashboard**: http://localhost:4200
+- **Grafana Monitoring**: http://localhost:3000
+- **Prometheus Metrics**: http://localhost:9090
+
+### 🔑 Test Credentials
+- **Superadmin**: `superadmin` / `Password@1`
+- **Test User**: `geddamsuraj@gmail.com` / `Test1234!`
+
+### 🛠️ Development Commands
 
 #### Backend API
 ```bash
-cd help-am-pm-mothership-master/helpampm-api
+# Start services
 docker compose up -d
-# API runs on http://localhost:8080
+
+# View logs
+docker compose logs -f app
+
+# Stop services
+docker compose down
+
+# Rebuild and restart
+docker compose up -d --build
 ```
 
 #### Admin Dashboard
 ```bash
-cd help-am-pm-mothership-master/helpampm-admin-dashboard
+# Install dependencies
 npm install --legacy-peer-deps
+
+# Start development server
 npm start
-# Dashboard runs on http://localhost:4200
+
+# Build for production
+npm run build:prod
+
+# Run tests
+npm test
 ```
 
 #### Mobile App
 ```bash
-cd help-am-pm-mobileapp-master
+# Install dependencies
 flutter pub get
+
+# Run on iOS
 flutter run
+
+# Run on Android
+flutter run -d android
+
+# Build iOS
+flutter build ios
+
+# Build Android
+flutter build apk
 ```
 
 ## 🛡️ Security Notes
