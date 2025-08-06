@@ -10,3 +10,6 @@ This is the Flutter mobile application for the HELP AM-PM platform.
 ## Development
 - Flutter version: 3.32.8
 - Target platforms: iOS, Android, Web
+
+## CI/CD Status
+- Mobile Analyze workflow now uses `--no-fatal-infos` flag to handle legacy linting issues
