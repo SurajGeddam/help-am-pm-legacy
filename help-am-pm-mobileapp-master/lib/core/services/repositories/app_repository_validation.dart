@@ -35,7 +35,7 @@ class AppRepositoryValidation {
   AppRepositoryValidation(this.appRepository);
 
   DioError dioError = DioError(
-    type: DioErrorType.response,
+    type: DioExceptionType.badResponse,
     requestOptions: RequestOptions(path: ''),
     response: Response(
       statusCode: 403,

@@ -9,26 +9,26 @@ class DioExceptions implements Exception {
   DioExceptions.fromDioError(DioError dioError) {
     AppUtils.debugPrint("dioError.type => ${dioError.type}");
     switch (dioError.type) {
-      case DioErrorType.cancel:
+      case DioExceptionType.cancel:
         message = AppStrings.dioErrorTypeCancel;
         break;
-      case DioErrorType.connectTimeout:
+      case DioExceptionType.connectionTimeout:
         message = AppStrings.dioErrorTypeConnectTimeout;
         break;
-      case DioErrorType.receiveTimeout:
+      case DioExceptionType.receiveTimeout:
         message = AppStrings.dioErrorTypeReceiveTimeout;
         break;
-      case DioErrorType.response:
+      case DioExceptionType.badResponse:
         message = _handleError(
           dioError.response?.statusCode,
           dioError.response?.data,
         );
         break;
-      case DioErrorType.sendTimeout:
+      case DioExceptionType.sendTimeout:
         message = AppStrings.dioErrorTypeSendTimeout;
         break;
-      case DioErrorType.other:
-        if (dioError.message.contains("SocketException")) {
+      case DioExceptionType.unknown:
+        if (dioError.message?.contains("SocketException") ?? false) {
           message = AppStrings.dioErrorTypeSocketException;
           break;
         }

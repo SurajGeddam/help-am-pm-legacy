@@ -76,6 +76,7 @@ class LocationManagerHandler {
       {LocationAccuracy accuracy = LocationAccuracy.medium}) async {
     Position position = await Geolocator.getCurrentPosition(
       desiredAccuracy: accuracy,
+      altitudeAccuracy: 0.0,  // added to satisfy new plugin API
       forceAndroidLocationManager: true,
       timeLimit: _minTimeSec,
     );

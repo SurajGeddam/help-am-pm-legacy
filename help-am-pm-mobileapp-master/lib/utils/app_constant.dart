@@ -119,14 +119,16 @@ class AppConstants {
   static const String sms = "SMS";
   static const String email = "EMAIL";
 
-  static Position defaultPosition = const Position(
+  static Position defaultPosition = Position(
     latitude: 0.0,
     longitude: 0.0,
     accuracy: 0.0,
     altitude: 0.0,
+    altitudeAccuracy: 0.0,
     heading: 0.0,
+    headingAccuracy: 0.0,  // added to satisfy new plugin API
     speed: 0.0,
     speedAccuracy: 0.0,
-    timestamp: null,
+    timestamp: DateTime(2024, 1, 1),  // fixed nullability issue
   );
 }

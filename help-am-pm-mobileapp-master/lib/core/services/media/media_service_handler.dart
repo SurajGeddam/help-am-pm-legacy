@@ -69,10 +69,12 @@ class MediaServiceHandler implements MediaService {
     final targetPath =
         '${dir.absolute.path}/${Random().nextInt(1000)}-temp.jpg';
 
-    return await FlutterImageCompress.compressAndGetFile(
+    final compressedXFile = await FlutterImageCompress.compressAndGetFile(
       file.absolute.path,
       targetPath,
       quality: quality,
     );
+    
+    return compressedXFile != null ? File(compressedXFile.path) : null;
   }
 }

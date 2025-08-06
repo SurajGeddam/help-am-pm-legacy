@@ -38,10 +38,12 @@ class LocationCubit extends Cubit<LocationCubitState> with ChangeNotifier {
           longitude: value?.longitude ?? AppConstants.defaultPosition.longitude,
           accuracy: 0.0,
           altitude: 0.0,
+          altitudeAccuracy: 0.0,
           heading: 0.0,
+          headingAccuracy: 0.0,
           speed: 0.0,
           speedAccuracy: 0.0,
-          timestamp: null,
+          timestamp: DateTime.now(),
         );
       }).whenComplete(() async {
         return loadPreviousLocation();
@@ -165,10 +167,12 @@ class LocationCubit extends Cubit<LocationCubitState> with ChangeNotifier {
           AppConstants.defaultLatLng.latitude,
       longitude: PreviousLocation.instance.previousLongitude ??
           AppConstants.defaultLatLng.longitude,
-      timestamp: null,
+      timestamp: DateTime.now(),
       accuracy: 0.0,
       altitude: 0.0,
+      altitudeAccuracy: 0.0,
       heading: 0.0,
+      headingAccuracy: 0.0,
       speed: 0.0,
       speedAccuracy: 0.0,
     );
