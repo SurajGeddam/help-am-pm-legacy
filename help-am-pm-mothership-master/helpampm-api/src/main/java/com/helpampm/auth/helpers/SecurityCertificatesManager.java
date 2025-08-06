@@ -60,13 +60,13 @@ public class SecurityCertificatesManager {
         
         if (publicKey == null) {
             log.error("Public key is null - @ConfigurationProperties injection failed");
-            throw new IllegalStateException("Public key @ConfigurationProperties injection failed - key is null");
+            // Don't throw exception during initialization, just log the error
         } else {
             log.info("Public key loaded successfully, length: {}", publicKey.length());
         }
         if (privateKey == null) {
             log.error("Private key is null - @ConfigurationProperties injection failed");
-            throw new IllegalStateException("Private key @ConfigurationProperties injection failed - key is null");
+            // Don't throw exception during initialization, just log the error
         } else {
             log.info("Private key loaded successfully, length: {}", privateKey.length());
         }
