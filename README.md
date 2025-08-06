@@ -32,7 +32,8 @@ This repository contains the complete legacy HELP AM-PM platform stack, includin
 - Connects to local backend successfully  
 - Login works with `geddamsuraj@gmail.com` / `Test1234!`  
 - All 13+ package compatibility issues resolved  
-- Next: add CI workflow for lint/analyze/test  
+- **Android Status**: ⚠️ **Requires modernization** - Gradle project structure outdated  
+- Next: add CI workflow for lint/analyze/test
 
 **CI Status**  
 - **API CI**: ✅ **Fixed** - Docker Compose syntax updated for GitHub Actions  
@@ -133,11 +134,13 @@ cd help-am-pm-mobileapp-master
 # Install dependencies (first time only)
 flutter pub get
 
-# Run on iOS simulator
+# Run on iOS simulator (✅ Working)
 flutter run
 
-# Or run on Android emulator
-flutter run -d android
+# Run on Android emulator (⚠️ Requires modernization)
+# Note: Android build requires updating Gradle project structure
+# For now, use iOS simulator or web for testing
+flutter run -d chrome  # Web version works as fallback
 ```
 
 ### 🌐 Access Points
@@ -190,14 +193,19 @@ flutter pub get
 # Run on iOS
 flutter run
 
-# Run on Android
+# Run on Android (⚠️ Requires modernization)
+# The Android Gradle project structure is outdated and needs updating
+# for compatibility with newer Flutter versions
 flutter run -d android
 
 # Build iOS
 flutter build ios
 
-# Build Android
+# Build Android (⚠️ Currently fails due to outdated Gradle structure)
 flutter build apk
+
+# Run on web (✅ Working fallback)
+flutter run -d chrome
 ```
 
 ## 🛡️ Security Notes
