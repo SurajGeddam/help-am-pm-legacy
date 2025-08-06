@@ -13,13 +13,15 @@ class AppConstants {
 
 
   // static const developmentURL = "http://10.0.2.2:8080";
-  static const developmentURL = "https://www.apihelpampm.com";
+  static const developmentURL = "http://localhost:8080";
+  // static const developmentURL = "https://www.apihelpampm.com";
   // static const developmentURL = "https://test.apihelpampm.com";
-  // static const stripePublishableKey =
-  //    "pk_test_51LpDphADXlW5EUPpEok3zJVmTKZc5x3j345M3LZbaxqFVcvQ5yJA9MEDL6ZF50ORjdDnTW9QoFCqLzyPYem5AN4300dEgpJN58";
   static const stripePublishableKey =
-      "pk_live_51LpDphADXlW5EUPpcWill2jMyUGnbzREUEfVKZ1dkb076XG38BNMB33lLcWzPFUb5bbVOs5KtPHr4GnH7nPt2hM700Xk9jL2sP";
-  static const String helpAmPmCom = "https://www.helpampm.com/";
+      "pk_test_51LpDphADXlW5EUPpEok3zJVmTKZc5x3j345M3LZbaxqFVcvQ5yJA9MEDL6ZF50ORjdDnTW9QoFCqLzyPYem5AN4300dEgpJN58";
+  // static const stripePublishableKey =
+  //     "pk_live_51LpDphADXlW5EUPpcWill2jMyUGnbzREUEfVKZ1dkb076XG38BNMB33lLcWzPFUb5bbVOs5KtPHr4GnH7nPt2hM700Xk9jL2sP";
+  // static const String helpAmPmCom = "https://www.helpampm.com/";
+  static const String helpAmPmCom = "http://localhost:4200/"; // Local admin dashboard
 
   static const LatLng defaultLatLng = LatLng(28.628151, 77.367783);
   static const String defaultUploadFileName = "sample.jpg";
