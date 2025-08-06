@@ -20,6 +20,13 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Debug - Check directory structure
+        run: |
+          echo "Current directory: $(pwd)"
+          ls -la help-am-pm-mothership-master/helpampm-admin-dashboard/
+          echo "Package.json contents:"
+          cat help-am-pm-mothership-master/helpampm-admin-dashboard/package.json
+
       - name: Clean and install dependencies
         working-directory: help-am-pm-mothership-master/helpampm-admin-dashboard
         run: |
