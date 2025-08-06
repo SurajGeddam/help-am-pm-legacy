@@ -136,6 +136,7 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
   @override
   Widget build(BuildContext context) {
     return GoogleMap(
+      apiKey: AppConstants.mapAPIKey,
       onMapCreated: _onMapCreated,
       initialCameraPosition: CameraPosition(
         target: widget.latLng,

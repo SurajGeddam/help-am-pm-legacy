@@ -144,7 +144,7 @@ class _GoogleSearchScreenState extends State<GoogleSearchScreen> {
                         }
                       });
                     },
-                    itmClick: (Prediction prediction) {
+                    itemClick: (Prediction prediction) {
                       controller.text =
                           prediction.description ?? AppStrings.emptyString;
                       controller.selection = TextSelection.fromPosition(
