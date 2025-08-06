@@ -31,7 +31,7 @@ class GoogleMapWidget extends StatefulWidget {
 
 class _GoogleMapWidgetState extends State<GoogleMapWidget> {
   final Completer<GoogleMapController> _controller = Completer();
-  PolylinePoints polylinePoints = PolylinePoints(apiKey: AppConstants.mapAPIKey);
+  PolylinePoints polylinePoints = PolylinePoints();
 
   List<Marker> markersList = [];
   List<Polyline> polylineList = [];
@@ -89,11 +89,12 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
   }
 
   getPolyline(MarkerItemModel item) async {
-    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(apiKey: AppConstants.mapAPIKey, origin: PointLatLng(widget.latLng.latitude, widget.latLng.longitude), destination: PointLatLng(getDefaultDoubleValue(item.location.latitude), getDefaultDoubleValue(item.location.longitude)),
-      AppConstants.mapAPIKey,
-      PointLatLng(widget.latLng.latitude, widget.latLng.longitude),
-      PointLatLng(getDefaultDoubleValue(item.location.latitude),
-          getDefaultDoubleValue(item.location.longitude)),
+    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+      origin: PointLatLng(widget.latLng.latitude, widget.latLng.longitude),
+      destination: PointLatLng(
+        getDefaultDoubleValue(item.location.latitude),
+        getDefaultDoubleValue(item.location.longitude),
+      ),
       travelMode: TravelMode.driving,
     );
     if (result.points.isNotEmpty) {
@@ -136,7 +137,7 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
   @override
   Widget build(BuildContext context) {
     return GoogleMap(
-      
+      apiKey: AppConstants.mapAPIKey,
       onMapCreated: _onMapCreated,
       initialCameraPosition: CameraPosition(
         target: widget.latLng,
