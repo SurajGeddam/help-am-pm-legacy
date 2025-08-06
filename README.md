@@ -35,9 +35,9 @@ This repository contains the complete legacy HELP AM-PM platform stack, includin
 - Next: add CI workflow for lint/analyze/test  
 
 **CI Status**  
-- **API CI**: ✅  
-- **Admin Dashboard CI**: ✅  
-- **Mobile Analyze Only**: ⚠️ (disabled until mobile modernization)  
+- **API CI**: ✅ **Fixed** - Docker Compose syntax updated for GitHub Actions  
+- **Admin Dashboard CI**: ✅ **Working** - Dependencies and build process stable  
+- **Mobile Analyze Only**: ⚠️ **Disabled** - Temporarily disabled until mobile modernization  
 
 ## 🚀 Continuous Integration
 
@@ -46,25 +46,29 @@ This repository uses GitHub Actions for automated testing and validation:
 ### Workflows
 
 #### 1. **API CI** (`.github/workflows/api-ci.yml`)
-- **Triggers**: Changes to `help-am-pm-mothership-master/helpampm-api/**`
+- **Triggers**: Changes to `help-am-pm-mothership-master/helpampm-api/**` + manual dispatch
 - **Actions**: 
-  - Sets up MySQL 8.0.29 service container
-  - Compiles Spring Boot application with database connection
-  - Runs all unit tests
-  - Falls back to compile-only if tests fail
-- **Status**: ✅ **Active** - Ensures backend stability with database integration
+  - Sets up JDK 17 and Docker
+  - Uses `docker compose` (v2 syntax) for GitHub Actions compatibility
+  - Builds Spring Boot application with Docker Compose
+  - Starts services and tests health endpoint
+  - Graceful error handling with `continue-on-error: true`
+- **Status**: ✅ **Active** - Fixed Docker Compose syntax issue
+- **Recent Fix**: Updated from `docker-compose` to `docker compose` for GitHub Actions compatibility
 
 #### 2. **Admin Dashboard CI** (`.github/workflows/admin-ci.yml`)
-- **Triggers**: Changes to `help-am-pm-mothership-master/helpampm-admin-dashboard/**`
+- **Triggers**: Changes to `help-am-pm-mothership-master/helpampm-admin-dashboard/**` + manual dispatch
 - **Actions**:
-  - Installs Node.js dependencies
+  - Sets up Node.js 18
+  - Clean install with `--legacy-peer-deps` for dependency resolution
   - Runs TypeScript linting (non-blocking)
-  - Builds production bundle
-- **Status**: ✅ **Active** - Ensures dashboard functionality
+  - Builds production bundle with error handling
+- **Status**: ✅ **Active** - Stable dependency management and build process
 
 #### 3. **Mobile Analyze Only** (`.github/workflows/mobile-analyze.yml.disabled`)
-- **Status**: ❌ **Disabled** - Temporarily disabled until mobile app modernization
+- **Status**: ❌ **Disabled** - File renamed to prevent execution
 - **Reason**: Prevents blocking on outdated iOS/Android tooling issues
+- **Future**: Will be re-enabled after mobile app modernization
 
 ### CI Strategy
 
@@ -72,8 +76,9 @@ This repository uses GitHub Actions for automated testing and validation:
 - **API & Dashboard**: Full CI/CD to maintain stability
 - **Mobile App**: Disabled to avoid blocking on outdated tooling
 - **Path-based triggers**: Each component only runs when relevant files change
-- **Database Integration**: API CI includes MySQL service for realistic testing
+- **Docker Integration**: API CI uses Docker Compose for realistic testing
 - **Graceful Degradation**: Linting failures don't block builds
+- **Manual Dispatch**: All workflows support manual triggering for testing
 
 ## 📁 Repository Structure
 
@@ -99,14 +104,14 @@ old-app/
 #### Backend API
 ```bash
 cd help-am-pm-mothership-master/helpampm-api
-./mvnw spring-boot:run
+docker compose up -d
 # API runs on http://localhost:8080
 ```
 
 #### Admin Dashboard
 ```bash
 cd help-am-pm-mothership-master/helpampm-admin-dashboard
-npm install
+npm install --legacy-peer-deps
 npm start
 # Dashboard runs on http://localhost:4200
 ```
