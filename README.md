@@ -32,8 +32,23 @@ This repository contains the complete legacy HELP AM-PM platform stack, includin
 - Connects to local backend successfully  
 - Login works with `geddamsuraj@gmail.com` / `Test1234!`  
 - All 13+ package compatibility issues resolved  
-- **Android Status**: ⚠️ **Requires modernization** - Gradle project structure outdated  
+- **Android Status**: ✅ **Modernized** - Gradle project structure updated to Kotlin DSL, SDK 35
+- **Android APK Builds**: ✅ **Working** - ARM64 (116MB) and x86_64 (103MB) APKs build successfully
+- **Android Testing**: ⚠️ **Emulator Storage Limitation** - ARM64 emulators often lack sufficient storage for installation
 - Next: add CI workflow for lint/analyze/test
+
+#### Android Emulator Storage Note  
+- **Built APKs**:  
+  - ARM64-v8a: ~116 MB  
+  - x86_64: ~103 MB  
+- **Issue**: ARM64 emulators on default AVDs report insufficient storage (INSTALL_FAILED_INSUFFICIENT_STORAGE) due to Android's internal overhead.  
+- **Workarounds**:  
+  1. Test on a **physical Android device**.  
+  2. Create an **x86_64 AVD** with ≥2 GB internal storage via Android Studio.  
+  3. Use **App Bundles (AAB)** in CI and real-device farms.
+
+#### Android CI  
+We now build both ARM64 & x86_64 APKs in CI (with `continue-on-error`), so we can catch regressions even if install fails under default AVDs.
 
 **CI Status**  
 - **API CI**: ✅ **Fixed** - Docker Compose syntax updated for GitHub Actions  
@@ -193,20 +208,21 @@ flutter pub get
 # Run on iOS
 flutter run
 
-# Run on Android (⚠️ Requires modernization)
-# The Android Gradle project structure is outdated and needs updating
-# for compatibility with newer Flutter versions
+# Run on Android (✅ Modernized - Kotlin DSL, SDK 35)
 flutter run -d android
 
 # Build iOS
 flutter build ios
 
-# Build Android (⚠️ Currently fails due to outdated Gradle structure)
-flutter build apk
+# Build Android (✅ Working - ARM64 and x86_64 APKs)
+flutter build apk --debug --target-platform android-arm64 --split-per-abi
+flutter build apk --debug --target-platform android-x64 --split-per-abi
 
 # Run on web (✅ Working fallback)
 flutter run -d chrome
 ```
+
+**Note**: Android APKs build successfully but may fail to install on ARM64 emulators due to storage limitations. Use a physical device or x86_64 AVD for testing.
 
 ## 🛡️ Security Notes
 
