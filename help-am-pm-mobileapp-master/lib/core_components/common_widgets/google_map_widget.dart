@@ -89,13 +89,17 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
   }
 
   getPolyline(MarkerItemModel item) async {
-    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+    // v3.0.1+ API requires a PolylineRequest object
+    final request = PolylineRequest(
       origin: PointLatLng(widget.latLng.latitude, widget.latLng.longitude),
       destination: PointLatLng(
         getDefaultDoubleValue(item.location.latitude),
         getDefaultDoubleValue(item.location.longitude),
       ),
-      travelMode: TravelMode.driving,
+      mode: TravelMode.driving,
+    );
+    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+      request: request,
     );
     if (result.points.isNotEmpty) {
       for (var point in result.points) {
