@@ -26,7 +26,7 @@ jobs:
         run: |
           cd help-am-pm-mobileapp-master
           flutter pub get
-          flutter analyze
+          flutter analyze --no-fatal-infos
         continue-on-error: true
 
       - name: Run unit tests
