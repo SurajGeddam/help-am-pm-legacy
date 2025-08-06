@@ -14,6 +14,31 @@ This repository contains the complete legacy HELP AM-PM platform stack, includin
 - **Backend**: Spring Boot 2.7.6, Java 17, MySQL 8.0.29
 - **Dashboard**: Angular 15.2.10, TypeScript 4.9.5, Bootstrap 5.1.3
 
+## 🏗️ Local Development Status
+
+**Backend (helpampm-api)**  
+- Running locally on `http://localhost:8080` via Docker Compose  
+- Health endpoint (`/actuator/health`) returns 200  
+- Authentication flow validated, JWT token generation fixed  
+- Database cleaned: only `superadmin` and `geddamsuraj@gmail.com` exist  
+
+**Admin Dashboard (Angular)**  
+- Running on `http://localhost:4200`  
+- Customer list shows only the two remaining users  
+- CI passing on GitHub (Admin Dashboard CI)  
+
+**Mobile App (Flutter)**  
+- Builds cleanly for iOS simulator (iPhone 15 Pro)  
+- Connects to local backend successfully  
+- Login works with `geddamsuraj@gmail.com` / `Test1234!`  
+- All 13+ package compatibility issues resolved  
+- Next: add CI workflow for lint/analyze/test  
+
+**CI Status**  
+- **API CI**: ✅  
+- **Admin Dashboard CI**: ✅  
+- **Mobile Analyze Only**: ⚠️ (disabled until mobile modernization)  
+
 ## 🚀 Continuous Integration
 
 This repository uses GitHub Actions for automated testing and validation:
