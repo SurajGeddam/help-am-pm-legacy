@@ -31,7 +31,7 @@ class GoogleMapWidget extends StatefulWidget {
 
 class _GoogleMapWidgetState extends State<GoogleMapWidget> {
   final Completer<GoogleMapController> _controller = Completer();
-  PolylinePoints polylinePoints = PolylinePoints();
+  PolylinePoints polylinePoints = PolylinePoints(apiKey: AppConstants.mapAPIKey);
 
   List<Marker> markersList = [];
   List<Polyline> polylineList = [];
@@ -137,7 +137,6 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
   @override
   Widget build(BuildContext context) {
     return GoogleMap(
-      apiKey: AppConstants.mapAPIKey,
       onMapCreated: _onMapCreated,
       initialCameraPosition: CameraPosition(
         target: widget.latLng,
