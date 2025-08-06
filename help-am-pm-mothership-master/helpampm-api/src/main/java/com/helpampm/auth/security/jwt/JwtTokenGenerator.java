@@ -40,11 +40,15 @@ public class JwtTokenGenerator {
     public String generate(UserLoginDetails userLoginDetails, boolean isRefreshToken) throws NoSuchAlgorithmException, InvalidKeySpecException {
         Instant now = Instant.now();
         log.info("Generating security tokens");
+        
+        // Get the private key
+        java.security.PrivateKey privateKey = securityCertificatesManager.getPrivateKey();
+        
         return isRefreshToken
 
                 ? Jwts.builder()
                 .claim("isRefreshToken", true)
-                .signWith(securityCertificatesManager.getPrivateKey())
+                .signWith(privateKey, io.jsonwebtoken.SignatureAlgorithm.RS256)
                 .setSubject(userLoginDetails.getUsername())
                 .setIssuedAt(Date.from(now))
                 .setExpiration(Date.from(now.plus(tokenExpiryInMinutes, ChronoUnit.MINUTES)))
@@ -54,7 +58,7 @@ public class JwtTokenGenerator {
                 .claim(USERNAME, userLoginDetails.getUsername())
                 .claim(ROLES, userLoginDetails.getRoles())
                 .claim("isRefreshToken", false)
-                .signWith(securityCertificatesManager.getPrivateKey())
+                .signWith(privateKey, io.jsonwebtoken.SignatureAlgorithm.RS256)
                 .setSubject(userLoginDetails.getUsername())
                 .setId(UUID.randomUUID().toString())
                 .setIssuedAt(Date.from(now))
