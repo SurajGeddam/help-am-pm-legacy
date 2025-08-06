@@ -30,4 +30,19 @@ jobs:
           cd help-am-pm-mobileapp-master
           flutter pub get
           flutter analyze
-          flutter test -d ${{ matrix.platform }} 
+
+      - name: Run unit tests
+        run: |
+          cd help-am-pm-mobileapp-master
+          flutter test test/unit
+
+      - name: Run widget tests
+        run: |
+          cd help-am-pm-mobileapp-master
+          flutter test test/widget
+
+      - name: Run integration tests
+        run: |
+          cd help-am-pm-mobileapp-master
+          flutter test integration_test
+        continue-on-error: true 
