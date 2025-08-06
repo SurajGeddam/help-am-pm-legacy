@@ -25,7 +25,7 @@ jobs:
         run: |
           # Docker is pre-installed on ubuntu-latest
           docker --version
-          docker-compose --version
+          docker compose version
 
       - name: Debug - Check docker-compose file
         working-directory: help-am-pm-mothership-master/helpampm-api
@@ -35,14 +35,14 @@ jobs:
           echo "Directory contents:"
           ls -la
 
-      - name: Build and test with docker-compose
+      - name: Build and test with docker compose
         working-directory: help-am-pm-mothership-master/helpampm-api
         run: |
-          # Build the application using docker-compose (like local setup)
-          docker-compose -f docker-compose.yaml build app
+          # Build the application using docker compose (like local setup)
+          docker compose -f docker-compose.yaml build app
           
           # Start services in background
-          docker-compose -f docker-compose.yaml up -d
+          docker compose -f docker-compose.yaml up -d
           
           # Wait for services to be ready
           sleep 30
@@ -53,5 +53,5 @@ jobs:
 
       - name: Verify build success
         run: |
-          echo "✅ API CI completed - docker-compose build and health check attempted"
+          echo "✅ API CI completed - docker compose build and health check attempted"
           echo "If health check failed, build still succeeded (continue-on-error: true)" 
