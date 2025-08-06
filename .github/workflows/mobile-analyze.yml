@@ -1,0 +1,33 @@
+name: Mobile Analyze Only
+
+on:
+  push:
+    paths:
+      - 'help-am-pm-mobileapp-master/**'
+    branches: [main, develop, 'feature/**']
+  pull_request:
+    paths:
+      - 'help-am-pm-mobileapp-master/**'
+    branches: [main, develop, 'feature/**']
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [web, ios]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.8'
+
+      - name: Pub get & analyze
+        run: |
+          cd help-am-pm-mobileapp-master
+          flutter pub get
+          flutter analyze
+          flutter test -d ${{ matrix.platform }} 

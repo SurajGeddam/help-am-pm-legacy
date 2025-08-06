@@ -4,9 +4,11 @@ on:
   push:
     paths:
       - 'help-am-pm-mothership-master/helpampm-api/**'
+    branches: [main, develop, 'feature/**']
   pull_request:
     paths:
       - 'help-am-pm-mothership-master/helpampm-api/**'
+    branches: [main, develop, 'feature/**']
   workflow_dispatch:
 
 jobs:
